@@ -1,7 +1,2 @@
-# Editor directories and files
+# 忽略.idea目录及其子目录、子文件
 .idea/
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
