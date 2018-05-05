@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8">
     <title>ok-admin | 很赞的后台模版</title>
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="lib/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
@@ -45,20 +47,22 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="test">
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;">所有商品</a>
+                    <a class="" href="javascript:;">
+                        <i class="layui-icon">&#xe613;</i> 用户管理
+                    </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
+                        <dd><a href="javascript:;" onclick="tabTest()">用户列表</a></dd>
                         <dd><a href="javascript:;">列表二</a></dd>
                         <dd><a href="javascript:;">列表三</a></dd>
-                        <dd><a href="">超链接</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
-                    <a href="javascript:;">解决方案</a>
+                    <a href="javascript:;">
+                        <i class="layui-icon">&#xe705;</i> 文章管理
+                    </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">列表一</a></dd>
-                        <dd><a href="javascript:;">列表二</a></dd>
-                        <dd><a href="">超链接</a></dd>
+                        <dd><a href="javascript:;">文章列表</a></dd>
+                        <dd><a href="javascript:;">发布文章</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="">云市场</a></li>
@@ -69,7 +73,20 @@
 
     <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <div class="layui-tab layui-tab-brief" lay-filter="demo" lay-allowClose="true">
+            <ul class="layui-tab-title">
+                <li class="layui-this">控制台</li>
+                <li>商品管理</li>
+                <li>订单管理</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='welcome.html' frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+                </div>
+                <div class="layui-tab-item">内容2</div>
+                <div class="layui-tab-item">内容3</div>
+            </div>
+        </div>
     </div>
 
     <div class="layui-footer">
@@ -79,11 +96,19 @@
 </div>
 <script src="lib/layui/layui.js"></script>
 <script>
-    //JavaScript代码区域
+    var element
     layui.use('element', function () {
-        var element = layui.element;
-
+        // var element = layui.element;
+        element = layui.element;
     });
+
+    function tabTest() {
+        element.tabAdd('demo', {
+            title: '用户列表',
+            content: '选项卡的内容',
+            id: '选项卡标题的lay-id属性值'
+        });
+    }
 </script>
 </body>
 </html>
