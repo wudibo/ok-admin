@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/okadmin.css">
+</head>
+<body>
+    <div class="ok-body">
+        <div class="ok-body-breadcrumb">
+            <span class="layui-breadcrumb">
+                <a><cite>首页</cite></a>
+                <a><cite>用户管理</cite></a>
+                <a><cite>微信端用户列表</cite></a>
+            </span>
+            <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" style="line-height:2.4em;margin-top:3px;float:right" title="刷新">
+                <i class="layui-icon" style="line-height:30px">ဂ</i>
+            </a>
+        </div>
+        <!--模糊搜索区域-->
+        <!--<div class="layui-row">
+            <form class="layui-form layui-col-md12 ok-search">
+                <input class="layui-input" placeholder="开始日" name="start" id="start">
+                <input class="layui-input" placeholder="截止日" name="end" id="end">
+                <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+            </form>
+        </div>-->
+        <!--数据表格-->
+        <table class="layui-table">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+            <tr>
+                <th>
+                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                </th>
+                <th>昵称</th>
+                <th>加入时间</th>
+                <th>签名</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                </td>
+                <td>贤心</td>
+                <td>2016-11-29</td>
+                <td>人生就像是一场修行</td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
+                </td>
+                <td>许闲心</td>
+                <td>2016-11-28</td>
+                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
+            </tr>
+            </tbody>
+        </table>
+        <!--分页-->
+    </div>
+    <!--js逻辑-->
+    <script src="lib/layui/layui.js"></script>
+    <script>
+        layui.use(['element', 'form'], function () {
+            var element = layui.element;
+            var form = layui.form;
+        });
+    </script>
+</body>
+</html>
