@@ -48,17 +48,17 @@
         <!--左侧导航区域-->
         <div class="layui-side layui-bg-black">
             <div class="layui-side-scroll">
-                <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="test">
+                <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="">
                     <li class="layui-nav-item layui-nav-itemed">
                         <a class="" href="javascript:;">
                             <i class="layui-icon">&#xe62a;</i> 常用页面
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" onclick="tabTest()">用户列表</a></dd>
-                            <dd><a href="javascript:;">文章列表</a></dd>
-                            <dd><a href="javascript:;">404页面</a></dd>
-                            <dd><a href="javascript:;">500页面</a></dd>
-                            <dd><a href="javascript:;">403页面</a></dd>
+                            <dd><a href="javascript:;" path="user.html" tab-id="1">用户列表</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="2">文章列表</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="3">404页面</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="4">500页面</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="5">403页面</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -66,13 +66,13 @@
                             <i class="layui-icon">&#xe62c;</i> 图表页面
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">折线图</a></dd>
-                            <dd><a href="javascript:;">柱状图</a></dd>
-                            <dd><a href="javascript:;">雷达图</a></dd>
-                            <dd><a href="javascript:;">热力图</a></dd>
-                            <dd><a href="javascript:;">仪表图</a></dd>
-                            <dd><a href="javascript:;">饼图</a></dd>
-                            <dd><a href="javascript:;">地图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="6">折线图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="7">柱状图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="8">雷达图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="9">热力图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="10">仪表图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="11">饼图</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="12">地图</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -80,8 +80,8 @@
                             <i class="layui-icon">&#xe646;</i> 图标字体
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">Layui内置图标</a></dd>
-                            <dd><a href="javascript:;">阿里图标库</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="13">Layui内置图标</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="14">阿里图标库</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -89,19 +89,17 @@
                             <i class="layui-icon">&#xe716;</i> 系统管理
                         </a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">系统设置</a></dd>
-                            <dd><a href="javascript:;">屏蔽词</a></dd>
-                            <dd><a href="javascript:;">系统日志</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="15">系统设置</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="16">屏蔽词</a></dd>
+                            <dd><a href="javascript:;" path="xxxx.html" tab-id="17">系统日志</a></dd>
                         </dl>
                     </li>
-                    <!--<li class="layui-nav-item"><a href="">云市场</a></li>-->
-                    <!--<li class="layui-nav-item"><a href="">发布商品</a></li>-->
                 </ul>
             </div>
         </div>
         <!-- 内容主体区域 -->
         <div class="content-body">
-            <div class="layui-tab layui-tab-brief" lay-filter="demo" lay-allowClose="true">
+            <div class="layui-tab layui-tab-brief" lay-filter="ok-tab" lay-allowClose="true">
                 <ul class="layui-tab-title">
                     <li class="layui-this"><i class="layui-icon">&#xe68e;</i> 控制台</li>
                 </ul>
@@ -121,9 +119,8 @@
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
     <script>
-        var element
         layui.use(['element', 'jquery'], function () {
-            element = layui.element;
+            var element = layui.element;
             var $ = layui.jquery;
 
             /**
@@ -146,16 +143,30 @@
                     flag = true;
                 }
             });
-        });
 
-        function tabTest() {
-            element.tabAdd("demo", {
-                title: "用户列表",
-                content: "<iframe src='user.html' frameborder=\"0\" scrolling=\"yes\" width=\"100%\" height=\"100%\"></iframe>",
-                id: "tt666"
+            // 点击左边菜单在右边添加选项卡
+            $(".layui-nav-child").find("dd").click(function () {
+                var title = $(this).text();
+                var path = $(this).children('a').attr('path');
+                var tabId = $(this).children('a').attr('tab-id');
+                // 去重复
+                for (var i = 0; i < $('.ok-frame').length; i++) {
+                    if ($('.ok-frame').eq(i).attr('tab-id') == tabId) {
+                        tab.tabChange(tabId);
+                        event.stopPropagation();
+                        return;
+                    }
+                }
+                // 添加选项卡
+                element.tabAdd("ok-tab", {
+                    title: title,
+                    content: "<iframe src='"+path+"' tab-id='"+tabId+"' class='ok-frame' frameborder='0' scrolling='yes' width='100%' height='100%'></iframe>",
+                    id: tabId
+                });
+                // 切换选项卡
+                element.tabChange("ok-tab", tabId);
             });
-            element.tabChange("demo","tt666");
-        }
+        });
     </script>
 </body>
 </html>
