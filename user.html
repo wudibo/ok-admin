@@ -8,14 +8,15 @@
 </head>
 <body>
     <div class="ok-body">
+        <!--面包屑导航区域-->
         <div class="ok-body-breadcrumb">
             <span class="layui-breadcrumb">
                 <a><cite>首页</cite></a>
                 <a><cite>用户管理</cite></a>
                 <a><cite>微信端用户列表</cite></a>
             </span>
-            <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" style="line-height:2.4em;margin-top:3px;float:right" title="刷新">
-                <i class="layui-icon" style="line-height:30px">ဂ</i>
+            <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
+                <i class="layui-icon layui-icon-refresh"></i>
             </a>
         </div>
         <!--模糊搜索区域-->
@@ -243,11 +244,6 @@
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
-    <script>
-        layui.use(['element', 'form'], function () {
-            var element = layui.element;
-            var form = layui.form;
-        });
-    </script>
+    <script src="js/okadmin.js"></script>
 </body>
 </html>

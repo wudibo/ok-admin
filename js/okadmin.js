@@ -1,6 +1,8 @@
-layui.use(['element', 'jquery'], function () {
+layui.use(['element', 'jquery', 'code'], function () {
     var element = layui.element;
     var $ = layui.jquery;
+    // 引用code方法
+    layui.code({about: false});
 
     /**
      * 左边菜单显示/隐藏功能
@@ -28,7 +30,7 @@ layui.use(['element', 'jquery'], function () {
         // 去重复选项卡
         for (var i = 0; i < $('.ok-frame').length; i++) {
             if ($('.ok-frame').eq(i).attr('tab-id') == tabId) {
-                tab.tabChange(tabId);
+                element.tabChange("ok-tab", tabId);
                 event.stopPropagation();
                 return;
             }
@@ -36,10 +38,38 @@ layui.use(['element', 'jquery'], function () {
         // 添加选项卡
         element.tabAdd("ok-tab", {
             title: title,
-            content: "<iframe src='"+path+"' tab-id='"+tabId+"' class='ok-frame' frameborder='0' scrolling='yes' width='100%' height='100%'></iframe>",
+            content: "<iframe src='" + path + "' tab-id='" + tabId + "' class='ok-frame' frameborder='0' scrolling='yes' width='100%' height='100%'></iframe>",
             id: tabId
         });
         // 切换选项卡
         element.tabChange("ok-tab", tabId);
     });
 });
+
+
+/**
+ * 获取当前时间
+ */
+var nowDate1 = "";
+
+function setDate() {
+    var date = new Date();
+    var year = date.getFullYear();
+    nowDate1 = year + "-" + addZero((date.getMonth() + 1)) + "-" + addZero(date.getDate()) + "  ";
+    nowDate1 += addZero(date.getHours()) + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds());
+    document.getElementById("nowTime").innerHTML = nowDate1;
+    setTimeout('setDate()', 1000);
+}
+
+/**
+ * 年月日是分秒为10以下的数字则添加0字符串
+ * @param time
+ * @returns {number | *}
+ */
+function addZero(time) {
+    var i = parseInt(time);
+    if (i / 10 < 1) {
+        i = "0" + i;
+    }
+    return i;
+}

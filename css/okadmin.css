@@ -16,6 +16,10 @@
     left: 235px;
 }
 
+.layui-tab-title li:first-child .layui-tab-close {
+    display: none;
+}
+
 /*顶部导航菜单结束*/
 
 .menu-switch {
@@ -69,8 +73,18 @@
 .ok-body-breadcrumb {
     position: relative;
     line-height: 39px;
-    height: 39px;
+    height: 41px;
     border-bottom: 1px solid rgb(229, 229, 229);
+}
+
+.ok-body-breadcrumb .layui-btn {
+    line-height: 2.4em;
+    margin-top: 3px;
+    float: right
+}
+
+.ok-body-breadcrumb .layui-btn .layui-icon {
+    line-height: 40px
 }
 
 /*
