@@ -1,6 +1,7 @@
-layui.use(['element', 'jquery', 'code'], function () {
+layui.use(['element', 'jquery', 'code', 'layer'], function () {
     var element = layui.element;
     var $ = layui.jquery;
+    var layer = layui.layer;
     // 引用code方法
     layui.code({about: false});
 
@@ -43,6 +44,22 @@ layui.use(['element', 'jquery', 'code'], function () {
         });
         // 切换选项卡
         element.tabChange("ok-tab", tabId);
+    });
+
+    /**
+     * 捐赠作者
+     */
+    $(".layui-footer button").click(function () {
+        layer.tab({
+            area: ["330px", "350px"],
+            tab: [{
+                title: "支付宝",
+                content: "<img src='images/zfb.jpg' width='200' height='300' style='margin-left: 60px'>"
+            }, {
+                title: "微信",
+                content: "<img src='images/wx.jpg' width='200' height='300' style='margin-left: 60px'>"
+            }]
+        });
     });
 });
 
