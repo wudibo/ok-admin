@@ -14,6 +14,9 @@
         <!--头部导航-->
         <div class="layui-header">
             <div class="layui-logo">ok-admin v1.0</div>
+            <div class="menu-switch">
+                <span class="layui-icon layui-icon-shrink-right"></span>
+            </div>
             <ul class="layui-nav layui-layout-left">
                 <li class="layui-nav-item layui-this"><a href="">控制台<span class="layui-badge">9</span></a></li>
                 <li class="layui-nav-item"><a href="">产品</a></li>
@@ -93,8 +96,30 @@
     <script src="lib/layui/layui.js"></script>
     <script>
         var element
-        layui.use('element', function () {
+        layui.use(['element', 'jquery'], function () {
             element = layui.element;
+            var $ = layui.jquery;
+
+            /**
+             * 左边菜单显示/隐藏功能
+             * @type {boolean}
+             */
+            var flag = true;
+            $(".menu-switch").click(function () {
+                if (flag) {
+                    $(".layui-layout-admin .layui-side").animate({left: "-200px"});
+                    $(".layui-layout-admin .content-body").animate({left: "0px"});
+                    $(".layui-layout-admin .layui-footer").animate({left: "0px"});
+                    $(".menu-switch span").removeClass("layui-icon-shrink-right").addClass("layui-icon-spread-left");
+                    flag = false;
+                } else {
+                    $(".layui-layout-admin .layui-side").animate({left: "0px"});
+                    $(".layui-layout-admin .content-body").animate({left: "200px"});
+                    $(".layui-layout-admin .layui-footer").animate({left: "200px"});
+                    $(".menu-switch span").removeClass("layui-icon-spread-left").addClass("layui-icon-shrink-right");
+                    flag = true;
+                }
+            });
         });
 
         function tabTest() {

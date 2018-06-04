@@ -1,6 +1,34 @@
 @charset "utf-8";
 @import "../lib/layui/css/layui.css";
 
+/*顶部导航菜单*/
+.layui-layout-admin .layui-logo {
+    color: #fff;
+    font-size: 20px;
+}
+
+.layui-nav {
+    padding: 0;
+}
+
+.layui-layout-left {
+    left: 235px;
+}
+
+.menu-switch {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 200px;
+    top: 18px;
+    color: #fff;
+    background-color: #1AA094;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+/*主体内容*/
 .content-body {
     position: absolute;
     top: 46px;
@@ -37,12 +65,9 @@
 
 .ok-body-breadcrumb {
     position: relative;
-    z-index: 99;
     line-height: 39px;
     height: 39px;
-    padding: 0px 20px;
     border-bottom: 1px solid rgb(229, 229, 229);
-    overflow: hidden;
 }
 
 /*
@@ -55,11 +80,36 @@
 }*/
 
 /*美化滚动条代码*/
-::-webkit-scrollbar{width:10px;height:10px;}
-::-webkit-scrollbar-button:vertical{display:none;}
-::-webkit-scrollbar-track:vertical{background-color:black;}
-::-webkit-scrollbar-track-piece{background-color:#F5F5F5;}
-::-webkit-scrollbar-thumb:vertical{margin-right:10px; background-color:#A6A6A6;}
-::-webkit-scrollbar-thumb:vertical:hover{background-color:#aaa;}
-::-webkit-scrollbar-corner:vertical{background-color:#535353;}
-::-webkit-scrollbar-resizer:vertical{background-color:#FF6E00;}
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-button:vertical {
+    display: none;
+}
+
+::-webkit-scrollbar-track:vertical {
+    background-color: black;
+}
+
+::-webkit-scrollbar-track-piece {
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    margin-right: 10px;
+    background-color: #A6A6A6;
+}
+
+::-webkit-scrollbar-thumb:vertical:hover {
+    background-color: #aaa;
+}
+
+::-webkit-scrollbar-corner:vertical {
+    background-color: #535353;
+}
+
+::-webkit-scrollbar-resizer:vertical {
+    background-color: #FF6E00;
+}
