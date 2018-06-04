@@ -1,7 +1,8 @@
 @charset "utf-8";
 @import "../lib/layui/css/layui.css";
+@import "//at.alicdn.com/t/font_693759_zroiq6woob6gvi.css";
 
-/*顶部导航菜单*/
+/*顶部导航菜单开始*/
 .layui-layout-admin .layui-logo {
     color: #fff;
     font-size: 20px;
@@ -14,6 +15,8 @@
 .layui-layout-left {
     left: 235px;
 }
+
+/*顶部导航菜单结束*/
 
 .menu-switch {
     width: 30px;
@@ -79,7 +82,7 @@
     width: 190px;
 }*/
 
-/*美化滚动条代码*/
+/*美化滚动条代码开始*/
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -113,3 +116,26 @@
 ::-webkit-scrollbar-resizer:vertical {
     background-color: #FF6E00;
 }
+
+/*美化滚动条代码结束*/
+
+/*响应式代码控制开始*/
+@media screen and (max-width: 768px) {
+    .layui-layout-admin .layui-bg-black {
+        left: -200px;
+    }
+
+    .layui-layout-admin .content-body {
+        left: 0;
+    }
+
+    .layui-layout-admin .layui-footer {
+        left: 0;
+    }
+
+    .layui-layout-left {
+        display: none;
+    }
+}
+
+/*响应式代码控制结束*/

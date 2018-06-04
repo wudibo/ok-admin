@@ -6,20 +6,15 @@ layui.use(['element', 'jquery'], function () {
      * 左边菜单显示/隐藏功能
      * @type {boolean}
      */
-    var flag = true;
     $(".menu-switch").click(function () {
-        if (flag) {
+        if ($(".layui-layout-admin .layui-side").css("left") == '0px') {
             $(".layui-layout-admin .layui-side").animate({left: "-200px"});
             $(".layui-layout-admin .content-body").animate({left: "0px"});
             $(".layui-layout-admin .layui-footer").animate({left: "0px"});
-            $(".menu-switch span").removeClass("layui-icon-shrink-right").addClass("layui-icon-spread-left");
-            flag = false;
         } else {
             $(".layui-layout-admin .layui-side").animate({left: "0px"});
             $(".layui-layout-admin .content-body").animate({left: "200px"});
             $(".layui-layout-admin .layui-footer").animate({left: "200px"});
-            $(".menu-switch span").removeClass("layui-icon-spread-left").addClass("layui-icon-shrink-right");
-            flag = true;
         }
     });
 
@@ -30,7 +25,7 @@ layui.use(['element', 'jquery'], function () {
         var title = $(this).text();
         var path = $(this).children('a').attr('path');
         var tabId = $(this).children('a').attr('tab-id');
-        // 去重复
+        // 去重复选项卡
         for (var i = 0; i < $('.ok-frame').length; i++) {
             if ($('.ok-frame').eq(i).attr('tab-id') == tabId) {
                 tab.tabChange(tabId);
