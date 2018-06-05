@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>阿里巴巴图标库</title>
-    <link rel="stylesheet" href="css/okadmin.css">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <style>
+        /*主体内容样式*/
+        .ok-body{padding:10px}
+        /*子页面面包屑导航样式*/
+        .ok-body-breadcrumb{position:relative;line-height:39px;height:41px;border-bottom:1px solid #e5e5e5}
+        /*子页面面包屑导航刷新按钮样式*/
+        .ok-body-breadcrumb .layui-btn{line-height:2.4em;margin-top:3px;float:right}
+        /*子页面面包屑导航刷新按钮图标样式*/
+        .ok-body-breadcrumb .layui-btn .layui-icon{line-height:40px}
+    </style>
 </head>
 <body>
     <div class="ok-body">
@@ -32,6 +42,10 @@
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
-    <script src="js/okadmin.js"></script>
+    <script>
+        layui.use(['element', 'code'], function () {
+            layui.code({about: false});
+        })
+    </script>
 </body>
 </html>
