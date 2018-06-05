@@ -2,26 +2,28 @@
 @import "../lib/layui/css/layui.css";
 @import "//at.alicdn.com/t/font_693759_zroiq6woob6gvi.css";
 
-/*顶部导航菜单开始*/
+/*顶部导航菜单logo样式*/
 .layui-layout-admin .layui-logo {
     color: #fff;
     font-size: 20px;
 }
 
+/*顶部导航文字菜单样式*/
 .layui-nav {
     padding: 0;
 }
 
+/*顶部菜单左边部分菜单样式*/
 .layui-layout-left {
     left: 235px;
 }
 
+/*第一个tan选项卡隐藏取消图标*/
 .layui-tab-title li:first-child .layui-tab-close {
     display: none;
 }
 
-/*顶部导航菜单结束*/
-
+/*隐藏/显示左边菜单按钮样式*/
 .menu-switch {
     width: 30px;
     height: 30px;
@@ -35,7 +37,7 @@
     cursor: pointer;
 }
 
-/*主体内容*/
+/*主体内容样式*/
 .content-body {
     position: absolute;
     top: 46px;
@@ -46,6 +48,7 @@
     overflow: hidden;
 }
 
+/*主体内容选项卡内容样式*/
 .content-body .layui-tab-content {
     position: absolute;
     top: 50px;
@@ -60,16 +63,18 @@
     height: 100%;
 }
 
+/*使iframe高度100*/
 .content-body .layui-tab-content .layui-tab-item iframe {
     height: 100%;
 
 }
 
-/*定义一些常量值*/
+/*子页面(user.html、article.html等)的主体内容*/
 .ok-body {
     padding: 10px;
 }
 
+/*子页面面包屑导航样式*/
 .ok-body-breadcrumb {
     position: relative;
     line-height: 39px;
@@ -77,14 +82,16 @@
     border-bottom: 1px solid rgb(229, 229, 229);
 }
 
+/*子页面面包屑导航刷新按钮*/
 .ok-body-breadcrumb .layui-btn {
     line-height: 2.4em;
     margin-top: 3px;
     float: right
 }
 
+/*子页面面包屑导航刷新按钮图标*/
 .ok-body-breadcrumb .layui-btn .layui-icon {
-    line-height: 40px
+    line-height: 40px;
 }
 
 /*
@@ -96,7 +103,7 @@
     width: 190px;
 }*/
 
-/*美化滚动条代码开始*/
+/*美化滚动条代码*/
 ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -131,9 +138,7 @@
     background-color: #FF6E00;
 }
 
-/*美化滚动条代码结束*/
-
-/*响应式代码控制开始*/
+/*响应式代码控制*/
 @media screen and (max-width: 768px) {
     .layui-layout-admin .layui-bg-black {
         left: -200px;
@@ -151,5 +156,3 @@
         display: none;
     }
 }
-
-/*响应式代码控制结束*/
