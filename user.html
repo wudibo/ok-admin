@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/scroll-bar.css">
     <link rel="stylesheet" href="css/sub-page.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
 </head>
 <body>
     <div class="ok-body">
@@ -14,232 +15,264 @@
         <div class="ok-body-breadcrumb">
             <span class="layui-breadcrumb">
                 <a><cite>首页</cite></a>
-                <a><cite>用户管理</cite></a>
-                <a><cite>微信端用户列表</cite></a>
+                <a><cite>常用页面</cite></a>
+                <a><cite>用户列表</cite></a>
             </span>
             <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
                 <i class="layui-icon layui-icon-refresh"></i>
             </a>
         </div>
         <!--模糊搜索区域-->
-        <!--<div class="layui-row">
+        <div class="layui-row">
             <form class="layui-form layui-col-md12 ok-search">
-                <input class="layui-input" placeholder="开始日" name="start" id="start">
-                <input class="layui-input" placeholder="截止日" name="end" id="end">
-                <input type="text" name="username"  placeholder="请输入用户名" autocomplete="off" class="layui-input">
-                <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
+                <input class="layui-input" placeholder="开始日">
+                <input class="layui-input" placeholder="截止日">
+                <input class="layui-input" placeholder="请输入用户名" autocomplete="off">
+                <button class="layui-btn"  lay-submit="" lay-filter="sreach">
+                    <i class="layui-icon layui-icon-search"></i>
+                </button>
             </form>
-        </div>-->
+        </div>
+        <!--公路栏-->
+        <okToolbar>
+            <button class="layui-btn layui-btn-normal">
+                <i class="iconfont icon-shangsheng"></i>批量启用
+            </button>
+            <button class="layui-btn layui-btn-warm">
+                <i class="iconfont icon-web-icon-"></i>批量停用
+            </button>
+            <button class="layui-btn layui-btn-danger">
+                <i class="layui-icon layui-icon-delete"></i>批量删除
+            </button>
+            <button class="layui-btn">
+                <i class="layui-icon">&#xe61f;</i>添加用户
+            </button>
+            <span>共有数据：8888 条</span>
+        </okToolbar>
         <!--数据表格-->
         <table class="layui-table">
             <colgroup>
-                <col width="150">
-                <col width="200">
+                <col width="50">
+                <col width="50">
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
+                <col>
                 <col>
             </colgroup>
             <thead>
-            <tr>
-                <th>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </th>
-                <th>昵称</th>
-                <th>加入时间</th>
-                <th>签名</th>
-            </tr>
+                <tr>
+                    <th>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </th>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                    <th>昵称</th>
+                    <th>状态</th>
+                    <th>角色</th>
+                    <th>邮箱</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>贤心</td>
-                <td>2016-11-29</td>
-                <td>人生就像是一场修行</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="layui-form-checkbox" lay-skin="primary"><i class="layui-icon">&#xe605;</i></div>
-                </td>
-                <td>许闲心</td>
-                <td>2016-11-28</td>
-                <td>于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…</td>
-            </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>001</td>
+                    <td>zhangsan</td>
+                    <td>111111</td>
+                    <td>张三</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
+                        </form>
+                    </td>
+                    <td>管理员</td>
+                    <td>zhangsan@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>lisi</td>
+                    <td>111111</td>
+                    <td>李四</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>lisi@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>wangwu</td>
+                    <td>111111</td>
+                    <td>王五</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>wangwu@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>zhaoliu</td>
+                    <td>111111</td>
+                    <td>赵六</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>zhaoliu@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>sunqi</td>
+                    <td>111111</td>
+                    <td>孙七</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>sunqi@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>zhouba</td>
+                    <td>111111</td>
+                    <td>周八</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>zhouba@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>wujiu</td>
+                    <td>111111</td>
+                    <td>吴九</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>wujiu@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" lay-skin="primary">
+                        </form>
+                    </td>
+                    <td>002</td>
+                    <td>zhenshi</td>
+                    <td>111111</td>
+                    <td>郑十</td>
+                    <td>
+                        <form class="layui-form" action="">
+                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
+                        </form>
+                    </td>
+                    <td>普通用户</td>
+                    <td>zhenshi@qq.com</td>
+                    <td>2018-06-06 12:12:12</td>
+                    <td>
+                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
+                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
+                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
+                    </td>
+                </tr>
             </tbody>
         </table>
         <!--分页-->
@@ -247,9 +280,9 @@
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
     <script>
-        layui.use(['element'], function () {
+        layui.use(['element', 'form'], function () {
             var element = layui.element;
-            var $ = layui.jquery;
+            var form = layui.form;
         })
     </script>
 </body>
