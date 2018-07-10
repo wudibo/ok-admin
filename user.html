@@ -25,23 +25,23 @@
         <!--模糊搜索区域-->
         <div class="layui-row">
             <form class="layui-form layui-col-md12 ok-search">
-                <input class="layui-input" placeholder="开始日">
-                <input class="layui-input" placeholder="截止日">
+                <input class="layui-input" placeholder="开始日" id="startTime">
+                <input class="layui-input" placeholder="截止日" id="endTime">
                 <input class="layui-input" placeholder="请输入用户名" autocomplete="off">
                 <button class="layui-btn"  lay-submit="" lay-filter="sreach">
                     <i class="layui-icon layui-icon-search"></i>
                 </button>
             </form>
         </div>
-        <!--公路栏-->
+        <!--工具栏-->
         <okToolbar>
-            <button class="layui-btn layui-btn-normal">
+            <button class="layui-btn layui-btn-normal" id="batchEnabled">
                 <i class="iconfont icon-shangsheng"></i>批量启用
             </button>
-            <button class="layui-btn layui-btn-warm">
+            <button class="layui-btn layui-btn-warm" id="batchDisabled">
                 <i class="iconfont icon-web-icon-"></i>批量停用
             </button>
-            <button class="layui-btn layui-btn-danger">
+            <button class="layui-btn layui-btn-danger" id="batchDel">
                 <i class="layui-icon layui-icon-delete"></i>批量删除
             </button>
             <button class="layui-btn">
@@ -50,240 +50,82 @@
             <span>共有数据：8888 条</span>
         </okToolbar>
         <!--数据表格-->
-        <table class="layui-table">
-            <colgroup>
-                <col width="50">
-                <col width="50">
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-                <col>
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </th>
-                    <th>ID</th>
-                    <th>用户名</th>
-                    <th>密码</th>
-                    <th>昵称</th>
-                    <th>状态</th>
-                    <th>角色</th>
-                    <th>邮箱</th>
-                    <th>创建时间</th>
-                    <th>操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>001</td>
-                    <td>zhangsan</td>
-                    <td>111111</td>
-                    <td>张三</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
-                        </form>
-                    </td>
-                    <td>管理员</td>
-                    <td>zhangsan@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>lisi</td>
-                    <td>111111</td>
-                    <td>李四</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>lisi@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>wangwu</td>
-                    <td>111111</td>
-                    <td>王五</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用" checked>
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>wangwu@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>zhaoliu</td>
-                    <td>111111</td>
-                    <td>赵六</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>zhaoliu@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>sunqi</td>
-                    <td>111111</td>
-                    <td>孙七</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>sunqi@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>zhouba</td>
-                    <td>111111</td>
-                    <td>周八</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>zhouba@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>wujiu</td>
-                    <td>111111</td>
-                    <td>吴九</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>wujiu@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" lay-skin="primary">
-                        </form>
-                    </td>
-                    <td>002</td>
-                    <td>zhenshi</td>
-                    <td>111111</td>
-                    <td>郑十</td>
-                    <td>
-                        <form class="layui-form" action="">
-                            <input type="checkbox" name="zzz" lay-skin="switch" lay-text="启用|停用">
-                        </form>
-                    </td>
-                    <td>普通用户</td>
-                    <td>zhenshi@qq.com</td>
-                    <td>2018-06-06 12:12:12</td>
-                    <td>
-                        <a href="javascript:;" title="编辑"><i class="layui-icon">&#xe642;</i></a>
-                        <a href="javascript:;" title="删除"><i class="layui-icon">&#xe640;</i></a>
-                        <a href="javascript:;" title="重置密码"><i class="layui-icon">&#xe673;</i></a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!--分页-->
+		<table class="layui-hide" id="userTable"></table>
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
     <script>
-        layui.use(['element', 'form'], function () {
+        layui.use(['element', 'table', 'form', 'jquery', 'laydate'], function () {
             var element = layui.element;
-            var form = layui.form;
+            var table = layui.table;
+			var form = layui.form;
+			var $ = layui.jquery;
+			var laydate = layui.laydate;
+			
+            laydate.render({
+                elem: '#startTime',
+                type: "datetime"
+            });
+			
+            laydate.render({
+                elem: '#endTime',
+                type: "datetime"
+            });
+			
+			table.render({
+				elem: '#userTable',
+				url:'data/data.json',
+				limit: 10,
+				page: true,
+				cols: [[
+					{type: 'checkbox'},
+					{field:'id', title:'ID', width:80, sort: true},
+					{field:'username', title:'用户名', width:100},
+					{field:'name', title: '姓名', width:100},
+					{field:'password', title:'密码', width:100},
+					{field:'status', title:'状态', width:85, templet: '#statusTpl'},
+					{field:'role', title:'角色', width:85, templet: '#roleTpl'},
+					{field:'email', title:'邮箱', width:200},
+					{field:'createTime', title:'创建时间', width:200},
+					{field:'logins', title:'登陆次数', width:100},
+					{field:'sex', title:'操作', width:280, templet: '#operationTpl',  align:'center'}
+				]]				
+			});
+			
+			form.on('submit(search)', function () {
+				alert(666);
+                return false;
+            });
+			
+			$("#batchEnabled").click(function(){
+				layer.confirm("确定要批量启用吗？", {icon: 3, title:'提示'}, function () {
+                    layer.msg("操作成功！", {icon: 1, time: 1000});
+                });
+			})
+			
+			$("#batchDisabled").click(function(){
+				layer.confirm("确定要批量停用吗？", {icon: 3, title:'提示'}, function () {
+					layer.msg("操作成功！", {icon: 1, time: 1000});
+				});
+			})
+			
+			$("#batchDel").click(function(){
+				layer.confirm("确定要批量删除吗？", {icon: 2, title:'提示'}, function () {
+					layer.msg("操作成功！", {icon: 1, time: 1000});
+				});
+			})
         })
     </script>
+	<!--模板-->
+	<script type="text/html" id="statusTpl">
+		<input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" {{ d.status == 0 ? 'checked' : ''}}>
+	</script>
+	<script type="text/html" id="roleTpl">
+		{{ d.role == 0 ? '管理员' : '普通用户	'}}
+	</script>
+	<script type="text/html" id="operationTpl">
+		<a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+        <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+	</script>
 </body>
 </html>

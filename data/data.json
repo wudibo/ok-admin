@@ -1,0 +1,46 @@
+{
+    "code": 0,
+    "msg": "",
+    "count": 5,
+    "data": [{
+        "id": "001",
+        "username": "zhangsan",
+		"name": "张三",
+        "password": "111111",
+        "status": 0,
+		"role": 0,
+        "email": "zhangsan@qq.com",
+		"createTime": "2018-05-06 18:15:28",
+        "logins": 24
+    },{
+        "id": "002",
+        "username": "lisi",
+		"name": "李四",
+        "password": "111111",
+        "status": 0,
+		"role": 0,
+        "email": "lisi@qq.com",
+		"createTime": "2018-05-06 18:15:28",
+        "logins": 24
+    },{
+        "id": "003",
+        "username": "wangwu",
+		"name": "王五",
+        "password": "111111",
+        "status": 0,
+		"role": 0,
+        "email": "wangwu@qq.com",
+		"createTime": "2018-05-06 18:15:28",
+        "logins": 24
+    },{
+        "id": "004",
+        "username": "zhaoliu",
+		"name": "赵六",
+        "password": "111111",
+        "status": 0,
+		"role": 0,
+        "email": "zhaoliu@qq.com",
+		"createTime": "2018-05-06 18:15:28",
+        "logins": 24
+    }]
+}
