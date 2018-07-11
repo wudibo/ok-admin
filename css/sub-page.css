@@ -70,3 +70,8 @@ okToolbar span{
     float: right;
     line-height: 30px;
 }
+
+/*form表单*/
+.ok-form{
+	margin-top: 10px;
+}
