@@ -44,7 +44,7 @@
             <button class="layui-btn layui-btn-danger" id="batchDel">
                 <i class="layui-icon layui-icon-delete"></i>批量删除
             </button>
-            <button class="layui-btn">
+            <button class="layui-btn" id="addUser">
                 <i class="layui-icon">&#xe61f;</i>添加用户
             </button>
             <span>共有数据：<i id="countNum"></i> 条</span>
@@ -74,7 +74,7 @@
 			
 			table.render({
 				elem: '#tableId',
-				url:'data/data.json',
+				url:'data/user.json',
 				limit: 10,
 				page: true,
 				cols: [[
@@ -88,7 +88,7 @@
 					{field:'email', title:'邮箱', width:200},
 					{field:'createTime', title:'创建时间', width:200},
 					{field:'logins', title:'登陆次数', width:100},
-					{title:'操作', width:280, templet: '#operationTpl',  align:'center'}
+					{title:'操作', width:200, templet: '#operationTpl',  align:'center'}
 				]],
 				done: function(res, curr, count){
 					$("#countNum").text(count);
@@ -118,27 +118,44 @@
 						}
 					});
                 }else if(layEvent === 'del'){
-					layer.confirm("确定要删除吗？", {skin: 'layui-layer-lan', icon: 2, title:'提示', anim: 4}, function () {
+					layer.confirm("确定要删除吗？", {skin: 'layui-layer-lan', icon: 2, title:'提示', anim: 6}, function () {
 						layer.msg("操作成功！", {icon: 1, time: 1000});
 					});
                 }
             });
 			
 			$("#batchEnabled").click(function(){
-				layer.confirm("确定要批量启用吗？", {icon: 3, title:'提示'}, function () {
+				layer.confirm("确定要批量启用吗？", {icon: 3, title:'提示', anim: 1}, function () {
                     layer.msg("操作成功！", {icon: 1, time: 1000});
                 });
 			})
 			
 			$("#batchDisabled").click(function(){
-				layer.confirm("确定要批量停用吗？", {icon: 3, title:'提示'}, function () {
+				layer.confirm("确定要批量停用吗？", {icon: 3, title:'提示', anim: 2}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
 				});
 			})
 			
 			$("#batchDel").click(function(){
-				layer.confirm("确定要批量删除吗？", {icon: 2, title:'提示'}, function () {
+				layer.confirm("确定要批量删除吗？", {icon: 2, title:'提示', anim: 6}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
+				});
+			})
+			
+			$("#addUser").click(function(){
+				layer.open({
+					title: '添加用户',
+					type: 2,
+					shade: false,
+					maxmin: true,
+					shade: 0.5,
+					anim: 4,
+					area: ['90%', '90%'],
+					content: 'user-edit.html',
+					zIndex: layer.zIndex,
+					end: function () {
+						// $(".layui-laypage-btn")[0].click();
+					}
 				});
 			})
         })
