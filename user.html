@@ -125,19 +125,19 @@
             });
 			
 			$("#batchEnabled").click(function(){
-				layer.confirm("确定要批量启用吗？", {icon: 3, title:'提示', anim: 1}, function () {
+				layer.confirm("确定要批量启用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 1}, function () {
                     layer.msg("操作成功！", {icon: 1, time: 1000});
                 });
 			})
 			
 			$("#batchDisabled").click(function(){
-				layer.confirm("确定要批量停用吗？", {icon: 3, title:'提示', anim: 2}, function () {
+				layer.confirm("确定要批量停用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 2}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
 				});
 			})
 			
 			$("#batchDel").click(function(){
-				layer.confirm("确定要批量删除吗？", {icon: 2, title:'提示', anim: 6}, function () {
+				layer.confirm("确定要批量删除吗？", {skin: 'layui-layer-lan', icon: 2, title:'提示', anim: 6}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
 				});
 			})
@@ -153,6 +153,7 @@
 					area: ['90%', '90%'],
 					content: 'user-edit.html',
 					zIndex: layer.zIndex,
+                    // skin: 'layui-layer-molv', // 皮肤
 					end: function () {
 						// $(".layui-laypage-btn")[0].click();
 					}
