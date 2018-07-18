@@ -8,7 +8,7 @@
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_y9sqpclnwsd.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ld5kx7fk7to.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css"/>
     <link rel="stylesheet" href="css/login.css"/>
 </head>
@@ -27,6 +27,7 @@
             </form>
             <div class="oauth">
                 <i class="iconfont icon-github"></i>
+				<i class="iconfont icon-WechatIMG"></i>
                 <i class="iconfont icon-qq"></i>
                 <i class="iconfont icon-wechat"></i>
                 <i class="iconfont icon-logo-weibo"></i>
@@ -52,6 +53,10 @@
 
             $(".oauth .icon-github").click(function () {
                 layer.msg('正在打开Github登陆页面，请稍后...');
+            });
+
+            $(".oauth .icon-WechatIMG").click(function () {
+                layer.msg('正在打开Gitee登陆页面，请稍后...');
             });
 
             $(".oauth .icon-qq").click(function () {
