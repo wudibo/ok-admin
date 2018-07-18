@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ok-admin | 很赞的后台模版</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_y9sqpclnwsd.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css"/>
+    <style>
+        body {
+            background: url("images/bg.png") no-repeat center center fixed ;
+            background-size: cover;
+        }
+
+        .login-box {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #1a312c;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -150px;
+            margin-top: -150px;
+            border-radius: 5px;
+        }
+
+        .head {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: -96px;
+            left: 50%;
+            margin-left: -50px;
+            background: url("images/ok.png");
+            background-size: cover;
+        }
+
+        .input-box {
+            margin: 10px 10px 10px 10px;
+        }
+
+        .input-box input {
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .input-box input[type="submit"] {
+            background-color: #189F92;
+            width: 100%;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: #fff;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .input-box .remember-me {
+            margin-top: 20px;
+        }
+
+        .input-box .remember-me .layui-form-switch {
+            margin-top: 0;
+        }
+
+        .input-box .oauth {
+            margin-top: 20px;
+        }
+
+        .input-box .oauth i {
+            cursor: pointer;
+            font-size: 28px;
+        }
+
+        .copyright {
+            margin: 10px 10px 10px 10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box animated rotateIn">
+        <div class="head"></div>
+        <div class="input-box">
+            <form class="layui-form" action="">
+                <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
+                <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+                <div class="remember-me">
+                    <span>记住我：</span>
+                    <input type="checkbox" name="zzz" lay-skin="switch" lay-text="是|否">
+                </div>
+                <input type="submit" value="登 录" lay-submit lay-filter="login">
+            </form>
+            <div class="oauth">
+                <i class="iconfont icon-github"></i>
+                <i class="iconfont icon-qq"></i>
+                <i class="iconfont icon-wechat"></i>
+                <i class="iconfont icon-logo-weibo"></i>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2018-2019 ok-admin. All rights reserved.
+        </div>
+    </div>
+    <!--js逻辑-->
+    <script src="lib/layui/layui.js"></script>
+    <script>
+        layui.use(['form', 'jquery'], function () {
+            var form = layui.form;
+            var $ = layui.jquery;
+
+            form.on('submit(login)', function (data) {
+                layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
+                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                });
+                return false;
+            });
+
+            $(".oauth .icon-github").click(function () {
+                layer.msg('正在打开Github登陆页面，请稍后...');
+            });
+
+            $(".oauth .icon-qq").click(function () {
+                layer.msg('正在打开QQ登陆页面，请稍后...');
+            });
+
+            $(".oauth .icon-wechat").click(function () {
+                layer.msg('正在打开微信登陆页面，请稍后...');
+            });
+
+            $(".oauth .icon-logo-weibo").click(function () {
+                layer.msg('正在打开微博登陆页面，请稍后...');
+            });
+        });
+    </script>
+</body>
+</html>
