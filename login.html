@@ -47,7 +47,7 @@
 
             form.on('submit(login)', function (data) {
                 layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
-                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                    window.location = "index.html";
                 });
                 return false;
             });

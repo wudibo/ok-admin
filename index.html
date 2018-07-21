@@ -45,7 +45,7 @@
 						<dd><a href="">锁定账户</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="">退出</a></li>
+                <li class="layui-nav-item"><a href="javascript:void(0)" id="logout">退出</a></li>
             </ul>
         </div>
         <!--左侧导航区域-->
@@ -181,6 +181,15 @@
                         title: "微信",
                         content: "<img src='images/wx.jpg' width='200' height='300' style='margin-left: 60px'>"
                     }]
+                });
+            });
+
+            /**
+             * 退出操作
+             */
+            $("#logout").click(function () {
+                layer.confirm("确定要退出吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 6}, function () {
+                    window.location = "login.html";
                 });
             });
         });
