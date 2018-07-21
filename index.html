@@ -42,7 +42,7 @@
                         <dd><a href="">个人中心<span class="layui-badge-dot"></span></a></dd>
                         <dd><a href="">基本资料</a></dd>
                         <dd><a href="">安全设置</a></dd>
-						<dd><a href="">锁定账户</a></dd>
+						<dd><a href="javascript:void(0)" id="lock">锁定账户</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item"><a href="javascript:void(0)" id="logout">退出</a></li>
@@ -116,9 +116,10 @@
         </div>
         <!--底部信息-->
         <div class="layui-footer">
-            Copyright ©2018 ok-admin v1.0 All Rights Reserved <button class="layui-btn layui-btn-danger layui-btn-xs">捐赠作者</button>
+            Copyright ©2018-©2018 ok-admin v1.0 All Rights Reserved <button class="layui-btn layui-btn-danger layui-btn-xs">捐赠作者</button>
         </div>
     </div>
+    <div class="yy"></div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
     <script>
@@ -190,6 +191,24 @@
             $("#logout").click(function () {
                 layer.confirm("确定要退出吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 6}, function () {
                     window.location = "login.html";
+                });
+            });
+
+            /**
+             * 锁定账户
+             */
+            $("#lock").click(function () {
+                layer.confirm("确定要锁定账户吗？", {skin: 'layui-layer-lan', icon: 4, title:'提示', anim: 1}, function (index) {
+                    layer.close(index);
+                    $(".yy").show();
+                    layer.prompt({btn: ['确定'], title: '输入密码解锁', closeBtn: 0, formType: 1}, function (value, index, elem) {
+                        if (value == "123456") {
+                            layer.close(index);
+                            $(".yy").hide();
+                        } else {
+                            layer.msg('密码错误', {anim: 6});
+                        }
+                    });
                 });
             });
         });

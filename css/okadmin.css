@@ -5,24 +5,20 @@
     font-size: 20px
 }
 
-
 /*顶部导航文字菜单样式*/
 .layui-nav {
     padding: 0
 }
-
 
 /*顶部菜单左边部分菜单样式*/
 .layui-layout-left {
     left: 235px
 }
 
-
 /*第一个tan选项卡隐藏取消图标*/
 .layui-tab-title li:first-child .layui-tab-close {
     display: none
 }
-
 
 /*隐藏/显示左边菜单按钮样式*/
 .menu-switch {
@@ -38,7 +34,6 @@
     cursor: pointer
 }
 
-
 /*主体内容样式*/
 .content-body {
     position: absolute;
@@ -50,7 +45,6 @@
     overflow: hidden
 }
 
-
 /*主体内容选项卡内容样式*/
 .content-body .layui-tab-content {
     position: absolute;
@@ -61,31 +55,44 @@
     overflow: hidden
 }
 
-
 /*使iframe高度100%,它的父类高度也需要100%*/
 .content-body .layui-tab-content .layui-tab-item {
     height: 100%
 }
-
 
 /*使iframe高度100*/
 .content-body .layui-tab-content .layui-tab-item iframe {
     height: 100%
 }
 
-
 /*响应式代码控制*/
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
     .layui-layout-admin .layui-bg-black {
         left: -200px
     }
+
     .layui-layout-admin .content-body {
         left: 0
     }
+
     .layui-layout-admin .layui-footer {
         left: 0
     }
+
     .layui-layout-left {
         display: none
     }
+}
+
+/*阴影*/
+.yy {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    z-index: 10;
+    background-color: #000;
+    display: none;
 }
