@@ -1,3 +1,7 @@
+NProgress.start();
+window.onload = function() {
+	NProgress.done();
+}
 layui.use(['element', 'layer'], function () {
     var element = layui.element;
     var $ = layui.jquery;

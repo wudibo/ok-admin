@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/scroll-bar.css">
     <link rel="stylesheet" href="css/sub-page.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.css">
 </head>
 <body>
     <div class="ok-body">
@@ -54,7 +55,12 @@
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
+	<script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.js"></script>
     <script>
+		NProgress.start();
+		window.onload = function() {
+			NProgress.done();
+		}
         layui.use(['element', 'table', 'form', 'jquery', 'laydate'], function () {
             var element = layui.element;
             var table = layui.table;

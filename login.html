@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ask70l8wanw.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css"/>
     <link rel="stylesheet" href="css/login.css"/>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.css">
 </head>
 <body>
     <div class="login-box animated rotateIn">
@@ -40,7 +41,12 @@
     </div>
     <!--js逻辑-->
     <script src="lib/layui/layui.js"></script>
+	<script src="https://cdn.bootcss.com/nprogress/0.2.0/nprogress.js"></script>
     <script>
+		NProgress.start();
+		window.onload = function() {
+		    NProgress.done();
+		}
         layui.use(['form', 'jquery'], function () {
             var form = layui.form;
             var $ = layui.jquery;
