@@ -7,7 +7,7 @@
 - 说明：如果地址1访问速度过慢，可以尝试访问地址2，地址2的内容和地址1的内容同步更新！
 
 # 效果预览
-![用户列表页面](https://note.youdao.com/yws/public/resource/061267ec637009aca0b1e0244567f3dd/xmlnote/5283180158184BE199F1FB2D19DE5C1D/3349)
+![用户列表页面](https://github.com/bobi1234/ok-admin/blob/master/images/readme/1.png)
 
 # 开源协议
 [MIT](https://github.com/bobi1234/ok-admin/blob/master/LICENSE)
