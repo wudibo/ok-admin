@@ -26,7 +26,7 @@
     height: 30px;
     position: relative;
     left: 200px;
-    top: 18px;
+    top: 16px;
     color: #fff;
     background-color: #1AA094;
     text-align: center;
@@ -81,6 +81,27 @@
 
     .layui-layout-left {
         display: none
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .layui-layout-admin .layui-logo {
+        left: -32px;
+    }
+
+    .menu-switch {
+        left: 140px;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .layui-layout-admin .layui-logo {
+        left: -51px;
+        font-size: 14px;
+    }
+
+    .menu-switch {
+        left: 100px;
     }
 }
 
