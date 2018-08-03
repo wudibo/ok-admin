@@ -8,121 +8,122 @@
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="lib/layui/css/layui.css">
-	<link rel="stylesheet" href="css/okadmin.css">
+    <link rel="stylesheet" href="css/okadmin.css">
     <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_zroiq6woob6gvi.css">
-	<link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
 </head>
 <body class="layui-layout-body">
-    <div class="layui-layout layui-layout-admin">
-        <!--头部导航-->
-        <div class="layui-header">
-            <div class="layui-logo">ok-admin v1.0</div>
-            <div class="menu-switch">
-                <i class="iconfont icon-caidan"></i>
-            </div>
-            <ul class="layui-nav layui-layout-left">
-                <li class="layui-nav-item layui-this"><a href="">控制台<span class="layui-badge">9</span></a></li>
-                <li class="layui-nav-item"><a href="">产品</a></li>
-                <li class="layui-nav-item"><a href="">大数据</a></li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">其它系统</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="">邮件管理</a></dd>
-                        <dd><a href="">消息管理</a></dd>
-                        <dd><a href="">授权管理</a></dd>
-                    </dl>
-                </li>
-            </ul>
-            <ul class="layui-nav layui-layout-right">
-                <li class="layui-nav-item">
-                    <a href="javascript:;">
-                        <img src="images/head.jpg" class="layui-nav-img">
-                        bobi
+<div class="layui-layout layui-layout-admin">
+    <!--头部导航-->
+    <div class="layui-header">
+        <div class="layui-logo">ok-admin v1.0</div>
+        <div class="menu-switch">
+            <i class="iconfont icon-caidan"></i>
+        </div>
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item layui-this"><a href="">控制台<span class="layui-badge">9</span></a></li>
+            <li class="layui-nav-item"><a href="">产品</a></li>
+            <li class="layui-nav-item"><a href="">大数据</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="images/head.jpg" class="layui-nav-img">
+                    bobi
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">个人中心<span class="layui-badge-dot"></span></a></dd>
+                    <dd><a href="">基本资料</a></dd>
+                    <dd><a href="">安全设置</a></dd>
+                    <dd><a href="javascript:void(0)" id="lock">锁定账户</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="javascript:void(0)" id="logout">退出</a></li>
+        </ul>
+    </div>
+    <!--左侧导航区域-->
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="">
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a class="" href="javascript:;">
+                        <i class="layui-icon">&#xe62a;</i> 常用页面
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="">个人中心<span class="layui-badge-dot"></span></a></dd>
-                        <dd><a href="">基本资料</a></dd>
-                        <dd><a href="">安全设置</a></dd>
-						<dd><a href="javascript:void(0)" id="lock">锁定账户</a></dd>
+                        <dd><a href="javascript:;" path="user.html" tab-id="1-1">用户列表</a></dd>
+                        <dd><a href="javascript:;" path="article.html" tab-id="1-2">文章列表</a></dd>
+                        <dd><a href="javascript:;" path="login.html" tab-id="1-3">登陆页面</a></dd>
+                        <dd><a href="javascript:;" path="404.html" tab-id="1-4">404页面</a></dd>
+                        <dd><a href="javascript:;" path="403.html" tab-id="1-5">403页面</a></dd>
+                        <dd><a href="javascript:;" path="500.html" tab-id="1-6">500页面</a></dd>
+                        <dd><a href="javascript:;" path="donate.html" tab-id="1-7">捐赠页面</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item"><a href="javascript:void(0)" id="logout">退出</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon">&#xe62c;</i> 图表页面
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="map1.html" tab-id="2-1">柱状图</a></dd>
+                        <dd><a href="javascript:;" path="map2.html" tab-id="2-2">折线图</a></dd>
+                        <dd><a href="javascript:;" path="map3.html" tab-id="2-3">饼图</a></dd>
+                        <dd><a href="javascript:;" path="map4.html" tab-id="2-4">环形图</a></dd>
+                        <dd><a href="javascript:;" path="map5.html" tab-id="2-5">热力图</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon">&#xe646;</i> 字体图标
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="font-layui.html" tab-id="3-1">Layui内置图标库</a></dd>
+                        <dd><a href="javascript:;" path="font-iconfont.html" tab-id="3-2">阿里巴巴图标库</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon">&#xe716;</i> 系统管理
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-1">系统设置</a></dd>
+                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-2">屏蔽词</a></dd>
+                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-3">系统日志</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
-        <!--左侧导航区域-->
-        <div class="layui-side layui-bg-black">
-            <div class="layui-side-scroll">
-                <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="">
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">
-                            <i class="layui-icon">&#xe62a;</i> 常用页面
-                        </a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" path="user.html" tab-id="1-1">用户列表</a></dd>
-                            <dd><a href="javascript:;" path="article.html" tab-id="1-2">文章列表</a></dd>
-                            <dd><a href="javascript:;" path="login.html" tab-id="1-3">登陆页面</a></dd>
-                            <dd><a href="javascript:;" path="404.html" tab-id="1-4">404页面</a></dd>
-                            <dd><a href="javascript:;" path="403.html" tab-id="1-5">403页面</a></dd>
-                            <dd><a href="javascript:;" path="500.html" tab-id="1-6">500页面</a></dd>
-                            <dd><a href="javascript:;" path="donate.html" tab-id="1-7">捐赠页面</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">
-                            <i class="layui-icon">&#xe62c;</i> 图表页面
-                        </a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" path="map1.html" tab-id="2-1">柱状图</a></dd>
-                            <dd><a href="javascript:;" path="map2.html" tab-id="2-2">折线图</a></dd>
-                            <dd><a href="javascript:;" path="map3.html" tab-id="2-3">饼图</a></dd>
-                            <dd><a href="javascript:;" path="map4.html" tab-id="2-4">环形图</a></dd>
-                            <dd><a href="javascript:;" path="map5.html" tab-id="2-5">热力图</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">
-                            <i class="layui-icon">&#xe646;</i> 字体图标
-                        </a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" path="font-layui.html" tab-id="3-1">Layui内置图标库</a></dd>
-                            <dd><a href="javascript:;" path="font-iconfont.html" tab-id="3-2">阿里巴巴图标库</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">
-                            <i class="layui-icon">&#xe716;</i> 系统管理
-                        </a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="javascript:;" path="xxxx.html" tab-id="4-1">系统设置</a></dd>
-                            <dd><a href="javascript:;" path="xxxx.html" tab-id="4-2">屏蔽词</a></dd>
-                            <dd><a href="javascript:;" path="xxxx.html" tab-id="4-3">系统日志</a></dd>
-                        </dl>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- 内容主体区域 -->
-        <div class="content-body">
-            <div class="layui-tab layui-tab-brief" lay-filter="ok-tab" lay-allowClose="true">
-                <ul class="layui-tab-title">
-                    <li class="layui-this"><i class="layui-icon">&#xe68e;</i> 控制台</li>
-                </ul>
-                <div class="layui-tab-content">
-                    <div class="layui-tab-item layui-show">
-                        <iframe src='welcome.html' frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
-                    </div>
+    </div>
+    <!-- 内容主体区域 -->
+    <div class="content-body">
+        <div class="layui-tab layui-tab-brief" lay-filter="ok-tab" lay-allowClose="true">
+            <ul class="layui-tab-title">
+                <li class="layui-this"><i class="layui-icon">&#xe68e;</i> 控制台</li>
+            </ul>
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">
+                    <iframe src='welcome.html' frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
-        <!--底部信息-->
-        <div class="layui-footer">
-            Copyright ©2018-©2018 ok-admin v1.0 All Rights Reserved <button class="layui-btn layui-btn-danger layui-btn-xs">捐赠作者</button>
-        </div>
     </div>
-    <div class="yy"></div>
-    <!--js逻辑-->
-    <script src="lib/layui/layui.js"></script>
-	<script src="lib/nprogress/nprogress.js"></script>
-    <script src="js/okadmin.js"></script>
+    <!--底部信息-->
+    <div class="layui-footer">
+        Copyright ©2018-©2018 ok-admin v1.0 All Rights Reserved
+        <button class="layui-btn layui-btn-danger layui-btn-xs">捐赠作者</button>
+    </div>
+</div>
+<div class="yy"></div>
+<!--js逻辑-->
+<script src="lib/layui/layui.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script src="js/okadmin.js"></script>
 </body>
 </html>
