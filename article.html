@@ -28,7 +28,7 @@
             <form class="layui-form layui-col-md12 ok-search">
                 <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime">
                 <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime">
-                <input class="layui-input" placeholder="请输入用户名" autocomplete="off">
+                <input class="layui-input" placeholder="请输入标题" autocomplete="off">
                 <button class="layui-btn"  lay-submit="" lay-filter="search">
                     <i class="layui-icon layui-icon-search"></i>
                 </button>
@@ -37,16 +37,16 @@
         <!--工具栏-->
         <okToolbar>
             <button class="layui-btn layui-btn-normal" id="batchEnabled">
-                <i class="iconfont icon-shangsheng"></i>批量启用
+                <i class="iconfont icon-shangsheng"></i>批量上架
             </button>
             <button class="layui-btn layui-btn-warm" id="batchDisabled">
-                <i class="iconfont icon-web-icon-"></i>批量停用
+                <i class="iconfont icon-web-icon-"></i>批量下架
             </button>
             <button class="layui-btn layui-btn-danger" id="batchDel">
                 <i class="layui-icon layui-icon-delete"></i>批量删除
             </button>
             <button class="layui-btn" id="addUser">
-                <i class="layui-icon">&#xe61f;</i>添加用户
+                <i class="layui-icon">&#xe61f;</i>添加文章
             </button>
             <span>共有数据：<i id="countNum"></i> 条</span>
         </okToolbar>
@@ -67,45 +67,44 @@
 			var form = layui.form;
 			var $ = layui.jquery;
 			var laydate = layui.laydate;
-			
+
             laydate.render({
                 elem: '#startTime',
                 type: "datetime"
             });
-			
+
             laydate.render({
                 elem: '#endTime',
                 type: "datetime"
             });
-			
+
 			table.render({
 				elem: '#tableId',
-				url:'data/user.json',
+				url:'data/article.json',
 				limit: 10,
 				page: true,
+                even: true,
 				cols: [[
 					{type: 'checkbox'},
 					{field:'id', title:'ID', width:80, sort: true},
-					{field:'username', title:'用户名', width:100},
-					{field:'name', title: '姓名', width:100},
-					{field:'password', title:'密码', width:100},
-					{field:'status', title:'状态', width:85, templet: '#statusTpl'},
-					{field:'role', title:'角色', width:100, templet: '#roleTpl'},
-					{field:'email', title:'邮箱', width:200},
-					{field:'createTime', title:'创建时间', width:200},
-					{field:'logins', title:'登陆次数', width:100},
+					{field:'title', title:'标题', width:350},
+					{field:'url', title:'链接', width:250, templet: '#urlTpl'},
+					{field:'readSize', title:'阅读量', width:80},
+					{field:'publisher', title:'发布者', width:100},
+					{field:'isTop', title:'置顶', width:100, templet: '#topTpl'},
+					{field:'status', title:'状态', width:100, templet: '#statusTpl'},
 					{title:'操作', width:200, templet: '#operationTpl',  align:'center'}
 				]],
 				done: function(res, curr, count){
 					$("#countNum").text(count);
 				}
 			});
-			
+
 			form.on('submit(search)', function () {
 				layer.msg('正在查询，请稍后...');
                 return false;
             });
-			
+
 			table.on('tool(tableFilter)', function(obj){
                 var data = obj.data;
                 var layEvent = obj.event;
@@ -117,7 +116,7 @@
 						maxmin: true,
 						shade: 0.5,
 						area: ['90%', '90%'],
-						content: 'user-edit.html',
+						content: 'article-edit.html',
 						zIndex: layer.zIndex,
 						end: function () {
 							// $(".layui-laypage-btn")[0].click();
@@ -129,35 +128,35 @@
 					});
                 }
             });
-			
+
 			$("#batchEnabled").click(function(){
-				layer.confirm("确定要批量启用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 1}, function () {
+				layer.confirm("确定要批量上架吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 1}, function () {
                     layer.msg("操作成功！", {icon: 1, time: 1000});
                 });
 			})
-			
+
 			$("#batchDisabled").click(function(){
-				layer.confirm("确定要批量停用吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 2}, function () {
+				layer.confirm("确定要批量下架吗？", {skin: 'layui-layer-lan', icon: 3, title:'提示', anim: 2}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
 				});
 			})
-			
+
 			$("#batchDel").click(function(){
 				layer.confirm("确定要批量删除吗？", {skin: 'layui-layer-lan', icon: 2, title:'提示', anim: 6}, function () {
 					layer.msg("操作成功！", {icon: 1, time: 1000});
 				});
 			})
-			
+
 			$("#addUser").click(function(){
 				layer.open({
-					title: '添加用户',
+					title: '添加文章',
 					type: 2,
 					shade: false,
 					maxmin: true,
 					shade: 0.5,
 					anim: 4,
 					area: ['90%', '90%'],
-					content: 'user-add.html',
+					content: 'article-add.html',
 					zIndex: layer.zIndex,
                     // skin: 'layui-layer-molv', // 皮肤
 					end: function () {
@@ -168,12 +167,15 @@
         })
     </script>
 	<!--模板-->
-	<script type="text/html" id="statusTpl">
-		<input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" {{ d.status == 0 ? 'checked' : ''}}>
+	<script type="text/html" id="urlTpl">
+		<a href="{{d.url}}" target="_blank">{{d.url}}</a>
 	</script>
-	<script type="text/html" id="roleTpl">
-		{{ d.role == 0 ? '管理员' : '普通用户	'}}
-	</script>
+    <script type="text/html" id="topTpl">
+        <input type="checkbox" name="isTop" value="{{d.isTop}}" lay-skin="switch" lay-text="是|否" {{ d.isTop == true ? 'checked' : ''}}>
+    </script>
+    <script type="text/html" id="statusTpl">
+        <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="上架|下架" {{ d.status == true ? 'checked' : ''}}>
+    </script>
 	<script type="text/html" id="operationTpl">
 		<a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
         <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>

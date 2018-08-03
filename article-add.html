@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加用户</title>
+    <title>添加文章</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/scroll-bar.css">
@@ -17,7 +17,7 @@
                 <a><cite>首页</cite></a>
                 <a><cite>常用页面</cite></a>
                 <a><cite>用户列表</cite></a>
-				<a><cite>添加用户</cite></a>
+				<a><cite>添加文章</cite></a>
             </span>
             <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
                 <i class="layui-icon layui-icon-refresh"></i>
@@ -26,56 +26,26 @@
 		<!--form表单-->
 		<form class="layui-form layui-form-pane ok-form">
 			<div class="layui-form-item">
-				<label class="layui-form-label">用户名</label>
+				<label class="layui-form-label">标题</label>
 				<div class="layui-input-block">
-					<input type="text" name="" placeholder="请输入用户名" autocomplete="off" class="layui-input" lay-verify="required">
+					<input type="text" name="" placeholder="请输入文章标题" autocomplete="off" class="layui-input" lay-verify="required">
 				</div>
 			</div>
 			<div class="layui-form-item">
-				<label class="layui-form-label">真实姓名</label>
-				<div class="layui-input-block">
-					<input type="text" name="" placeholder="请输入真实姓名" autocomplete="off" class="layui-input" lay-verify="required">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">手机号码</label>
-				<div class="layui-input-block">
-					<input type="text" name="" placeholder="请输入手机号码" autocomplete="off" class="layui-input" lay-verify="phone">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">邮箱</label>
-				<div class="layui-input-block">
-					<input type="text" name="" placeholder="请输入邮箱" autocomplete="off" class="layui-input" lay-verify="email">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">密码</label>
-				<div class="layui-input-block">
-					<input type="password" name="" placeholder="请输入密码" autocomplete="off" class="layui-input" lay-verify="required">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">出生日期</label>
-				<div class="layui-input-block">
-					<input type="text" name="" placeholder="请选择出生日期 格式为yyyy-MM-dd HH:mm:ss" autocomplete="off" class="layui-input" id="birthday" lay-verify="birthdayVerify">
-				</div>
-			</div>
-			<div class="layui-form-item">
-				<label class="layui-form-label">角色</label>
+				<label class="layui-form-label">分类</label>
 				<div class="layui-input-block">
 					<select name="interest" lay-filter="aihao">
-						<option value="0">管理员</option>
-						<option value="1">普通用户</option>
+						<option value="0">公告</option>
+						<option value="1">言情</option>
+						<option value="2">都市</option>
+						<option value="3">修仙</option>
 					</select>
 				</div>
 			</div>
 			<div class="layui-form-item">
-				<label class="layui-form-label">兴趣</label>
+				<label class="layui-form-label">标签</label>
 				<div class="layui-input-block">
-					<input type="checkbox" name="like[write]" title="写作">
-					<input type="checkbox" name="like[read]" title="阅读">
-					<input type="checkbox" name="like[run]" title="运动">
+					<input type="text" name="" placeholder="请输入文章标签" autocomplete="off" class="layui-input" lay-verify="required">
 				</div>
 			</div>
 			<div class="layui-form-item">
@@ -85,16 +55,15 @@
 				</div>
 			</div>
 			<div class="layui-form-item">
-				<label class="layui-form-label">性别</label>
+				<label class="layui-form-label">置顶</label>
 				<div class="layui-input-block">
-					<input type="radio" name="sex" value="0" title="男">
-					<input type="radio" name="sex" value="1" title="女" checked>
+					<input type="checkbox" lay-skin="switch" lay-text="是|否">
 				</div>
 			</div>
 			<div class="layui-form-item layui-form-text">
-				<label class="layui-form-label">备注</label>
+				<label class="layui-form-label">内容</label>
 				<div class="layui-input-block">
-					<textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+					<textarea placeholder="请输入文章内容" class="layui-textarea"></textarea>
 				</div>
 			</div>
 			<div class="layui-form-item">
