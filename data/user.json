@@ -1,116 +1,128 @@
 {
-    "code": 0,
-    "msg": "",
-    "count": 11,
-    "data": [{
-        "id": "001",
-        "username": "zhangsan",
-		"name": "张三",
-        "password": "111111",
-        "status": 0,
-		"role": 0,
-        "email": "zhangsan@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "002",
-        "username": "lisi",
-		"name": "李四",
-        "password": "111111",
-        "status": 0,
-		"role": 0,
-        "email": "lisi@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "003",
-        "username": "wangwu",
-		"name": "王五",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "wangwu@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "004",
-        "username": "zhaoliu",
-		"name": "赵六",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "zhaoliu@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "005",
-        "username": "sunqi",
-		"name": "孙七",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "sunqi@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "006",
-        "username": "zhouba",
-		"name": "周八",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "zhouba@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "007",
-        "username": "wujiu",
-		"name": "吴九",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "wujiu@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "008",
-        "username": "zhengshi",
-		"name": "郑十",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "zhengshi@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "009",
-        "username": "liubei",
-		"name": "刘备",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "liubei@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "010",
-        "username": "zhangfei",
-		"name": "张飞",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "zhangfei@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    },{
-        "id": "011",
-        "username": "guanyu",
-		"name": "关羽",
-        "password": "111111",
-        "status": 1,
-		"role": 1,
-        "email": "guanyu@qq.com",
-		"createTime": "2018-05-06 18:15:28",
-        "logins": 24
-    }]
+  "code": 0,
+  "msg": "",
+  "count": 11,
+  "data": [
+    {
+      "id": "001",
+      "username": "zhangsan",
+      "name": "张三",
+      "password": "111111",
+      "status": 0,
+      "role": 0,
+      "email": "zhangsan@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "002",
+      "username": "lisi",
+      "name": "李四",
+      "password": "111111",
+      "status": 0,
+      "role": 0,
+      "email": "lisi@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "003",
+      "username": "wangwu",
+      "name": "王五",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "wangwu@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "004",
+      "username": "zhaoliu",
+      "name": "赵六",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "zhaoliu@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "005",
+      "username": "sunqi",
+      "name": "孙七",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "sunqi@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "006",
+      "username": "zhouba",
+      "name": "周八",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "zhouba@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "007",
+      "username": "wujiu",
+      "name": "吴九",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "wujiu@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "008",
+      "username": "zhengshi",
+      "name": "郑十",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "zhengshi@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "009",
+      "username": "liubei",
+      "name": "刘备",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "liubei@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "010",
+      "username": "zhangfei",
+      "name": "张飞",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "zhangfei@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    },
+    {
+      "id": "011",
+      "username": "guanyu",
+      "name": "关羽",
+      "password": "111111",
+      "status": 1,
+      "role": 1,
+      "email": "guanyu@qq.com",
+      "createTime": "2018-05-06 18:15:28",
+      "logins": 24
+    }
+  ]
 }

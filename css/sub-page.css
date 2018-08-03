@@ -56,7 +56,7 @@
     }
 }
 
-okToolbar{
+okToolbar {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -66,12 +66,12 @@ okToolbar{
     background-color: #f2f2f2;
 }
 
-okToolbar span{
+okToolbar span {
     float: right;
     line-height: 30px;
 }
 
 /*form表单*/
-.ok-form{
-	margin-top: 10px;
+.ok-form {
+    margin-top: 10px;
 }
