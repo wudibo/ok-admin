@@ -15,7 +15,7 @@
 <body>
 <div class="ok-body">
     <blockquote class="layui-elem-quote">
-        欢迎管理员：<span class="x-red">bobi</span>！当前时间: <span id="nowTime"></span>
+        欢迎管理员：<span class="x-red">bobi</span>！当前时间: <span id="nowTime"></span> <span id="weekday"></span>
     </blockquote>
     <fieldset class="layui-elem-field">
         <legend>数据统计</legend>
@@ -218,7 +218,6 @@
      * 获取当前时间
      */
     var nowDate1 = "";
-
     function setDate() {
         var date = new Date();
         var year = date.getFullYear();
@@ -240,6 +239,13 @@
         }
         return i;
     }
+
+    /**
+     * 初始化星期几
+     * @type {string}
+     */
+    var weekday = "星期" + "日一二三四五六".charAt(new Date().getDay());
+    document.getElementById("weekday").innerHTML = weekday;
 </script>
 <!--天气预报插件-->
 <script>
