@@ -3,6 +3,59 @@
     padding: 10px
 }
 
+/*welcome页面*/
+.layui-row-margin {
+    margin: 10px 5px 5px 5px;
+}
+
+.md2-sub1 {
+    width: 40%;
+    text-align: center;
+    line-height: 80px;
+    float: left;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.md2-sub1 i {
+    font-size: 40px;
+    display: block;
+    cursor: pointer;
+    transition: All 0.4s ease-in-out;
+    -webkit-transition: All 0.4s ease-in-out;
+    -moz-transition: All 0.4s ease-in-out;
+    -o-transition: All 0.4s ease-in-out;
+}
+
+.md2-sub1 i:hover {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+}
+
+.md2-sub2 {
+    width: 60%;
+    display: inline-block;
+    background-color: #f2f2f2;
+    line-height: 46px;
+    text-align: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.md2-sub2 span {
+    font-size: 25px;
+    display: block;
+    height: 34px;
+}
+
+.md2-sub2 cite {
+    font-style: normal;
+}
+
+/*其他子页面*/
 /*子页面面包屑导航样式*/
 .ok-body-breadcrumb {
     position: relative;
