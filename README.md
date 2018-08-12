@@ -1,4 +1,5 @@
 # ok-admin
+![logo](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/logo.png)
 一个很赞的，扁平化风格的，响应式布局的后台管理模版，旨为后端程序员减压！
 
 # 访问地址
@@ -15,7 +16,6 @@
 ![6](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/6.png)
 ![7](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/7.png)
 ![8](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/8.png)
-![9](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/9.png)
 
 # 开源协议
 [MIT](https://github.com/bobi1234/ok-admin/blob/master/LICENSE)
