@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>编辑角色</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/scroll-bar.css">
+    <link rel="stylesheet" href="css/sub-page.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+            <span class="layui-breadcrumb">
+                <a><cite>首页</cite></a>
+                <a><cite>常用页面</cite></a>
+                <a><cite>用户列表</cite></a>
+				<a><cite>编辑角色</cite></a>
+            </span>
+        <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <!--form表单-->
+    <form class="layui-form ok-form">
+        <div class="layui-form-item">
+            <label class="layui-form-label">角色名</label>
+            <div class="layui-input-block">
+                <input type="text" name="name" placeholder="请输入角色名" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">备注</label>
+            <div class="layui-input-block">
+                <input type="text" name="remarks" placeholder="请输入备注" autocomplete="off" class="layui-input" lay-verify="required">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">权限</label>
+            <div class="layui-input-block">
+                <div id="authTree"></div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="edit">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--js逻辑-->
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.config({
+        base: 'lib/layui/lay/modules/authtree/'
+    }).extend({
+        authtree: 'authtree',
+    });
+
+    layui.use(['element', 'form', 'jquery', 'laydate', 'authtree'], function () {
+        var element = layui.element;
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var laydate = layui.laydate;
+        var authtree = layui.authtree;
+
+        $.ajax({
+            url: 'data/tree.json',
+            dataType: 'json',
+            success: function (data) {
+                // 渲染时传入渲染目标ID，树形结构数据（具体结构看样例，checked表示默认选中），以及input表单的名字
+                authtree.render('#authTree', data.data.trees, {
+                    inputname: 'authids[]',
+                    layfilter: 'lay-check-auth',
+                    openall: false
+                });
+            }
+        })
+
+        laydate.render({
+            elem: '#birthday',
+            type: "datetime"
+        });
+
+        form.verify({
+            birthdayVerify: [/^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))(\s(([01]\d{1})|(2[0123])):([0-5]\d):([0-5]\d))?$/, '日期格式不正确']
+        });
+
+        // 监听自定义lay-filter选中状态，PS:layui现在不支持多次监听，所以扩展里边只能改变触发逻辑，然后引起了事件冒泡延迟的BUG，要是谁有好的建议可以反馈我
+        form.on('checkbox(lay-check-auth)', function (data) {
+            console.log(data.field);
+            // 获取所有节点
+            var all = authtree.getAll('#authTree');
+            console.log('all', all);
+            // 获取所有已选中节点
+            var checked = authtree.getChecked('#authTree');
+            console.log('checked', checked);
+            // 获取所有未选中节点
+            var notchecked = authtree.getNotChecked('#authTree');
+            console.log('notchecked', notchecked);
+            // 注意这里：需要等待事件冒泡完成，不然获取叶子节点不准确。
+            setTimeout(function () {
+                // 获取选中的叶子节点
+                var leaf = authtree.getLeaf('#authTree');
+                console.log(leaf);
+            }, 100);
+            return false;
+        });
+
+        form.on('submit(edit)', function (data) {
+            console.log(data.field);
+            layer.msg("编辑成功！", {icon: 6, time: 1000, anim: 4}, function () {
+                parent.layer.close(parent.layer.getFrameIndex(window.name));
+            });
+            return false;
+        });
+    })
+</script>
+</body>
+</html>
