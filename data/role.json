@@ -1,0 +1,28 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 3,
+  "data": [
+    {
+      "id": "001",
+      "name": "ADMIN",
+      "remarks": "管理员",
+      "createUser": "admin",
+      "createTime": "2018-05-06 18:15:28"
+    },
+    {
+      "id": "002",
+      "name": "TEACHER",
+      "remarks": "教师",
+      "createUser": "admin",
+      "createTime": "2018-05-06 19:15:28"
+    },
+    {
+      "id": "003",
+      "name": "STUDENT",
+      "remarks": "学生",
+      "createUser": "admin",
+      "createTime": "2018-05-06 20:15:28"
+    }
+  ]
+}
