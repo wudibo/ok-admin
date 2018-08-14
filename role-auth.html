@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>角色授权</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="stylesheet" href="css/scroll-bar.css">
+    <link rel="stylesheet" href="css/sub-page.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+            <span class="layui-breadcrumb">
+                <a><cite>首页</cite></a>
+                <a><cite>常用页面</cite></a>
+                <a><cite>用户列表</cite></a>
+				<a><cite>角色授权</cite></a>
+            </span>
+        <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <!--form表单-->
+    <form class="layui-form layui-form-pane ok-form">
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="auth">立即提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--js逻辑-->
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.config({
+        base: 'lib/layui/lay/modules/authtree/'
+    }).extend({
+        authtree: 'authtree',
+    });
+
+    layui.use(['element', 'jquery', 'form'], function () {
+        var element = layui.element;
+        var $ = layui.jquery;
+        var form = layui.form;
+
+        form.on('submit(auth)', function (data) {
+            console.log(data.field);
+            layer.msg("授权成功！", {icon: 6, time: 1000, anim: 4}, function () {
+                parent.layer.close(parent.layer.getFrameIndex(window.name));
+            });
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

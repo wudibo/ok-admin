@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <link rel="stylesheet" href="css/scroll-bar.css">
     <link rel="stylesheet" href="css/sub-page.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_wytlyqhtdtj1nhfr.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_dgsnpaj0hzk.css">
     <link rel="stylesheet" href="lib/nprogress/nprogress.css">
 </head>
 <body>
@@ -118,6 +118,20 @@
                 layer.confirm("确定要删除吗？", {skin: 'layui-layer-lan', icon: 2, title: '提示', anim: 6}, function () {
                     layer.msg("操作成功！", {icon: 1, time: 1000});
                 });
+            } else if (layEvent === 'auth') {
+                layer.open({
+                    title: '角色授权',
+                    type: 2,
+                    shade: false,
+                    maxmin: true,
+                    shade: 0.5,
+                    area: ['90%', '90%'],
+                    content: 'role-auth.html',
+                    zIndex: layer.zIndex,
+                    end: function () {
+                        $(".layui-laypage-btn")[0].click();
+                    }
+                });
             }
         });
 
@@ -164,6 +178,7 @@
 </script>
 <!--模板-->
 <script type="text/html" id="operationTpl">
+    <a href="javascript:;" title="授权" lay-event="auth"><i class="iconfont icon-jiaoseshouquan"></i></a>
     <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
     <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
 </script>
