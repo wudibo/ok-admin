@@ -7,6 +7,10 @@
 - 地址2：https://bobi1234.gitee.io/ok-admin
 - 说明：如果地址1访问速度过慢，可以尝试访问地址2，地址2的内容和地址1的内容同步更新！
 
+# 近期打算
+- 左侧三级菜单功能
+- 下拉刷新功能
+
 # 效果预览
 ![1](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/1.png)
 ![2](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/2.png)
