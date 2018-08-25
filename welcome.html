@@ -244,6 +244,11 @@
      */
     var weekday = "星期" + "日一二三四五六".charAt(new Date().getDay());
     document.getElementById("weekday").innerHTML = weekday;
+
+    layui.use('util', function () {
+        var util = layui.util;
+        util.fixbar({});
+    });
 </script>
 <!--天气预报插件-->
 <script>
