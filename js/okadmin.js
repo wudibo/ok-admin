@@ -1,6 +1,6 @@
 NProgress.start();
-window.onload = function() {
-	NProgress.done();
+window.onload = function () {
+    NProgress.done();
 }
 layui.use(['element', 'layer'], function () {
     var element = layui.element;
@@ -13,13 +13,13 @@ layui.use(['element', 'layer'], function () {
      */
     $(".menu-switch").click(function () {
         if ($(".layui-layout-admin .layui-side").css("left") == '0px') {
-            $(".layui-layout-admin .layui-side").animate({left: "-200px"});
-            $(".layui-layout-admin .content-body").animate({left: "0px"});
-            $(".layui-layout-admin .layui-footer").animate({left: "0px"});
+            $(".layui-layout-admin .layui-side").animate(left, -200);
+            $(".layui-layout-admin .content-body").animate(left, 0);
+            $(".layui-layout-admin .layui-footer").animate(left, 0);
         } else {
-            $(".layui-layout-admin .layui-side").animate({left: "0px"});
-            $(".layui-layout-admin .content-body").animate({left: "200px"});
-            $(".layui-layout-admin .layui-footer").animate({left: "200px"});
+            $(".layui-layout-admin .layui-side").animate(left, 0);
+            $(".layui-layout-admin .content-body").animate(left, 200);
+            $(".layui-layout-admin .layui-footer").animate(left, 200);
         }
     });
 
@@ -80,7 +80,12 @@ layui.use(['element', 'layer'], function () {
         layer.confirm("确定要锁定账户吗？", {skin: 'layui-layer-lan', icon: 4, title: '提示', anim: 1}, function (index) {
             layer.close(index);
             $(".yy").show();
-            layer.prompt({btn: ['确定'], title: '输入密码解锁(123456)', closeBtn: 0, formType: 1}, function (value, index, elem) {
+            layer.prompt({
+                btn: ['确定'],
+                title: '输入密码解锁(123456)',
+                closeBtn: 0,
+                formType: 1
+            }, function (value, index, elem) {
                 if (value == "123456") {
                     layer.close(index);
                     $(".yy").hide();
