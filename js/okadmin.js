@@ -27,7 +27,10 @@ layui.use(['element', 'layer'], function () {
      * 点击左边菜单在右边添加选项卡
      */
     $(".layui-nav-child").find("dd").click(function () {
-        var title = $(this).text();
+        // 纯文字
+        // var title = $(this).text();
+        // 图标+文字
+        var title = $(this).find("a").html();
         var path = $(this).children('a').attr('path');
         var tabId = $(this).children('a').attr('tab-id');
         // 去重复选项卡
