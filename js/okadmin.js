@@ -13,13 +13,13 @@ layui.use(['element', 'layer'], function () {
      */
     $(".menu-switch").click(function () {
         if ($(".layui-layout-admin .layui-side").css("left") == '0px') {
-            $(".layui-layout-admin .layui-side").animate(left, -200);
-            $(".layui-layout-admin .content-body").animate(left, 0);
-            $(".layui-layout-admin .layui-footer").animate(left, 0);
+            $(".layui-layout-admin .layui-side").animate({left: "-200px"});
+            $(".layui-layout-admin .content-body").animate({left: "0px"});
+            $(".layui-layout-admin .layui-footer").animate({left: "0px"});
         } else {
-            $(".layui-layout-admin .layui-side").animate(left, 0);
-            $(".layui-layout-admin .content-body").animate(left, 200);
-            $(".layui-layout-admin .layui-footer").animate(left, 200);
+            $(".layui-layout-admin .layui-side").animate({left: "0px"});
+            $(".layui-layout-admin .content-body").animate({left: "200px"});
+            $(".layui-layout-admin .layui-footer").animate({left: "200px"});
         }
     });
 

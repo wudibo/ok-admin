@@ -10,6 +10,8 @@
 # 近期打算
 - 左侧三级菜单功能
 - 下拉刷新功能
+- tab选项卡优化
+- 手机端响应式优化
 
 # 效果预览
 ![1](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/1.png)
