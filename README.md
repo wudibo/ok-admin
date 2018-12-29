@@ -2,6 +2,9 @@
 ![logo](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/logo.png)
 一个很赞的，扁平化风格的，响应式布局的后台管理模版，旨为后端程序员减压！
 
+#QQ群交流
+964222534
+
 # 访问地址
 - 地址1：http://ok-admin.xlbweb.cn
 - 地址2：https://bobi1234.gitee.io/ok-admin
