@@ -6,9 +6,7 @@
 964222534
 
 # 访问地址
-- 地址1：http://ok-admin.xlbweb.cn
-- 地址2：https://bobi1234.gitee.io/ok-admin
-- 说明：如果地址1访问速度过慢，可以尝试访问地址2，地址2的内容和地址1的内容同步更新！
+http://ok-admin.xlbweb.cn
 
 # 近期打算
 - 左侧三级菜单功能
