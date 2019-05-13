@@ -1,125 +1,77 @@
-/*==============================================主要就是index.html页面美化代码==============================================*/
-/*顶部导航菜单logo样式*/
-.layui-layout-admin .layui-logo {
-    color: #fff;
-    font-size: 20px
+@import "../lib/layui/css/layui.css";
+@import "../font/iconfont.css";
+/*所有页面的CSS代码都写在这里*/
+/*登陆页面*/
+.login-body{background:url(../imgs/bg.png) no-repeat center center fixed;background-size:cover}
+.login-body .login-box{width:300px;height:300px;border:1px solid #1a312c;position:absolute;left:50%;top:50%;margin-left:-150px;margin-top:-150px;border-radius:5px}
+.login-body .login-box .head{width:100px;height:100px;border-radius:50%;position:absolute;top:-96px;left:50%;margin-left:-50px;background:url(../imgs/ok.png);background-size:cover}
+.login-body .login-box .input-box{margin:10px 10px 10px 10px}
+.login-body .login-box .input-box input{margin-top:20px;border-radius:5px}
+.login-body .login-box .input-box input[type=submit]{background-color:#189F92;width:100%;border:none;outline:0;cursor:pointer;color:#fff;padding-top:8px;padding-bottom:8px;font-size:18px}
+.login-body .login-box .input-box .remember-me{margin-top:20px}
+.login-body .login-box .input-box .remember-me .layui-form-switch{margin-top:0}
+.login-body .login-box .input-box .oauth{margin-top:20px}
+.login-body .login-box .input-box .oauth i{cursor:pointer;font-size:28px}
+.login-body .login-box .copyright{margin:10px 10px 10px 10px;font-size:12px}
+
+/*index及其它页面*/
+.layui-layout-admin .layui-logo{color:#fff;font-size:20px}
+.layui-nav{padding:0}
+.layui-layout-left{left:235px}
+.layui-tab-title li:first-child .layui-tab-close{display:none}
+.menu-switch{width:30px;height:30px;position:relative;left:200px;top:16px;color:#fff;background-color:#1AA094;text-align:center;line-height:30px;cursor:pointer}
+.weather{margin: 15px 0 0 20px;}
+.layui-nav-tree .layui-nav-child a{padding-left:36px}
+.layui-tab-title li{background-color:#f2f2f2}
+.content-body{position:absolute;top:46px;right:0;bottom:42px;left:200px;z-index:1;overflow:hidden}
+.content-body .layui-tab-content{position:absolute;top:50px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
+.content-body .layui-tab-content .layui-tab-item{height:100%}
+.content-body .layui-tab-content .layui-tab-item iframe{height:100%}
+@media screen and (max-width:768px){.layui-layout-admin .layui-bg-black{left:-200px}
+    .layui-layout-admin .content-body{left:0}
+    .layui-layout-admin .layui-footer{left:0}
+    .layui-layout-left{display:none}
 }
-
-/*顶部导航文字菜单样式*/
-.layui-nav {
-    padding: 0
+@media screen and (max-width:480px){.layui-layout-admin .layui-logo{left:-32px}
+    .menu-switch{left:140px}
 }
-
-/*顶部菜单左边部分菜单样式*/
-.layui-layout-left {
-    left: 235px
+@media screen and (max-width:330px){.layui-layout-admin .layui-logo{left:-51px;font-size:14px}
+    .menu-switch{left:100px}
 }
+.yy{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.5;z-index:10;background-color:#000;display:none}
 
-/*第一个tan选项卡隐藏取消图标*/
-.layui-tab-title li:first-child .layui-tab-close {
-    display: none
+/*sub-page页面*/
+.ok-body{padding:10px}
+.layui-row-margin{margin:10px 5px 5px 5px}
+.md2-sub1{width:40%;text-align:center;line-height:80px;float:left;border-top-left-radius:5px;border-bottom-left-radius:5px}
+.md2-sub1 i{font-size:40px;display:block;cursor:pointer;transition:All .4s ease-in-out;-webkit-transition:All .4s ease-in-out;-moz-transition:All .4s ease-in-out;-o-transition:All .4s ease-in-out}
+.md2-sub1 i:hover{transform:rotate(360deg);-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg)}
+.md2-sub2{width:60%;display:inline-block;background-color:#f2f2f2;line-height:46px;text-align:center;border-top-right-radius:5px;border-bottom-right-radius:5px}
+.md2-sub2 span{font-size:25px;display:block;height:34px}
+.md2-sub2 cite{font-style:normal}
+.ok-body-breadcrumb{position:relative;line-height:39px;height:32px;border-bottom:1px solid #e5e5e5}
+.ok-body-breadcrumb .layui-btn{line-height:2.4em;margin-top:3px;float:right}
+.ok-body-breadcrumb .layui-btn .layui-icon{line-height:32px}
+.ok-search{margin-top:15px}
+.ok-search .layui-input{width:190px;padding-left:10px;margin-left:10px;float:left}
+.ok-search .layui-input:first-child{margin-left:0}
+.ok-search .layui-btn{margin-left:10px}
+@media screen and (max-width:768px){.ok-search .layui-input{width:100%;margin-left:0;margin-top:10px}
+    .ok-search .layui-btn{margin-left:0;margin-top:10px}
 }
+okToolbar{display:block;margin-top:10px;margin-bottom:10px;padding:5px;line-height:22px;border-radius:0 2px 2px 0;background-color:#f2f2f2}
+okToolbar span{float:right;line-height:30px}
+.ok-form{margin-top:10px}
 
-/*隐藏/显示左边菜单按钮样式*/
-.menu-switch {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    left: 200px;
-    top: 16px;
-    color: #fff;
-    background-color: #1AA094;
-    text-align: center;
-    line-height: 30px;
-    cursor: pointer
-}
+/*滚动条代码*/
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-button:vertical{display:none}
+::-webkit-scrollbar-track:vertical{background-color:#000}
+::-webkit-scrollbar-track-piece{background-color:#F5F5F5}
+::-webkit-scrollbar-thumb{margin-right:10px;background-color:#A6A6A6}
+::-webkit-scrollbar-thumb:hover{background-color:#aaa}
+::-webkit-scrollbar-corner:vertical{background-color:#535353}
+::-webkit-scrollbar-resizer:vertical{background-color:#FF6E00}
 
-/*左侧菜单栏文字样式*/
-.layui-nav-tree .layui-nav-child a {
-    padding-left: 36px;
-}
 
-/*主体内容样式*/
-.content-body {
-    position: absolute;
-    top: 46px;
-    right: 0;
-    bottom: 42px;
-    left: 200px;
-    z-index: 1;
-    overflow: hidden
-}
 
-/*主体内容选项卡内容样式*/
-.content-body .layui-tab-content {
-    position: absolute;
-    top: 50px;
-    bottom: 0;
-    width: 100%;
-    padding: 0;
-    z-index: -999;
-    overflow: hidden
-}
-
-/*使iframe高度100%,它的父类高度也需要100%*/
-.content-body .layui-tab-content .layui-tab-item {
-    height: 100%
-}
-
-/*使iframe高度100*/
-.content-body .layui-tab-content .layui-tab-item iframe {
-    height: 100%
-}
-
-/*响应式代码控制*/
-@media screen and (max-width: 768px) {
-    .layui-layout-admin .layui-bg-black {
-        left: -200px
-    }
-
-    .layui-layout-admin .content-body {
-        left: 0
-    }
-
-    .layui-layout-admin .layui-footer {
-        left: 0
-    }
-
-    .layui-layout-left {
-        display: none
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .layui-layout-admin .layui-logo {
-        left: -32px;
-    }
-
-    .menu-switch {
-        left: 140px;
-    }
-}
-
-@media screen and (max-width: 330px) {
-    .layui-layout-admin .layui-logo {
-        left: -51px;
-        font-size: 14px;
-    }
-
-    .menu-switch {
-        left: 100px;
-    }
-}
-
-/*阴影*/
-.yy {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: .5;
-    z-index: 10;
-    background-color: #000;
-    display: none;
-}

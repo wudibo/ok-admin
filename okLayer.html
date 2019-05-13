@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>okLayer测试</title>
+    <script src="js/okutils.js"></script>
+</head>
+<body>
+
+<script src="lib/layui/layui.js"></script>
+<script type="text/javascript">
+    layui.config({
+        base: "lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer"
+    }).use("okLayer", function () {
+        var okLayer = layui.okLayer;
+        // okLayer.tableNotCheckMsg();
+        // okLayer.tableNotCheckMsg("哈哈");
+        okLayer.tableNotCheckMsg("哈哈", "l", 3);
+    });
+</script>
+</body>
+</html>

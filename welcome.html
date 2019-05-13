@@ -2,15 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ok-admin | 很赞的后台模版</title>
+    <title>ok-admin v1.0 | 很赞的后台模版</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="css/scroll-bar.css">
-    <link rel="stylesheet" href="css/sub-page.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_hsptnwurztv.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico"/>
+    <link rel="stylesheet" href="css/okadmin.css">
 </head>
 <body>
 <div class="ok-body">
@@ -91,12 +88,8 @@
             <td>1.1.1.1</td>
         </tr>
         <tr>
-            <td>服务器地址1</td>
+            <td>服务器地址</td>
             <td><a href="http://ok-admin.xlbweb.cn" target="_blank">http://ok-admin.xlbweb.cn</a></td>
-        </tr>
-        <tr>
-            <td>服务器地址2（稳定）</td>
-            <td><a href="https://bobi1234.gitee.io/ok-admin" target="_blank">https://bobi1234.gitee.io/ok-admin</a></td>
         </tr>
         <tr>
             <td>操作系统</td>
@@ -136,23 +129,23 @@
         <tbody>
         <tr>
             <td>开发者</td>
-            <td>bobi(jxjy.ing@foxmail.com)</td>
+            <td>bobi - <a href="mailto:bobi1234@foxmail.com">bobi1234@foxmail.com</a></td>
         </tr>
         <tr>
             <td>下载地址1</td>
             <td>
-                <a class="layui-btn layui-btn-xs" href="https://github.com/bobi1234/ok-admin" target="_blank">Github</a>
-                &nbsp;&nbsp;目前正在不间断迭代开发中，请大家多多
-                <a class="layui-btn layui-btn-danger layui-btn-xs" href="https://github.com/bobi1234/ok-admin" target="_blank">Star</a>
+                <a class="layui-btn layui-btn-xs" href="https://gitee.com/bobi1234/ok-admin" target="_blank">Gitee</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;目前正在不间断迭代开发中，请大家多多
+                <a class="layui-btn layui-btn-danger layui-btn-xs" href="https://gitee.com/bobi1234/ok-admin" target="_blank">Star</a>
                 ，您的鼓励就是我开发的动力，O(∩_∩)O谢谢~
             </td>
         </tr>
         <tr>
             <td>下载地址2</td>
             <td>
-                <a class="layui-btn layui-btn-xs" href="https://gitee.com/bobi1234/ok-admin" target="_blank">Gitee</a>
-                &nbsp;&nbsp;&nbsp;&nbsp;目前正在不间断迭代开发中，请大家多多
-                <a class="layui-btn layui-btn-danger layui-btn-xs" href="https://gitee.com/bobi1234/ok-admin" target="_blank">Star</a>
+                <a class="layui-btn layui-btn-xs" href="https://github.com/bobi1234/ok-admin" target="_blank">Github</a>
+                &nbsp;&nbsp;目前正在不间断迭代开发中，请大家多多
+                <a class="layui-btn layui-btn-danger layui-btn-xs" href="https://github.com/bobi1234/ok-admin" target="_blank">Star</a>
                 ，您的鼓励就是我开发的动力，O(∩_∩)O谢谢~
             </td>
         </tr>
@@ -204,9 +197,16 @@
         </li>
     </ul>
 </div>
-<!--js逻辑-->
+<!--js引入-->
 <script src="lib/layui/layui.js"></script>
-<script>
+<!--js逻辑-->
+<script type="text/javascript">
+
+    layui.use('util', function () {
+        var util = layui.util;
+        util.fixbar({});
+    });
+
     /**
      * 初始化函数
      */
@@ -244,30 +244,6 @@
      */
     var weekday = "星期" + "日一二三四五六".charAt(new Date().getDay());
     document.getElementById("weekday").innerHTML = weekday;
-
-    layui.use('util', function () {
-        var util = layui.util;
-        util.fixbar({});
-    });
-</script>
-<!--天气预报插件-->
-<script>
-    (function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))
-</script>
-<script>
-    tpwidget("init", {
-        "flavor": "bubble",
-        "location": "WX4FBXXFKE4F",
-        "geolocation": "enabled",
-        "position": "top-right",
-        "margin": "10px 10px",
-        "language": "zh-chs",
-        "unit": "c",
-        "theme": "chameleon",
-        "uid": "U3414DB4A9",
-        "hash": "91ff44d1248d72fc847c6177474e1533"
-    });
-    tpwidget("show");
 </script>
 </body>
 </html>

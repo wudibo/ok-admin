@@ -1,28 +1,30 @@
-# ok-admin
-![logo](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/logo.png)
+# ok-admin v1.0
 一个很赞的，扁平化风格的，响应式布局的后台管理模版，旨为后端程序员减压！
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183435_79b40b7b_1152471.png "屏幕截图.png")
 
 # QQ群交流
 964222534
 
+# 技术栈
+
+<p>
+  <img src="https://img.shields.io/badge/layui-2.4.5-brightgreen.svg">
+  <img src="https://img.shields.io/badge/zTree-3.5.40-brightgreen.svg">
+  <img src="https://img.shields.io/badge/NProgress-0.2.0-brightgreen.svg">
+  <img src="https://img.shields.io/badge/ECharts-2.0-brightgreen.svg">
+  <img src="https://img.shields.io/badge/Animate.css-3.7.0-brightgreen.svg">
+</p>
+
 # 访问地址
 http://ok-admin.xlbweb.cn
 
-# 近期打算
-- 左侧三级菜单功能
-- 下拉刷新功能
-- tab选项卡优化
-- 手机端响应式优化
-
 # 效果预览
-![1](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/1.png)
-![2](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/2.png)
-![3](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/3.png)
-![4](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/4.png)
-![5](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/5.png)
-![6](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/6.png)
-![7](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/7.png)
-![8](https://raw.githubusercontent.com/bobi1234/ok-admin/master/images/readme/8.png)
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183543_f366ed8b_1152471.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183606_a07d64e1_1152471.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183633_8b49f8c8_1152471.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183653_8be5b1d9_1152471.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183713_ca4474bb_1152471.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183746_edc8bc1b_1152471.png "屏幕截图.png")
 
 # 开源协议
 [MIT](https://github.com/bobi1234/ok-admin/blob/master/LICENSE)

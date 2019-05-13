@@ -1,87 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>ok-admin | 很赞的后台模版</title>
+    <title>ok-admin v1.0 | 很赞的后台模版</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ask70l8wanw.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css"/>
-    <link rel="stylesheet" href="css/login.css"/>
-	<link rel="stylesheet" href="lib/nprogress/nprogress.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico"/>
+    <link rel="stylesheet" href="css/okadmin.css"/>
+    <link rel="stylesheet" href="lib/animate/animate.css"/>
+    <link rel="stylesheet" href="lib/nprogress/nprogress.css">
 </head>
-<body>
-    <div class="login-box animated rotateIn">
-        <div class="head"></div>
-        <div class="input-box">
-            <form class="layui-form" action="">
-                <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
-                <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
-                <div class="remember-me">
-                    <span>记住我：</span>
-                    <input type="checkbox" name="zzz" lay-skin="switch" lay-text="是|否">
-                </div>
-                <input type="submit" value="登 录" lay-submit lay-filter="login">
-            </form>
-            <div class="oauth">
-                <i class="iconfont icon-WechatIMG" style="font-size: 25px;"></i>
-                <i class="iconfont icon-github"></i>
-                <i class="iconfont icon-logo-weibo"></i>
-                <i class="iconfont icon-qq"></i>
-                <i class="iconfont icon-weixin"></i>
-                <i class="iconfont icon-zhifubao"></i>
+<body class="login-body">
+<div class="login-box animated rotateIn">
+    <div class="head"></div>
+    <div class="input-box">
+        <form class="layui-form" action="">
+            <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
+            <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+            <div class="remember-me">
+                <span>记住我：</span>
+                <input type="checkbox" name="zzz" lay-skin="switch" lay-text="是|否">
             </div>
-        </div>
-        <div class="copyright">
-            © 2018-2019 ok-admin. All rights reserved.
+            <input type="submit" value="登 录" lay-submit lay-filter="login">
+        </form>
+        <div class="oauth">
+            <i class="iconfont icon-WechatIMG" style="font-size: 25px;"></i>
+            <i class="iconfont icon-github"></i>
+            <i class="iconfont icon-logo-weibo"></i>
+            <i class="iconfont icon-qq"></i>
+            <i class="iconfont icon-weixin"></i>
+            <i class="iconfont icon-zhifubao"></i>
         </div>
     </div>
-    <!--js逻辑-->
-    <script src="lib/layui/layui.js"></script>
-	<script src="lib/nprogress/nprogress.js"></script>
-    <script>
-		NProgress.start();
-		window.onload = function() {
-		    NProgress.done();
-		}
-        layui.use(['form', 'jquery'], function () {
-            var form = layui.form;
-            var $ = layui.jquery;
+    <div class="copyright">
+        © 2018-<span id="endYear"></span> ok-admin. All rights reserved.
+    </div>
+</div>
+<!--js逻辑-->
+<script src="lib/layui/layui.js"></script>
+<script src="lib/nprogress/nprogress.js"></script>
+<script type="text/javascript">
+    layui.use(["form", "jquery"], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
 
-            form.on('submit(login)', function (data) {
-                layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
-                    window.location = "index.html";
-                });
-                return false;
-            });
+        // 进度条
+        NProgress.start();
+        window.onload = function () {
+            NProgress.done();
+        }
 
-            $(".oauth .icon-WechatIMG").click(function () {
-                layer.msg('正在打开Gitee登陆页面，请稍后...');
-            });
+        // 修改copyright结束时间
+        var data = new Date();
+        var year = data.getFullYear();
+        $("#endYear").text(year);
 
-            $(".oauth .icon-github").click(function () {
-                layer.msg('正在打开Github登陆页面，请稍后...');
+        // 登陆逻辑
+        form.on('submit(login)', function (data) {
+            layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
+                window.location = "index.html";
             });
-
-            $(".oauth .icon-logo-weibo").click(function () {
-                layer.msg('正在打开微博登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-qq").click(function () {
-                layer.msg('正在打开QQ登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-weixin").click(function () {
-                layer.msg('正在打开微信登陆页面，请稍后...');
-            });
-
-            $(".oauth .icon-zhifubao").click(function () {
-                layer.msg('正在打开支付宝登陆页面，请稍后...');
-            });
+            return false;
         });
-    </script>
+
+        // oauth三方登陆逻辑
+        $(".oauth .icon-WechatIMG").click(function () {
+            layer.msg('正在打开Gitee登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-github").click(function () {
+            layer.msg('正在打开Github登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-logo-weibo").click(function () {
+            layer.msg('正在打开微博登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-qq").click(function () {
+            layer.msg('正在打开QQ登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-weixin").click(function () {
+            layer.msg('正在打开微信登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-zhifubao").click(function () {
+            layer.msg('正在打开支付宝登陆页面，请稍后...');
+        });
+    });
+</script>
 </body>
 </html>

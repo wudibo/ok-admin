@@ -4,20 +4,18 @@
     <meta charset="UTF-8">
     <title>捐赠页面</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="css/scroll-bar.css">
-    <link rel="stylesheet" href="css/sub-page.css">
+    <link rel="stylesheet" href="css/okadmin.css">
 </head>
 <body>
 <div class="ok-body">
     <!--面包屑导航区域-->
     <div class="ok-body-breadcrumb">
-            <span class="layui-breadcrumb">
-                <a><cite>首页</cite></a>
-                <a><cite>常用页面</cite></a>
-                <a><cite>捐赠列表</cite></a>
-            </span>
-        <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>常用页面</cite></a>
+            <a><cite>捐赠列表</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
             <i class="layui-icon layui-icon-refresh"></i>
         </a>
     </div>
@@ -85,7 +83,7 @@
 </div>
 <script src="lib/layui/layui.js"></script>
 <script>
-    layui.use(['element', 'layer'], function () {
+    layui.use(["element", "layer"], function () {
         layer.alert("谢谢各位大佬的支持！</br>您的肯定是我前进的动力，O(∩_∩)O谢谢~", {icon: 6, time: 3000, title: '感谢', anim: 1});
     });
 </script>

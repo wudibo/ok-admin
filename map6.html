@@ -9,7 +9,7 @@
 <script src="lib/echarts/echarts.common.min.js"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
-    var myChart = echarts.init(document.getElementById('main'));
+    var myChart = echarts.init(document.getElementById("main"));
 
     var dataBJ = [
         [1, 55, 9, 56, 0.46, 18, 6, "良"],
@@ -114,13 +114,13 @@
     ];
 
     var schema = [
-        {name: 'date', index: 0, text: '日'},
-        {name: 'AQIindex', index: 1, text: 'AQI指数'},
-        {name: 'PM25', index: 2, text: 'PM2.5'},
-        {name: 'PM10', index: 3, text: 'PM10'},
-        {name: 'CO', index: 4, text: '一氧化碳（CO）'},
-        {name: 'NO2', index: 5, text: '二氧化氮（NO2）'},
-        {name: 'SO2', index: 6, text: '二氧化硫（SO2）'}
+        {name: "date", index: 0, text: "日"},
+        {name: "AQIindex", index: 1, text: "AQI指数"},
+        {name: "PM25", index: 2, text: "PM2.5"},
+        {name: "PM10", index: 3, text: "PM10"},
+        {name: "CO", index: 4, text: "一氧化碳（CO）"},
+        {name: "NO2", index: 5, text: "二氧化氮（NO2）"},
+        {name: "SO2", index: 6, text: "二氧化硫（SO2）"}
     ];
 
 
@@ -130,34 +130,34 @@
             shadowBlur: 10,
             shadowOffsetX: 0,
             shadowOffsetY: 0,
-            shadowColor: 'rgba(0, 0, 0, 0.5)'
+            shadowColor: "rgba(0, 0, 0, 0.5)"
         }
     };
 
     // 指定图表的配置项和数据
     var option = {
-        backgroundColor: '#404a59',
+        backgroundColor: "#404a59",
         color: [
-            '#dd4444', '#fec42c', '#80F1BE'
+            "#dd4444", "#fec42c", "#80F1BE"
         ],
         legend: {
-            y: 'top',
-            data: ['北京', '上海', '广州'],
+            y: "top",
+            data: ["北京", "上海", "广州"],
             textStyle: {
-                color: '#fff',
+                color: "#fff",
                 fontSize: 16
             }
         },
         grid: {
-            x: '10%',
+            x: "10%",
             x2: 150,
-            y: '18%',
-            y2: '10%'
+            y: "18%",
+            y2: "10%"
         },
         tooltip: {
             padding: 10,
-            backgroundColor: '#222',
-            borderColor: '#777',
+            backgroundColor: "#222",
+            borderColor: "#777",
             borderWidth: 1,
             formatter: function (obj) {
                 var value = obj.value;
@@ -174,11 +174,11 @@
             }
         },
         xAxis: {
-            type: 'value',
-            name: '日期',
+            type: "value",
+            name: "日期",
             nameGap: 16,
             nameTextStyle: {
-                color: '#fff',
+                color: "#fff",
                 fontSize: 14
             },
             max: 31,
@@ -187,22 +187,22 @@
             },
             axisLine: {
                 lineStyle: {
-                    color: '#eee'
+                    color: "#eee"
                 }
             }
         },
         yAxis: {
-            type: 'value',
-            name: 'AQI指数',
-            nameLocation: 'end',
+            type: "value",
+            name: "AQI指数",
+            nameLocation: "end",
             nameGap: 20,
             nameTextStyle: {
-                color: '#fff',
+                color: "#fff",
                 fontSize: 16
             },
             axisLine: {
                 lineStyle: {
-                    color: '#eee'
+                    color: "#eee"
                 }
             },
             splitLine: {
@@ -211,8 +211,8 @@
         },
         visualMap: [
             {
-                left: 'right',
-                top: '10%',
+                left: "right",
+                top: "10%",
                 dimension: 2,
                 min: 0,
                 max: 250,
@@ -220,73 +220,73 @@
                 itemHeight: 120,
                 calculable: true,
                 precision: 0.1,
-                text: ['圆形大小：PM2.5'],
+                text: ["圆形大小：PM2.5"],
                 textGap: 30,
                 textStyle: {
-                    color: '#fff'
+                    color: "#fff"
                 },
                 inRange: {
                     symbolSize: [10, 70]
                 },
                 outOfRange: {
                     symbolSize: [10, 70],
-                    color: ['rgba(255,255,255,.2)']
+                    color: ["rgba(255,255,255,.2)"]
                 },
                 controller: {
                     inRange: {
-                        color: ['#c23531']
+                        color: ["#c23531"]
                     },
                     outOfRange: {
-                        color: ['#444']
+                        color: ["#444"]
                     }
                 }
             },
             {
-                left: 'right',
-                bottom: '5%',
+                left: "right",
+                bottom: "5%",
                 dimension: 6,
                 min: 0,
                 max: 50,
                 itemHeight: 120,
                 calculable: true,
                 precision: 0.1,
-                text: ['明暗：二氧化硫'],
+                text: ["明暗：二氧化硫"],
                 textGap: 30,
                 textStyle: {
-                    color: '#fff'
+                    color: "#fff"
                 },
                 inRange: {
                     colorLightness: [1, 0.5]
                 },
                 outOfRange: {
-                    color: ['rgba(255,255,255,.2)']
+                    color: ["rgba(255,255,255,.2)"]
                 },
                 controller: {
                     inRange: {
-                        color: ['#c23531']
+                        color: ["#c23531"]
                     },
                     outOfRange: {
-                        color: ['#444']
+                        color: ["#444"]
                     }
                 }
             }
         ],
         series: [
             {
-                name: '北京',
-                type: 'scatter',
+                name: "北京",
+                type: "scatter",
                 itemStyle: itemStyle,
                 data: dataBJ
             },
             {
-                name: '上海',
+                name: "上海",
                 type: 'scatter',
                 itemStyle: itemStyle,
                 data: dataSH
             },
             {
-                name: '广州',
-                type: 'scatter',
+                name: "广州",
+                type: "scatter",
                 itemStyle: itemStyle,
                 data: dataGZ
             }

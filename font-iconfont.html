@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>阿里巴巴图标库</title>
-    <link rel="stylesheet" href="lib/layui/css/layui.css">
-    <link rel="stylesheet" href="css/sub-page.css">
+    <link rel="stylesheet" href="css/okadmin.css">
 </head>
 <body>
-    <div class="ok-body">
-        <!--面包屑导航区域-->
-        <div class="ok-body-breadcrumb">
-            <span class="layui-breadcrumb">
-                <a><cite>首页</cite></a>
-                <a><cite>图标字体</cite></a>
-                <a><cite>阿里巴巴图标库</cite></a>
-            </span>
-            <a class="layui-btn layui-btn-small" href="javascript:location.replace(location.href);" title="刷新">
-                <i class="layui-icon layui-icon-refresh"></i>
-            </a>
-        </div>
-        <br>
-        <blockquote class="layui-elem-quote">
-            图标选择：<a href="http://www.layui.com/doc/element/icon.html#table" target="_blank" class="layui-btn layui-btn-danger layui-btn-xs">点我跳转</a>
-        </blockquote>
-        <blockquote class="layui-elem-quote">
-            使用方法
-        </blockquote>
-        <pre class="layui-code" lay-title="HTML" lay-encode="true">
-// 挑选相应图标并获取类名，应用于页面：
-<i class="iconfont icon-xxx"></i>
-      </pre>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>图标字体</cite></a>
+            <a><cite>阿里巴巴图标库</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
     </div>
-    <!--js逻辑-->
-    <script src="lib/layui/layui.js"></script>
-    <script>
-        layui.use(['element', 'code'], function () {
-            layui.code({about: false});
-        })
-    </script>
+    <br>
+    <blockquote class="layui-elem-quote">
+        图标选择：<a href="http://www.layui.com/doc/element/icon.html#table" target="_blank" class="layui-btn layui-btn-danger layui-btn-xs">点我跳转</a>
+    </blockquote>
+    <blockquote class="layui-elem-quote">
+        使用方法
+    </blockquote>
+    <pre class="layui-code" lay-title="HTML" lay-encode="true">
+        // 挑选相应图标并获取类名，应用于页面：
+        <i class="iconfont icon-xxx"></i>
+    </pre>
+</div>
+<!--js逻辑-->
+<script src="lib/layui/layui.js"></script>
+<script>
+    layui.use(["element", "code"], function () {
+        layui.code({about: false});
+    })
+</script>
 </body>
 </html>

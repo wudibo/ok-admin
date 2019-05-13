@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>okutils测试</title>
+    <script src="js/okutils.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    console.log("当前时间格式化:", dateUtil.dateFormat(new Date(), "yyyy-MM-dd hh:mm:ss"))
+
+    console.log("判断字符串是否为空:", strUtil.isEmpty(""));
+    console.log("判断两个字符串是否相同:", strUtil.isEquals("abc", "abc"));
+    console.log("忽略大小写判断字符串是否相同:", strUtil.isEqualsIgnoreCase("abc", "Abc"));
+    console.log("判断是否是数字:", strUtil.isNum("123"));
+    console.log("判断是否是中文:", strUtil.isChinese("xxx你好"));
+</script>
+</body>
+</html>

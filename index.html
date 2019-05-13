@@ -2,14 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ok-admin | 很赞的后台模版</title>
+    <title>ok-admin v1.0 | 很赞的后台模版</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-    <link rel="stylesheet" href="lib/layui/css/layui.css">
+    <link rel="shortcut icon" href="imgs/favicon.ico"/>
     <link rel="stylesheet" href="css/okadmin.css">
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_693759_ciewkz7d5vo.css">
     <link rel="stylesheet" href="lib/nprogress/nprogress.css">
 </head>
 <body class="layui-layout-body">
@@ -21,29 +19,21 @@
             <i class="iconfont icon-caidan"></i>
         </div>
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item layui-this"><a href=""><i class="iconfont icon-jiankongkongzhiguanlijianguan"></i> 控制管理<span class="layui-badge-dot"></span></a></li>
-            <li class="layui-nav-item"><a href=""><i class="iconfont icon-weibiaoti35"></i> 产品中心</a></li>
-            <li class="layui-nav-item"><a href=""><i class="iconfont icon-rengongzhineng"></i> 人工智能</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;"><i class="iconfont icon-map-setting"></i> 其它系统</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="">邮件管理</a></dd>
-                    <dd><a href="">消息管理</a></dd>
-                    <dd><a href="">授权管理</a></dd>
-                </dl>
+            <li class="weather">
+                <div id="tp-weather-widget"></div>
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="images/head.jpg" class="layui-nav-img">
+                    <img src="imgs/head.png" class="layui-nav-img">
                     bobi
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="">个人中心<span class="layui-badge-dot"></span></a></dd>
-                    <dd><a href="">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                    <dd><a href="javascript:void(0)" id="lock">锁定账户</a></dd>
+                    <dd><a href="javascript:;" path="user-center.html" tab-id="0-1">个人中心<span class="layui-badge-dot"></span></a></dd>
+                    <dd><a href="javascript:;" path="user-info.html" tab-id="0-2">基本资料</a></dd>
+                    <dd><a href="javascript:;" path="user-security.html" tab-id="0-3">安全设置</a></dd>
+                    <dd><a href="javascript:;" id="lock">锁定账户</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="javascript:void(0)" id="logout">退出</a></li>
@@ -52,23 +42,55 @@
     <!--左侧导航区域-->
     <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
-            <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="">
+            <ul class="layui-nav layui-nav-tree">
                 <li class="layui-nav-item layui-nav-itemed">
                     <a class="" href="javascript:;">
-                        <i class="layui-icon">&#xe62a;</i> 常用页面
+                        <i class="iconfont icon-huiyuan"></i> 会员管理
                     </a>
                     <dl class="layui-nav-child">
                         <dd><a href="javascript:;" path="user.html" tab-id="1-1"><i class="iconfont icon-dianliyonghuzongshu"></i> 用户列表</a></dd>
-                        <dd><a href="javascript:;" path="article.html" tab-id="1-2"><i class="iconfont icon-wenzhang2"></i> 文章列表</a></dd>
-                        <dd><a href="javascript:;" path="role.html" tab-id="1-3"><i class="iconfont icon-jiaose"></i> 角色列表</a></dd>
-                        <dd><a href="javascript:;" path="permission.html" tab-id="1-4"><i class="iconfont icon-jiaoseshouquan"></i> 权限列表</a></dd>
-                        <dd><a href="javascript:;" path="process.html" tab-id="1-5"><i class="iconfont icon-liucheng"></i> 流程列表</a></dd>
-                        <dd><a href="javascript:;" path="image.html" tab-id="1-6"><i class="iconfont icon-tupian"></i> 图片列表</a></dd>
-                        <dd><a href="javascript:;" path="login.html" tab-id="1-7"><i class="iconfont icon-denglu"></i> 登陆页面</a></dd>
-                        <dd><a href="javascript:;" path="404.html" tab-id="1-8"><i class="iconfont icon-404cuowu"></i> 404页面</a></dd>
-                        <dd><a href="javascript:;" path="403.html" tab-id="1-9"><i class="iconfont icon-icon-test"></i> 403页面</a></dd>
-                        <dd><a href="javascript:;" path="500.html" tab-id="1-10"><i class="iconfont icon-icon-test1"></i> 500页面</a></dd>
-                        <dd><a href="javascript:;" path="donate.html" tab-id="1-11"><i class="iconfont icon-juanzeng"></i> 捐赠列表</a></dd>
+                        <dd><a href="javascript:;" path="role.html" tab-id="1-2"><i class="iconfont icon-jiaoseguanli"></i> 角色列表</a></dd>
+                        <dd><a href="javascript:;" path="permission.html" tab-id="1-3"><i class="iconfont icon-jiaoseshouquan"></i> 权限列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="iconfont icon-ai-new"></i> 新闻管理
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="article.html" tab-id="2-1"><i class="iconfont icon-wenzhang2"></i> 文章列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="iconfont icon-liuyan"></i> 留言管理
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="user.html" tab-id="3-1"><i class="iconfont icon-liuyan"></i> 留言列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="iconfont icon-xiazai"></i> 下载中心
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="user.html" tab-id="4-1"><i class="iconfont icon-xiazai"></i> 下载列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="iconfont icon-youqinglianjie"></i> 友情链接
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="user.html" tab-id="5-1"><i class="iconfont icon-youqinglianjie"></i> 链接列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="" href="javascript:;">
+                        <i class="iconfont icon-weibiaoti35"></i> 产品管理
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="user.html" tab-id="6-1"><i class="iconfont icon-weibiaoti35"></i> 产品列表</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -76,21 +98,21 @@
                         <i class="layui-icon">&#xe62c;</i> 图表页面
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" path="map1.html" tab-id="2-1">柱状图</a></dd>
-                        <dd><a href="javascript:;" path="map2.html" tab-id="2-2">折线图</a></dd>
-                        <dd><a href="javascript:;" path="map3.html" tab-id="2-3">折线堆叠图</a></dd>
-                        <dd><a href="javascript:;" path="map4.html" tab-id="2-4">饼图</a></dd>
-                        <dd><a href="javascript:;" path="map5.html" tab-id="2-5">环形图</a></dd>
-                        <dd><a href="javascript:;" path="map6.html" tab-id="2-6">散布图</a></dd>
+                        <dd><a href="javascript:;" path="map1.html" tab-id="7-1"><i class="iconfont icon-zhuzhuangtu"></i> 柱状图</a></dd>
+                        <dd><a href="javascript:;" path="map2.html" tab-id="7-2"><i class="iconfont icon-tubiaozhexiantu"></i> 折线图</a></dd>
+                        <dd><a href="javascript:;" path="map3.html" tab-id="7-3"><i class="iconfont icon-tubiaozhexiantu"></i> 折线堆叠图</a></dd>
+                        <dd><a href="javascript:;" path="map4.html" tab-id="7-4"><i class="iconfont icon-bingtu"></i> 饼图</a></dd>
+                        <dd><a href="javascript:;" path="map5.html" tab-id="7-5"><i class="iconfont icon-huanxingtu"></i> 环形图</a></dd>
+                        <dd><a href="javascript:;" path="map6.html" tab-id="7-6"><i class="iconfont icon-huanxingtu"></i> 散布图</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">
-                        <i class="layui-icon">&#xe646;</i> 字体图标
+                        <i class="iconfont icon-font"></i> 字体图标
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" path="font-layui.html" tab-id="3-1">Layui内置图标库</a></dd>
-                        <dd><a href="javascript:;" path="font-iconfont.html" tab-id="3-2">阿里巴巴图标库</a></dd>
+                        <dd><a href="javascript:;" path="font-layui.html" tab-id="8-1"><i class="iconfont icon-font"></i> Layui内置图标库</a></dd>
+                        <dd><a href="javascript:;" path="font/demo_index.html" tab-id="8-2"><i class="iconfont icon-font"></i> 阿里巴巴图标库</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -98,9 +120,24 @@
                         <i class="layui-icon">&#xe716;</i> 系统管理
                     </a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-1"><i class="iconfont icon-settings"></i> 系统设置</a></dd>
-                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-2"><i class="iconfont icon-blacklist"></i> 屏蔽词</a></dd>
-                        <dd><a href="javascript:;" path="xxxx.html" tab-id="4-3"><i class="iconfont icon-rizhi"></i> 系统日志</a></dd>
+                        <dd><a href="javascript:;" path="system-setting.html" tab-id="9-1"><i class="iconfont icon-settings"></i> 网站配置</a></dd>
+                        <dd><a href="javascript:;" path="system-shield.html" tab-id="9-2"><i class="iconfont icon-blacklist"></i> 屏蔽词</a></dd>
+                        <dd><a href="javascript:;" path="system-log.html" tab-id="9-3"><i class="iconfont icon-rizhi"></i> 系统日志</a></dd>
+                        <dd><a href="javascript:;" path="login.html" tab-id="9-5"><i class="iconfont icon-denglu"></i> 登陆页面</a></dd>
+                        <dd><a href="javascript:;" path="404.html" tab-id="9-6"><i class="iconfont icon-404cuowu"></i> 404页面</a></dd>
+                        <dd><a href="javascript:;" path="403.html" tab-id="9-7"><i class="iconfont icon-icon-test"></i> 403页面</a></dd>
+                        <dd><a href="javascript:;" path="500.html" tab-id="9-8"><i class="iconfont icon-icon-test1"></i> 500页面</a></dd>
+                        <dd><a href="javascript:;" path="donate.html" tab-id="9-9"><i class="iconfont icon-juanzeng"></i> 捐赠列表</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        <i class="layui-icon">&#xe716;</i> 框架使用
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" path="use-tab.html" tab-id="10-1"><i class="iconfont icon-settings"></i> Tab使用</a></dd>
+						<dd><a href="javascript:;" path="use-okLayer.html" tab-id="10-2"><i class="iconfont icon-settings"></i> okLayer使用</a></dd>
+						<dd><a href="javascript:;" path="use-okUtils.html" tab-id="10-3"><i class="iconfont icon-settings"></i> okUtils使用</a></dd>
                     </dl>
                 </li>
             </ul>
@@ -114,15 +151,16 @@
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-                    <iframe src='welcome.html' frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
+                    <iframe src="welcome.html" frameborder="0" scrolling="yes" width="100%" height="100%"></iframe>
                 </div>
             </div>
         </div>
     </div>
     <!--底部信息-->
     <div class="layui-footer">
-        Copyright ©2018-©2018 ok-admin v1.0 All Rights Reserved
-        <button class="layui-btn layui-btn-danger layui-btn-xs">捐赠作者</button>
+        Copyright ©2018-©<span id="endYear"></span> ok-admin v1.0 All Rights Reserved
+        <button class="layui-btn layui-btn-danger layui-btn-xs donate">捐赠作者</button>
+        <button class="layui-btn layui-btn-danger layui-btn-xs communication">QQ群交流</button>
     </div>
 </div>
 <div class="yy"></div>
@@ -130,5 +168,22 @@
 <script src="lib/layui/layui.js"></script>
 <script src="lib/nprogress/nprogress.js"></script>
 <script src="js/okadmin.js"></script>
+<!--天气预报插件-->
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "slim",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "container": "tp-weather-widget",
+    "bubble": "disabled",
+    "alarmType": "badge",
+    "color": "#FFFFFF",
+    "uid": "U9EC08A15F",
+    "hash": "039da28f5581f4bcb5c799fb4cdfb673"
+});
+tpwidget("show");</script>
 </body>
 </html>

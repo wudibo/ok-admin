@@ -1,0 +1,85 @@
+[
+  {
+    "id": "1",
+    "name": "根目录",
+    "isParent": true
+  },
+  {
+    "id": "2",
+    "name": "会员管理",
+    "isParent": true,
+    "parentId": "1"
+  },
+  {
+    "id": "3",
+    "name": "用户管理",
+    "isParent": true,
+    "parentId": "2"
+  },
+  {
+    "id": "4",
+    "name": "增加",
+    "isParent": false,
+    "parentId": "3"
+  },
+  {
+    "id": "5",
+    "name": "修改",
+    "isParent": false,
+    "parentId": "3"
+  },
+  {
+    "id": "6",
+    "name": "删除",
+    "isParent": false,
+    "parentId": "3"
+  },
+  {
+    "id": "7",
+    "name": "角色管理",
+    "isParent": true,
+    "parentId": "2"
+  },
+  {
+    "id": "8",
+    "name": "增加",
+    "isParent": false,
+    "parentId": "7"
+  },
+  {
+    "id": "9",
+    "name": "修改",
+    "isParent": false,
+    "parentId": "7"
+  },
+  {
+    "id": "10",
+    "name": "删除",
+    "isParent": false,
+    "parentId": "7"
+  },
+  {
+    "id": "11",
+    "name": "权限管理",
+    "isParent": true,
+    "parentId": "2"
+  },
+  {
+    "id": "12",
+    "name": "增加",
+    "isParent": false,
+    "parentId": "11"
+  },
+  {
+    "id": "13",
+    "name": "修改",
+    "isParent": false,
+    "parentId": "11"
+  },
+  {
+    "id": "14",
+    "name": "删除",
+    "isParent": false,
+    "parentId": "11"
+  }
+]
