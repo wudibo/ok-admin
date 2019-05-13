@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>文章列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../css/okadmin.css">
+    <link rel="stylesheet" href="../../lib/nprogress/nprogress.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>常用页面</cite></a>
+            <a><cite>文章列表</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <!--模糊搜索区域-->
+    <div class="layui-row">
+        <form class="layui-form layui-col-md12 ok-search">
+            <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime">
+            <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime">
+            <input class="layui-input" placeholder="请输入标题" autocomplete="off">
+            <button class="layui-btn" lay-submit="" lay-filter="search">
+                <i class="layui-icon layui-icon-search"></i>
+            </button>
+        </form>
+    </div>
+    <!--工具栏-->
+    <okToolbar>
+        <button class="layui-btn layui-btn-normal" id="batchEnabled">
+            <i class="iconfont icon-shangsheng"></i>批量上架
+        </button>
+        <button class="layui-btn layui-btn-warm" id="batchDisabled">
+            <i class="iconfont icon-web-icon-"></i>批量下架
+        </button>
+        <button class="layui-btn layui-btn-danger" id="batchDel">
+            <i class="layui-icon layui-icon-delete"></i>批量删除
+        </button>
+        <button class="layui-btn" id="addUser">
+            <i class="layui-icon">&#xe61f;</i>添加文章
+        </button>
+        <span>共有数据：<i id="countNum"></i> 条</span>
+    </okToolbar>
+    <!--数据表格-->
+    <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
+</div>
+<!--js逻辑-->
+<script src="../../lib/layui/layui.js"></script>
+<script src="../../lib/nprogress/nprogress.js"></script>
+<script>
+    // 进度条加载提示
+    NProgress.start();
+    window.onload = function () {
+        NProgress.done();
+    }
+    // layui相关
+    layui.use(["element", "table", "form", "jquery", "laydate"], function () {
+        var table = layui.table;
+        var form = layui.form;
+        var $ = layui.jquery;
+        var laydate = layui.laydate;
+
+        laydate.render({elem: "#startTime", type: "datetime"});
+        laydate.render({elem: "#endTime", type: "datetime"});
+
+        table.render({
+            elem: "#tableId",
+            url: "../../data/article.json",
+            limit: 10,
+            page: true,
+            even: true,
+            cols: [[
+                {type: "checkbox"},
+                {field: "id", title: "ID", width: 80, sort: true},
+                {field: "title", title: "标题", width: 350},
+                {field: "url", title: "链接", width: 250, templet: "#urlTpl"},
+                {field: "readSize", title: "阅读量", width: 80},
+                {field: "publisher", title: "发布者", width: 100},
+                {field: "isTop", title: "置顶", width: 100, templet: "#topTpl"},
+                {field: "status", title: "状态", width: 100, templet: "#statusTpl"},
+                {title: "操作", width: 200, align: "center", templet: "#operationTpl"}
+            ]],
+            done: function (res, curr, count) {
+                $("#countNum").text(count);
+            }
+        });
+
+        form.on("submit(search)", function () {
+            layer.msg("正在查询，请稍后...");
+            return false;
+        });
+
+        table.on("tool(tableFilter)", function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            if (layEvent === "edit") {
+                layer.open({
+                    title: "编辑用户",
+                    type: 2,
+                    shade: false,
+                    maxmin: true,
+                    shade: 0.5,
+                    area: ["90%", "90%"],
+                    content: "article-edit.html",
+                    zIndex: layer.zIndex,
+                    end: function () {
+                        $(".layui-laypage-btn")[0].click();
+                    }
+                });
+            } else if (layEvent === "del") {
+                layer.confirm("确定要删除吗？", {skin: "layui-layer-lan", icon: 2, title: "提示", anim: 6}, function () {
+                    layer.msg("操作成功！", {icon: 1, time: 1000});
+                });
+            }
+        });
+
+        $("#batchEnabled").click(function () {
+            layer.confirm("确定要批量上架吗？", {skin: "layui-layer-lan", icon: 3, title: "提示", anim: 1}, function () {
+                var checkStatus = table.checkStatus("tableId");
+                var rows = checkStatus.data.length;
+                if (rows > 0) {
+                    var idsStr = "";
+                    for (var i = 0; i < checkStatus.data.length; i++) {
+                        idsStr += checkStatus.data[i].id + ",";
+                    }
+                    console.log("选择的id-->" + idsStr);
+                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
+                        $(".layui-laypage-btn")[0].click();
+                    });
+                } else {
+                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
+                }
+            });
+        })
+
+        $("#batchDisabled").click(function () {
+            layer.confirm("确定要批量下架吗？", {skin: "layui-layer-lan", icon: 3, title: "提示", anim: 2}, function () {
+                var checkStatus = table.checkStatus("tableId");
+                var rows = checkStatus.data.length;
+                if (rows > 0) {
+                    var idsStr = "";
+                    for (var i = 0; i < checkStatus.data.length; i++) {
+                        idsStr += checkStatus.data[i].id + ",";
+                    }
+                    console.log("选择的id-->" + idsStr);
+                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
+                        $(".layui-laypage-btn")[0].click();
+                    });
+                } else {
+                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
+                }
+            });
+        })
+
+        $("#batchDel").click(function () {
+            layer.confirm("确定要批量删除吗？", {skin: "layui-layer-lan", icon: 2, title: "提示", anim: 6}, function () {
+                var checkStatus = table.checkStatus("tableId");
+                var rows = checkStatus.data.length;
+                if (rows > 0) {
+                    var idsStr = "";
+                    for (var i = 0; i < checkStatus.data.length; i++) {
+                        idsStr += checkStatus.data[i].id + ",";
+                    }
+                    console.log("选择的id-->" + idsStr);
+                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
+                        $(".layui-laypage-btn")[0].click();
+                    });
+                } else {
+                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
+                }
+            });
+        })
+
+        $("#addUser").click(function () {
+            layer.open({
+                title: "添加文章",
+                type: 2,
+                shade: false,
+                maxmin: true,
+                shade: 0.5,
+                anim: 4,
+                area: ["90%", "90%"],
+                content: "article-add.html",
+                zIndex: layer.zIndex,
+                // skin: 'layui-layer-molv',
+                end: function () {
+                    $(".layui-laypage-btn")[0].click();
+                }
+            });
+        })
+    })
+</script>
+<!--模板-->
+<script type="text/html" id="urlTpl">
+    <a href="{{d.url}}" target="_blank">{{d.url}}</a>
+</script>
+<script type="text/html" id="topTpl">
+    <input type="checkbox" name="isTop" value="{{d.isTop}}" lay-skin="switch" lay-text="是|否" {{ d.isTop== true ? 'checked' : ''}}>
+</script>
+<script type="text/html" id="statusTpl">
+    <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="上架|下架" {{ d.status== true ? 'checked' : ''}}>
+</script>
+<script type="text/html" id="operationTpl">
+    <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
+    <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
+</script>
+</body>
+</html>

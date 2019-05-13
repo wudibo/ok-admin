@@ -165,7 +165,7 @@ layui.use(["element", "layer"], function () {
      */
     $("#logout").click(function () {
         layer.confirm("确定要退出吗？", {skin: 'layui-layer-lan', icon: 3, title: '提示', anim: 6}, function () {
-            window.location = "login.html";
+            window.location = "pages/other/login.html";
         });
     });
 

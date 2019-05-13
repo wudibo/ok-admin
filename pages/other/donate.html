@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捐赠页面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../css/okadmin.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>常用页面</cite></a>
+            <a><cite>捐赠列表</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <table class="layui-table">
+        <colgroup>
+            <col width="250">
+            <col width="250">
+            <col width="250">
+            <col>
+        </colgroup>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>用户</th>
+            <th>金额</th>
+            <th>时间</th>
+            <th>渠道</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>001</td>
+            <td>*明</td>
+            <td>￥3.80</td>
+            <td>2018-07-16</td>
+            <td><button class="layui-btn layui-btn-sm">支付宝</button></td>
+        </tr>
+        <tr>
+            <td>002</td>
+            <td>*东</td>
+            <td>￥6.80</td>
+            <td>2018-08-05</td>
+            <td><button class="layui-btn layui-btn-sm">支付宝</button></td>
+        </tr>
+        <tr>
+            <td>003</td>
+            <td>**</td>
+            <td>￥0.01</td>
+            <td>2018-08-08</td>
+            <td><button class="layui-btn layui-btn-danger layui-btn-sm">微&nbsp;&nbsp;&nbsp;&nbsp;信</button></td>
+        </tr>
+        <tr>
+            <td>004</td>
+            <td>*棣</td>
+            <td>￥8.80</td>
+            <td>2018-08-09</td>
+            <td><button class="layui-btn layui-btn-sm">支付宝</button></td>
+        </tr>
+        <tr>
+            <td>005</td>
+            <td>**</td>
+            <td>￥0.01</td>
+            <td>2018-08-11</td>
+            <td><button class="layui-btn layui-btn-danger layui-btn-sm">微&nbsp;&nbsp;&nbsp;&nbsp;信</button></td>
+        </tr>
+        <tr>
+            <td>006</td>
+            <td>*你</td>
+            <td>￥1.00</td>
+            <td>2018-08-22</td>
+            <td><button class="layui-btn layui-btn-sm">支付宝</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="../../lib/layui/layui.js"></script>
+<script>
+    layui.use(["element", "layer"], function () {
+        layer.alert("谢谢各位大佬的支持！</br>您的肯定是我前进的动力，O(∩_∩)O谢谢~", {icon: 6, time: 3000, title: '感谢', anim: 1});
+    });
+</script>
+</body>
+</html>

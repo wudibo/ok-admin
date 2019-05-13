@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ok-admin v1.0 | 很赞的后台模版</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
+    <link rel="shortcut icon" href="imgs/favicon.ico"/>
+    <link rel="stylesheet" href="../../css/okadmin.css"/>
+    <link rel="stylesheet" href="../../lib/animate/animate.css"/>
+    <link rel="stylesheet" href="../../lib/nprogress/nprogress.css">
+</head>
+<body class="login-body">
+<div class="login-box animated rotateIn">
+    <div class="head"></div>
+    <div class="input-box">
+        <form class="layui-form" action="">
+            <input type="text" name="username" required lay-verify="required" placeholder="邮箱/手机号/平台账号" autocomplete="off" class="layui-input">
+            <input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
+            <div class="remember-me">
+                <span>记住我：</span>
+                <input type="checkbox" name="zzz" lay-skin="switch" lay-text="是|否">
+            </div>
+            <input type="submit" value="登 录" lay-submit lay-filter="login">
+        </form>
+        <div class="oauth">
+            <i class="iconfont icon-WechatIMG" style="font-size: 25px;"></i>
+            <i class="iconfont icon-github"></i>
+            <i class="iconfont icon-logo-weibo"></i>
+            <i class="iconfont icon-qq"></i>
+            <i class="iconfont icon-weixin"></i>
+            <i class="iconfont icon-zhifubao"></i>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2018-<span id="endYear"></span> ok-admin. All rights reserved.
+    </div>
+</div>
+<!--js逻辑-->
+<script src="../../lib/layui/layui.js"></script>
+<script src="../../lib/nprogress/nprogress.js"></script>
+<script type="text/javascript">
+    layui.use(["form", "jquery"], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+
+        // 进度条
+        NProgress.start();
+        window.onload = function () {
+            NProgress.done();
+        }
+
+        // 修改copyright结束时间
+        var data = new Date();
+        var year = data.getFullYear();
+        $("#endYear").text(year);
+
+        // 登陆逻辑
+        form.on('submit(login)', function (data) {
+            layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
+                window.location = "../../index.html";
+            });
+            return false;
+        });
+
+        // oauth三方登陆逻辑
+        $(".oauth .icon-WechatIMG").click(function () {
+            layer.msg('正在打开Gitee登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-github").click(function () {
+            layer.msg('正在打开Github登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-logo-weibo").click(function () {
+            layer.msg('正在打开微博登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-qq").click(function () {
+            layer.msg('正在打开QQ登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-weixin").click(function () {
+            layer.msg('正在打开微信登陆页面，请稍后...');
+        });
+
+        $(".oauth .icon-zhifubao").click(function () {
+            layer.msg('正在打开支付宝登陆页面，请稍后...');
+        });
+    });
+</script>
+</body>
+</html>
