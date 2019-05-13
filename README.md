@@ -16,7 +16,8 @@
 </p>
 
 # 访问地址
-http://ok-admin.xlbweb.cn
+- http://ok-admin-v1.xlbweb.cn
+- http://ok-admin.xlbweb.cn
 
 # 效果预览
 ![输入图片说明](https://images.gitee.com/uploads/images/2019/0331/183543_f366ed8b_1152471.png "屏幕截图.png")
