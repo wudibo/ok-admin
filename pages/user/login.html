@@ -41,15 +41,22 @@
 <script src="../../lib/layui/layui.js"></script>
 <script src="../../lib/nprogress/nprogress.js"></script>
 <script type="text/javascript">
-    layui.use(["form", "jquery"], function () {
+    layui.config({
+        base: "../../lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer",
+        okUtils: "okUtils/okUtils"
+    }).use(["form", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var $ = layui.jquery;
+		var okLayer = layui.okLayer;
+		var okUtils = layui.okUtils;
 
         // 进度条
-        NProgress.start();
-        window.onload = function () {
-            NProgress.done();
-        }
+//         NProgress.start();
+//         window.onload = function () {
+//             NProgress.done();
+//         }
 
         // 修改copyright结束时间
         var data = new Date();
@@ -58,9 +65,14 @@
 
         // 登陆逻辑
         form.on('submit(login)', function (data) {
-            layer.msg("登陆中...", {icon: 6, time: 1000, anim: 4}, function () {
-                window.location = "../../index.html";
-            });
+			 okUtils.ajax("/login", "post", data.field).done(function (response) {
+			    console.log(response)
+				layer.msg("登陆成功", {icon: 6, time: 1000, anim: 4}, function () {
+					window.location = "../../index.html";
+				});
+			}).fail(function (error) {
+			    console.log(error)
+			}); 
             return false;
         });
 

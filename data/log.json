@@ -9,7 +9,7 @@
       "method": "GET",
       "ip": "127.0.0.1",
 			"timeConsuming": 100,
-			"isNnormal": true,
+			"status": true,
 			"operator": "admin",
       "operatingTime": "2019-05-15 12:08:08"
     }

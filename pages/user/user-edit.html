@@ -105,10 +105,17 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.use(["element", "form", "jquery", "laydate"], function () {
+    layui.config({
+        base: "../../lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer",
+        okUtils: "okUtils/okUtils"
+    }).use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var $ = layui.jquery;
         var laydate = layui.laydate;
+		var okLayer = layui.okLayer;
+		var okUtils = layui.okUtils;
 
         laydate.render({elem: "#birthday", type: "datetime"});
 
@@ -117,10 +124,14 @@
         });
 
         form.on("submit(edit)", function (data) {
-            console.log(data.field);
-            layer.msg("编辑成功！", {icon: 6, time: 1000, anim: 4}, function () {
-                parent.layer.close(parent.layer.getFrameIndex(window.name));
-            });
+            okUtils.ajax("/user/add", "post", data.field).done(function (response) {
+                console.log(response)
+            	layer.msg("添加成功", {icon: 6, time: 1000, anim: 4}, function () {
+            	    parent.layer.close(parent.layer.getFrameIndex(window.name));
+            	});
+            }).fail(function (error) {
+                console.log(error)
+            }); 
             return false;
         });
     })
