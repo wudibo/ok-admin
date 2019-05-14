@@ -108,12 +108,14 @@
             var data = obj.data;
             var layEvent = obj.event;
             if (layEvent === "edit") {
-                okLayer.open("编辑用户", "user-edit.html", "90%", "90%", true)
+                okLayer.open("编辑用户", "user-edit.html", "90%", "90%", function () {
+					$(".layui-laypage-btn")[0].click();
+				})
             } else if (layEvent === "del") {
                 okLayer.confirm("确定要删除吗？", function () {
                     okUtils.ajax("/user/batchDel", "post", {idsStr: data.id}).done(function (response) {
                         console.log(response)
-                        okLayer.tableOperationMsg("删除成功");
+                        okUtils.table.operationSuccessMsg("删除成功");
                     }).fail(function (error) {
                         console.log(error)
                     });
@@ -124,13 +126,13 @@
         $("#batchEnabled").click(function () {
             okLayer.confirm("确定要批量启用吗？", function (index) {
                 layer.close(index);
-                var idsStr = okLayer.tableCheck(table);
+                var idsStr = okUtils.table.batchCheck(table);
                 console.log("idsStr-->" + idsStr)
                 // ajax请求后台api
                 if (idsStr) {
                     okUtils.ajax("/user/batchNormal", "post", {idsStr: idsStr}).done(function (response) {
                         console.log(response)
-                        okLayer.tableOperationMsg("批量启用成功");
+                        okUtils.table.operationSuccessMsg("批量启用成功");
                     }).fail(function (error) {
                         console.log(error)
                     });
@@ -141,11 +143,11 @@
         $("#batchDisabled").click(function () {
             okLayer.confirm("确定要批量停用吗？", function (index) {
                 layer.close(index);
-                var idsStr = okLayer.tableCheck(table);
+                var idsStr = okUtils.table.batchCheck(table);
                 if (idsStr) {
                     okUtils.ajax("/user/batchStop", "post", {idsStr: idsStr}).done(function (response) {
                         console.log(response)
-                        okLayer.tableOperationMsg("批量停用成功");
+                        okUtils.table.operationSuccessMsg("批量停用成功");
                     }).fail(function (error) {
                         console.log(error)
                     });
@@ -156,11 +158,11 @@
         $("#batchDel").click(function () {
             okLayer.confirm("确定要批量删除吗？", function (index) {
                 layer.close(index);
-                var idsStr = okLayer.tableCheck(table);
+                var idsStr = okUtils.table.batchCheck(table);
                 if (idsStr) {
                     okUtils.ajax("/user/batchDel", "post", {idsStr: idsStr}).done(function (response) {
                         console.log(response)
-                        okLayer.tableOperationMsg("批量删除成功");
+                        okUtils.table.operationSuccessMsg("批量删除成功");
                     }).fail(function (error) {
                         console.log(error)
                     });
@@ -169,7 +171,9 @@
         })
 
         $("#addUser").click(function () {
-            okLayer.open("添加用户", "user-add.html", "90%", "90%", true)
+            okLayer.open("添加用户", "user-add.html", "90%", "90%", function () {
+				$(".layui-laypage-btn")[0].click();
+			})
         })
     })
 </script>

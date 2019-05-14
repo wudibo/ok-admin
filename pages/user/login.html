@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="keywords" content="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
-    <link rel="shortcut icon" href="imgs/favicon.ico"/>
+    <link rel="shortcut icon" href="../../imgs/favicon.ico"/>
     <link rel="stylesheet" href="../../css/okadmin.css"/>
-    <link rel="stylesheet" href="../../lib/animate/animate.css"/>
     <link rel="stylesheet" href="../../lib/nprogress/nprogress.css">
 </head>
 <body class="login-body">
@@ -41,6 +40,12 @@
 <script src="../../lib/layui/layui.js"></script>
 <script src="../../lib/nprogress/nprogress.js"></script>
 <script type="text/javascript">
+    // 进度条
+    // NProgress.start();
+    // window.onload = function () {
+    //     NProgress.done();
+    // }
+
     layui.config({
         base: "../../lib/layui_plugins/"
     }).extend({
@@ -49,14 +54,8 @@
     }).use(["form", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var $ = layui.jquery;
-		var okLayer = layui.okLayer;
-		var okUtils = layui.okUtils;
-
-        // 进度条
-//         NProgress.start();
-//         window.onload = function () {
-//             NProgress.done();
-//         }
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
 
         // 修改copyright结束时间
         var data = new Date();
@@ -65,14 +64,14 @@
 
         // 登陆逻辑
         form.on('submit(login)', function (data) {
-			 okUtils.ajax("/login", "post", data.field).done(function (response) {
-			    console.log(response)
-				layer.msg("登陆成功", {icon: 6, time: 1000, anim: 4}, function () {
-					window.location = "../../index.html";
-				});
-			}).fail(function (error) {
-			    console.log(error)
-			}); 
+            okUtils.ajax("/login", "post", data.field).done(function (response) {
+                console.log(response)
+                okLayer.msg.greenTick("登陆成功", function () {
+                    window.location = "../../index.html";
+                })
+            }).fail(function (error) {
+                console.log(error)
+            });
             return false;
         });
 

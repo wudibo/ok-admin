@@ -1,5 +1,6 @@
 @import "../lib/layui/css/layui.css";
 @import "../font/iconfont.css";
+@import "../lib/animate/animate.css";
 /*所有页面的CSS代码都写在这里*/
 /*登陆页面*/
 .login-body{background:url(../imgs/bg.png) no-repeat center center fixed;background-size:cover}
@@ -21,21 +22,25 @@
 .layui-tab-title li:first-child .layui-tab-close{display:none}
 .menu-switch{width:30px;height:30px;position:relative;left:200px;top:16px;color:#fff;background-color:#1AA094;text-align:center;line-height:30px;cursor:pointer}
 .weather{margin: 15px 0 0 20px;}
+.textMarquee{float:left;width:450px;margin-top: 20px;}
 .layui-nav-tree .layui-nav-child a{padding-left:36px}
 .layui-tab-title li{background-color:#f2f2f2}
 .content-body{position:absolute;top:46px;right:0;bottom:42px;left:200px;z-index:1;overflow:hidden}
 .content-body .layui-tab-content{position:absolute;top:50px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
 .content-body .layui-tab-content .layui-tab-item{height:100%}
 .content-body .layui-tab-content .layui-tab-item iframe{height:100%}
-@media screen and (max-width:768px){.layui-layout-admin .layui-bg-black{left:-200px}
+@media screen and (max-width:768px){
+	.layui-layout-admin .layui-bg-black{left:-200px}
     .layui-layout-admin .content-body{left:0}
     .layui-layout-admin .layui-footer{left:0}
     .layui-layout-left{display:none}
 }
-@media screen and (max-width:480px){.layui-layout-admin .layui-logo{left:-32px}
+@media screen and (max-width:480px){
+	.layui-layout-admin .layui-logo{left:-32px}
     .menu-switch{left:140px}
 }
-@media screen and (max-width:330px){.layui-layout-admin .layui-logo{left:-51px;font-size:14px}
+@media screen and (max-width:330px){
+	.layui-layout-admin .layui-logo{left:-51px;font-size:14px}
     .menu-switch{left:100px}
 }
 .yy{position:absolute;top:0;left:0;width:100%;height:100%;opacity:.5;z-index:10;background-color:#000;display:none}
@@ -56,7 +61,8 @@
 .ok-search .layui-input{width:190px;padding-left:10px;margin-left:10px;float:left}
 .ok-search .layui-input:first-child{margin-left:0}
 .ok-search .layui-btn{margin-left:10px}
-@media screen and (max-width:768px){.ok-search .layui-input{width:100%;margin-left:0;margin-top:10px}
+@media screen and (max-width:768px){
+	.ok-search .layui-input{width:100%;margin-left:0;margin-top:10px}
     .ok-search .layui-btn{margin-left:0;margin-top:10px}
 }
 okToolbar{display:block;margin-top:10px;margin-bottom:10px;padding:5px;line-height:22px;border-radius:0 2px 2px 0;background-color:#f2f2f2}
