@@ -31,22 +31,6 @@
             </button>
         </form>
     </div>
-    <!--工具栏-->
-    <okToolbar>
-        <button class="layui-btn layui-btn-normal" id="batchEnabled">
-            <i class="iconfont icon-shangsheng"></i>批量启用
-        </button>
-        <button class="layui-btn layui-btn-warm" id="batchDisabled">
-            <i class="iconfont icon-web-icon-"></i>批量停用
-        </button>
-        <button class="layui-btn layui-btn-danger" id="batchDel">
-            <i class="layui-icon layui-icon-delete"></i>批量删除
-        </button>
-        <button class="layui-btn" id="addUser">
-            <i class="layui-icon">&#xe61f;</i>添加用户
-        </button>
-        <span>共有数据：<i id="countNum"></i> 条</span>
-    </okToolbar>
     <!--数据表格-->
     <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
 </div>
@@ -63,7 +47,7 @@
     }).extend({
         okLayer: "okLayer/okLayer",
         okUtils: "okUtils/okUtils"
-    }).use(["element", "table", "form", "jquery", "laydate", "okLayer", "okUtils"], function () {
+    }).use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
         var $ = layui.jquery;
@@ -80,7 +64,7 @@
             limit: 10,
             page: true,
 			toolbar: true,
-			toolbar: 'default',
+			toolbar: "#toolbarTpl",
             cols: [[
                 {type: "checkbox"},
                 {field: "id", title: "ID", width: 80, sort: true},
@@ -95,7 +79,7 @@
                 {title: "操作", width: 200, align: 'center', templet: "#operationTpl"}
             ]],
             done: function (res, curr, count) {
-                $("#countNum").text(count);
+                console.log(res, curr, count)
             }
         });
 
@@ -104,86 +88,123 @@
             return false;
         });
 
-        table.on("tool(tableFilter)", function (obj) {
+		table.on("toolbar(tableFilter)", function (obj) {
             var data = obj.data;
-            var layEvent = obj.event;
-            if (layEvent === "edit") {
-                okLayer.open("编辑用户", "user-edit.html", "90%", "90%", function () {
-					$(".layui-laypage-btn")[0].click();
-				})
-            } else if (layEvent === "del") {
-                okLayer.confirm("确定要删除吗？", function () {
-                    okUtils.ajax("/user/batchDel", "post", {idsStr: data.id}).done(function (response) {
-                        console.log(response)
-                        okUtils.table.operationSuccessMsg("删除成功");
-                    }).fail(function (error) {
-                        console.log(error)
-                    });
-                })
-            }
+			switch (obj.event) {
+				case "batchEnabled":
+					batchEnabled();
+					break;
+				case "batchDisabled":
+					batchDisabled();
+					break;
+				case "batchDel":
+					batchDel();
+					break;
+				case "add":
+					add();
+					break;
+			}
         });
 
-        $("#batchEnabled").click(function () {
-            okLayer.confirm("确定要批量启用吗？", function (index) {
-                layer.close(index);
-                var idsStr = okUtils.table.batchCheck(table);
-                console.log("idsStr-->" + idsStr)
-                // ajax请求后台api
-                if (idsStr) {
-                    okUtils.ajax("/user/batchNormal", "post", {idsStr: idsStr}).done(function (response) {
-                        console.log(response)
-                        okUtils.table.operationSuccessMsg("批量启用成功");
-                    }).fail(function (error) {
-                        console.log(error)
-                    });
-                }
-            });
-        })
+        table.on("tool(tableFilter)", function (obj) {
+            var data = obj.data;
+			switch (obj.event) {
+				case "edit":
+					edit(data.id);
+					break;
+				case "del":
+					del(data.id);
+					break;
+			}
+        });
 
-        $("#batchDisabled").click(function () {
-            okLayer.confirm("确定要批量停用吗？", function (index) {
-                layer.close(index);
-                var idsStr = okUtils.table.batchCheck(table);
-                if (idsStr) {
-                    okUtils.ajax("/user/batchStop", "post", {idsStr: idsStr}).done(function (response) {
-                        console.log(response)
-                        okUtils.table.operationSuccessMsg("批量停用成功");
-                    }).fail(function (error) {
-                        console.log(error)
-                    });
-                }
-            });
-        })
+		function batchEnabled () {
+			okLayer.confirm("确定要批量启用吗？", function (index) {
+			    layer.close(index);
+			    var idsStr = okUtils.table.batchCheck(table);
+			    if (idsStr) {
+			        okUtils.ajax("/user/batchNormal", "post", {idsStr: idsStr}).done(function (response) {
+			            console.log(response)
+			            okUtils.table.operationSuccessMsg("批量启用成功");
+			        }).fail(function (error) {
+			            console.log(error)
+			        });
+			    }
+			});
+		}
+		
+		function batchDisabled () {
+			okLayer.confirm("确定要批量停用吗？", function (index) {
+			    layer.close(index);
+			    var idsStr = okUtils.table.batchCheck(table);
+			    if (idsStr) {
+			        okUtils.ajax("/user/batchStop", "post", {idsStr: idsStr}).done(function (response) {
+			            console.log(response)
+			            okUtils.table.operationSuccessMsg("批量停用成功");
+			        }).fail(function (error) {
+			            console.log(error)
+			        });
+			    }
+			});
+		}
 
-        $("#batchDel").click(function () {
-            okLayer.confirm("确定要批量删除吗？", function (index) {
-                layer.close(index);
-                var idsStr = okUtils.table.batchCheck(table);
-                if (idsStr) {
-                    okUtils.ajax("/user/batchDel", "post", {idsStr: idsStr}).done(function (response) {
-                        console.log(response)
-                        okUtils.table.operationSuccessMsg("批量删除成功");
-                    }).fail(function (error) {
-                        console.log(error)
-                    });
-                }
-            });
-        })
+		function batchDel () {
+			okLayer.confirm("确定要批量删除吗？", function (index) {
+			    layer.close(index);
+			    var idsStr = okUtils.table.batchCheck(table);
+			    if (idsStr) {
+			        okUtils.ajax("/user/batchDel", "post", {idsStr: idsStr}).done(function (response) {
+			            console.log(response)
+			            okUtils.table.operationSuccessMsg("批量删除成功");
+			        }).fail(function (error) {
+			            console.log(error)
+			        });
+			    }
+			});
+		}
 
-        $("#addUser").click(function () {
-            okLayer.open("添加用户", "user-add.html", "90%", "90%", function () {
+		function add () {
+			okLayer.open("添加用户", "user-add.html", "90%", "90%", function () {
 				$(".layui-laypage-btn")[0].click();
 			})
-        })
+		}
+		
+		function edit (id) {
+			okLayer.open("编辑用户", "user-edit.html?id=" + id, "90%", "90%", function () {
+				$(".layui-laypage-btn")[0].click();
+			})
+		}
+		
+		function del (id) {
+			okLayer.confirm("确定要删除吗？", function () {
+			    okUtils.ajax("/user/batchDel", "post", {idsStr: id}).done(function (response) {
+			        console.log(response)
+			        okUtils.table.operationSuccessMsg("删除成功");
+			    }).fail(function (error) {
+			        console.log(error)
+			    });
+			})
+		}
     })
 </script>
-<!--模板-->
+<!-- 头工具栏模板 -->
+<script type="text/html" id="toolbarTpl">
+	<div class="layui-btn-container">    
+		<button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="batchEnabled"><i class="iconfont icon-shangsheng"></i>批量启用</button>
+		<button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="batchDisabled"><i class="iconfont icon-web-icon-"></i>批量停用</button>
+		<button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="batchDel"><i class="layui-icon layui-icon-delete"></i>批量删除</button>
+		<button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>添加用户</button>
+	</div>
+</script>
+<!-- 启用|停用模板 -->
 <script type="text/html" id="statusTpl">
     <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" {{ d.status== 0 ? 'checked' : ''}}>
 </script>
+<!-- 角色模板 -->
 <script type="text/html" id="roleTpl">
     {{ d.role == 0 ? '管理员' : '普通用户    '}}
 </script>
+<!-- 行工具栏模板 -->
 <script type="text/html" id="operationTpl">
     <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
     <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>

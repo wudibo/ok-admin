@@ -33,11 +33,11 @@
     </div>
     <!--工具栏-->
     <okToolbar>
+		<button class="layui-btn" id="add">
+		    <i class="layui-icon">&#xe61f;</i>添加权限
+		</button>
         <button class="layui-btn layui-btn-danger" id="batchDel">
             <i class="layui-icon layui-icon-delete"></i>批量删除
-        </button>
-        <button class="layui-btn" id="addPermission">
-            <i class="layui-icon">&#xe61f;</i>添加权限
         </button>
         <span>共有数据：<i id="countNum"></i> 条</span>
     </okToolbar>
@@ -56,13 +56,17 @@
     layui.config({
         base: "../../lib/layui_plugins/"
     }).extend({
-        treetable: "treetable/treetable"
-    }).use(["element", "table", "form", "jquery", "laydate", "treetable"], function () {
+        treetable: "treetable/treetable",
+		okLayer: "okLayer/okLayer",
+		okUtils: "okUtils/okUtils"
+    }).use(["element", "table", "form", "laydate", "treetable", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var table = layui.table;
         var $ = layui.jquery;
         var laydate = layui.laydate;
         var treetable = layui.treetable;
+		var okLayer = layui.okLayer;
+		var okUtils = layui.okUtils;
 
         laydate.render({elem: "#startTime", type: "datetime"});
         laydate.render({elem: "#endTime", type: "datetime"});
@@ -110,68 +114,56 @@
 
         table.on("tool(tableFilter)", function (obj) {
             var data = obj.data;
-            console.log("id值：" + data.id);
-            var layEvent = obj.event;
-            if (layEvent === "edit") {
-                layer.open({
-                    title: "编辑权限",
-                    type: 2,
-                    shade: false,
-                    maxmin: true,
-                    shade: 0.5,
-                    area: ["90%", "90%"],
-                    content: "permission-edit.html?id" + data.id,
-                    zIndex: layer.zIndex,
-                    end: function () {
-                        $(".layui-laypage-btn")[0].click();
-                    }
-                });
-            } else if (layEvent === "del") {
-                layer.confirm("确定要删除吗？", {skin: "layui-layer-lan", icon: 2, title: '提示', anim: 6}, function () {
-                    layer.msg("操作成功！", {icon: 1, time: 1000});
-                });
+            switch (obj.event) {
+            	case "edit":
+            		edit(data.id);
+            		break;
+            	case "del":
+            		del(data.id);
+            		break;
             }
         });
+		
+		$("#add").click(function () {
+			okLayer.open("添加权限", "permission-add.html", "90%", "90%", function () {
+				$(".layui-laypage-btn")[0].click();
+			})
+		});
+		
+		$("#batchDel").click(function () {
+			okLayer.confirm("确定要批量删除吗？", function (index) {
+			    layer.close(index);
+			    var idsStr = okUtils.table.batchCheck(table);
+			    if (idsStr) {
+			        okUtils.ajax("/permission/batchDel", "post", {idsStr: idsStr}).done(function (response) {
+			            console.log(response)
+			            okUtils.table.operationSuccessMsg("批量删除成功");
+			        }).fail(function (error) {
+			            console.log(error)
+			        });
+			    }
+			});
+		});
 
-        $("#batchDel").click(function () {
-            layer.confirm("确定要批量删除吗？", {skin: "layui-layer-lan", icon: 2, title: "提示", anim: 6}, function () {
-                var checkStatus = table.checkStatus('tableId');
-                var rows = checkStatus.data.length;
-                if (rows > 0) {
-                    var idsStr = "";
-                    for (var i = 0; i < checkStatus.data.length; i++) {
-                        idsStr += checkStatus.data[i].id + ",";
-                    }
-                    console.log("选择的id-->" + idsStr);
-                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
-                        $(".layui-laypage-btn")[0].click();
-                    });
-                } else {
-                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
-                }
-            });
-        })
-
-        $("#addPermission").click(function () {
-            layer.open({
-                title: "添加权限",
-                type: 2,
-                shade: false,
-                maxmin: true,
-                shade: 0.5,
-                anim: 4,
-                area: ["90%", "90%"],
-                content: "permission-add.html",
-                zIndex: layer.zIndex,
-                // skin: 'layui-layer-molv',
-                end: function () {
-                    $(".layui-laypage-btn")[0].click();
-                }
-            });
-        })
+		function edit (id) {
+			okLayer.open("编辑角色", "permission-edit.html?id=" + id, "90%", "90%", function () {
+				$(".layui-laypage-btn")[0].click();
+			})
+		}
+		
+		function del (id) {
+			okLayer.confirm("确定要删除吗？", function () {
+			    okUtils.ajax("/permission/batchDel", "post", {idsStr: id}).done(function (response) {
+			        console.log(response)
+			        okUtils.table.operationSuccessMsg("删除成功");
+			    }).fail(function (error) {
+			        console.log(error)
+			    });
+			})
+		}
     })
 </script>
-<!--模板-->
+<!--行工具栏模板-->
 <script type="text/html" id="operationTpl">
     <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
     <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
