@@ -29,6 +29,9 @@
 .content-body .layui-tab-content{position:absolute;top:50px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
 .content-body .layui-tab-content .layui-tab-item{height:100%}
 .content-body .layui-tab-content .layui-tab-item iframe{height:100%}
+@media screen and (max-width:992px){
+	.textMarquee{display:none}
+}
 @media screen and (max-width:768px){
 	.layui-layout-admin .layui-bg-black{left:-200px}
     .layui-layout-admin .content-body{left:0}
