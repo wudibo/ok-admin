@@ -84,5 +84,10 @@ okToolbar span{float:right;line-height:30px}
 ::-webkit-scrollbar-corner:vertical{background-color:#535353}
 ::-webkit-scrollbar-resizer:vertical{background-color:#FF6E00}
 
+/* 公共样式 */
+.tal{text-align:left;}
+.tac{text-align:center;}
+.tar{text-align:right;}
+
 
 
