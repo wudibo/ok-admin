@@ -8,7 +8,6 @@
     <meta name="description" content="ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。">
     <link rel="shortcut icon" href="../../imgs/favicon.ico"/>
     <link rel="stylesheet" href="../../css/okadmin.css"/>
-    <link rel="stylesheet" href="../../lib/nprogress/nprogress.css">
 </head>
 <body class="login-body">
 <div class="login-box animated rotateIn">
@@ -38,20 +37,14 @@
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
-<script src="../../lib/nprogress/nprogress.js"></script>
 <script type="text/javascript">
-    // 进度条
-    // NProgress.start();
-    // window.onload = function () {
-    //     NProgress.done();
-    // }
-
     layui.config({
         base: "../../lib/layui_plugins/"
     }).extend({
         okLayer: "okLayer/okLayer",
-        okUtils: "okUtils/okUtils"
-    }).use(["form", "okLayer", "okUtils"], function () {
+        okUtils: "okUtils/okUtils",
+        okProgress: "okProgress/okProgress"
+    }).use(["form", "okLayer", "okUtils", "okProgress"], function () {
         var form = layui.form;
         var $ = layui.jquery;
         var okLayer = layui.okLayer;

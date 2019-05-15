@@ -20,13 +20,15 @@
 .layui-nav{padding:0}
 .layui-layout-left{left:235px}
 .layui-tab-title li:first-child .layui-tab-close{display:none}
+.layui-tab-title li{background-color:#f2f2f2}
+.layui-tab-brief>.layui-tab-title .layui-this{color:#fff;background-color:#1AA094;}
 .menu-switch{width:30px;height:30px;position:relative;left:200px;top:16px;color:#fff;background-color:#1AA094;text-align:center;line-height:30px;cursor:pointer}
 .weather{margin: 15px 0 0 20px;}
 .textMarquee{float:left;width:450px;margin-top: 20px;}
 .layui-nav-tree .layui-nav-child a{padding-left:36px}
-.layui-tab-title li{background-color:#f2f2f2}
-.content-body{position:absolute;top:46px;right:0;bottom:42px;left:200px;z-index:1;overflow:hidden}
-.content-body .layui-tab-content{position:absolute;top:50px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
+.content-body{position:absolute;top:60px;right:0;bottom:42px;left:200px;z-index:1;overflow:hidden;}
+.content-body .layui-tab{margin:-1px 0 0 0;}
+.content-body .layui-tab-content{position:absolute;top:40px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
 .content-body .layui-tab-content .layui-tab-item{height:100%}
 .content-body .layui-tab-content .layui-tab-item iframe{height:100%}
 @media screen and (max-width:992px){
