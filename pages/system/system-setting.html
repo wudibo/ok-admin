@@ -195,8 +195,8 @@
 		var storage = window.localStorage;
 		var skin = storage.getItem("skin");
 		var anim = storage.getItem("anim");
-		$("#skin").val(skin);
-		$("#anim").val(anim);
+		$("#skin").val(okUtils.isNumWith(skin, 1, 4) ? skin : 1);
+		$("#anim").val(okUtils.isNumWith(anim, 0, 7) ? anim : 0);
 		form.render()
 		
 		form.on("submit(skinAnimSubmit)", function (data) {
