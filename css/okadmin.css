@@ -27,7 +27,7 @@
 .textMarquee{float:left;width:450px;margin-top: 20px;}
 .layui-nav-tree .layui-nav-child a{padding-left:36px}
 .content-body{position:absolute;top:60px;right:0;bottom:42px;left:200px;z-index:1;overflow:hidden;}
-.content-body .layui-tab{margin:-1px 0 0 0;}
+.content-body .layui-tab{margin:0;}
 .content-body .layui-tab-content{position:absolute;top:40px;bottom:0;width:100%;padding:0;z-index:-999;overflow:hidden}
 .content-body .layui-tab-content .layui-tab-item{height:100%}
 .content-body .layui-tab-content .layui-tab-item iframe{height:100%}
