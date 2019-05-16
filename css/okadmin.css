@@ -2,8 +2,9 @@
 @import "../font/iconfont.css";
 @import "../lib/animate/animate.css";
 /*所有页面的CSS代码都写在这里*/
+html,body{width: 100%;height: 100%;}
 /*登陆页面*/
-.login-body{background:url(../imgs/bg.png) no-repeat 100% 100% fixed;background-size:cover}
+.login-body{background:url(../imgs/bg.png) no-repeat center center fixed;background-size:cover}
 .login-body .login-box{width:300px;height:300px;border:1px solid #1a312c;position:absolute;left:50%;top:50%;margin-left:-150px;margin-top:-150px;border-radius:5px}
 .login-body .login-box .head{width:100px;height:100px;border-radius:50%;position:absolute;top:-96px;left:50%;margin-left:-50px;background:url(../imgs/ok.png);background-size:cover}
 .login-body .login-box .input-box{margin:10px 10px 10px 10px}
