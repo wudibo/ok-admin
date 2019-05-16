@@ -60,7 +60,7 @@
         <div class="layui-form-item layui-form-text">
             <label class="layui-form-label">内容</label>
             <div class="layui-input-block">
-                <textarea name="content" placeholder="请输入文章内容" class="layui-textarea" lay-verify="required"></textarea>
+                <textarea id="content" name="content" lay-verify="content" style="display: none;"></textarea>
             </div>
         </div>
         <div class="layui-form-item">
@@ -74,14 +74,37 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.use(["element", "form", "jquery"], function () {
+    layui.config({
+        base: "../../lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer",
+        okUtils: "okUtils/okUtils"
+    }).use(["element", "form", "layedit", "okLayer", "okUtils"], function () {
         var form = layui.form;
-        var $ = layui.jquery;
+        var layedit = layui.layedit;
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
+
+        var index = layedit.build("content", {});
+		form.verify({
+			// layedit内容校验
+			content: function () {
+				layedit.sync(index);
+				var content = layedit.getContent(index);
+				if (content.length < 10) {
+					return "文章内容不得少于10个字符！";
+				}
+			}
+		});
 
         form.on("submit(add)", function (data) {
-            console.log(data.field);
-            layer.msg("添加成功！", {icon: 6, time: 1000, anim: 4}, function () {
-                parent.layer.close(parent.layer.getFrameIndex(window.name));
+            okUtils.ajax("/article/add", "post", data.field).done(function (response) {
+                console.log(response)
+                okLayer.msg.greenTick("添加成功", function () {
+                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                });
+            }).fail(function (error) {
+                console.log(error)
             });
             return false;
         });

@@ -112,7 +112,6 @@
         okUtils: "okUtils/okUtils"
     }).use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
         var form = layui.form;
-        var $ = layui.jquery;
         var laydate = layui.laydate;
 		var okLayer = layui.okLayer;
 		var okUtils = layui.okUtils;
@@ -126,12 +125,12 @@
         form.on("submit(add)", function (data) {
 			okUtils.ajax("/user/add", "post", data.field).done(function (response) {
 			    console.log(response)
-				layer.msg("添加成功", {icon: 6, time: 1000, anim: 4}, function () {
-				    parent.layer.close(parent.layer.getFrameIndex(window.name));
-				});
+                okLayer.msg.greenTick("添加成功", function () {
+                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                });
 			}).fail(function (error) {
 			    console.log(error)
-			}); 
+			});
             return false;
         });
     })

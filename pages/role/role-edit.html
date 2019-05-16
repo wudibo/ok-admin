@@ -38,6 +38,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">权限</label>
             <div class="layui-input-block">
+                <!--权限树-->
                 <ul class="ztree" id="permissionTree"></ul>
             </div>
         </div>
@@ -54,8 +55,15 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="../../lib/zTree_v3/js/jquery.ztree.all.js"></script>
 <script type="text/javascript">
-    layui.use(["element", "form"], function () {
+    layui.config({
+        base: "../../lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer",
+        okUtils: "okUtils/okUtils"
+    }).use(["element", "form", "okLayer", "okUtils"], function () {
         var form = layui.form;
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
 
         // zTree设置
         var setting = {
@@ -66,31 +74,36 @@
         };
 
         // zTree异步请求所有权限树节点
-        var treeObj, loadIndex;
-        $.ajax({
-            url: "../../data/permission-tree.json",
-            type: "get",
-            dataType: "json",
-            data: {roleId: 1},
-            beforeSend: function () {
-                loadIndex = layer.load(0, {shade: 0.1});
-            },
-            complete: function () {
-                layer.close(loadIndex);
-            },
-            success: function (data) {
-                treeObj = $.fn.zTree.init($("#permissionTree"), setting, data);
-                treeObj.expandAll(true);
-            },
-            error: function () {
-                layer.msg("服务器错误", {icon: 5, time: 1000});
-            }
+        var treeObj;
+        okUtils.ajax("../../data/permission-tree.json", "get").done(function (response) {
+            treeObj = $.fn.zTree.init($("#permissionTree"), setting, response);
+            treeObj.expandAll(true);
+        }).fail(function (error) {
+            console.log(error)
         });
 
         form.on("submit(edit)", function (data) {
-            console.log(data.field);
-            layer.msg("编辑成功！", {icon: 6, time: 1000, anim: 4}, function () {
-                parent.layer.close(parent.layer.getFrameIndex(window.name));
+            // 权限节点校验
+            var nodes = treeObj.getCheckedNodes(true);
+            if (nodes.length == 0) {
+                okLayer.msg.redCross("请选择权限节点");
+                return false;
+            }
+
+            // 权限节点获取
+            var permissionIds = "";
+            for (var i = 0; i < nodes.length; i++) {
+                permissionIds = permissionIds + nodes[i].id + ",";
+            }
+
+            // 请求后台
+            okUtils.ajax("/role/edit", "post", data.field).done(function (response) {
+                console.log(response)
+                okLayer.msg.greenTick("编辑成功", function () {
+                    parent.layer.close(parent.layer.getFrameIndex(window.name));
+                });
+            }).fail(function (error) {
+                console.log(error)
             });
             return false;
         });

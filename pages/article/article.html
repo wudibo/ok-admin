@@ -22,52 +22,43 @@
     <!--模糊搜索区域-->
     <div class="layui-row">
         <form class="layui-form layui-col-md12 ok-search">
-            <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime">
-            <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime">
-            <input class="layui-input" placeholder="请输入标题" autocomplete="off">
+            <input class="layui-input" placeholder="开始日期" autocomplete="off" id="startTime" name="startTime">
+            <input class="layui-input" placeholder="截止日期" autocomplete="off" id="endTime" name="endTime">
+            <input class="layui-input" placeholder="请输入标题" autocomplete="off" name="title">
             <button class="layui-btn" lay-submit="" lay-filter="search">
                 <i class="layui-icon layui-icon-search"></i>
             </button>
         </form>
     </div>
-    <!--工具栏-->
-    <okToolbar>
-        <button class="layui-btn layui-btn-normal" id="batchEnabled">
-            <i class="iconfont icon-shangsheng"></i>批量上架
-        </button>
-        <button class="layui-btn layui-btn-warm" id="batchDisabled">
-            <i class="iconfont icon-web-icon-"></i>批量下架
-        </button>
-        <button class="layui-btn layui-btn-danger" id="batchDel">
-            <i class="layui-icon layui-icon-delete"></i>批量删除
-        </button>
-        <button class="layui-btn" id="addUser">
-            <i class="layui-icon">&#xe61f;</i>添加文章
-        </button>
-        <span>共有数据：<i id="countNum"></i> 条</span>
-    </okToolbar>
     <!--数据表格-->
     <table class="layui-hide" id="tableId" lay-filter="tableFilter"></table>
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    // layui相关
-    layui.use(["element", "table", "form", "jquery", "laydate"], function () {
+    layui.config({
+        base: "../../lib/layui_plugins/"
+    }).extend({
+        okLayer: "okLayer/okLayer",
+        okUtils: "okUtils/okUtils"
+    }).use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
         var $ = layui.jquery;
         var laydate = layui.laydate;
+        var okLayer = layui.okLayer;
+        var okUtils = layui.okUtils;
 
         laydate.render({elem: "#startTime", type: "datetime"});
         laydate.render({elem: "#endTime", type: "datetime"});
 
-        table.render({
+        var articleTable = table.render({
             elem: "#tableId",
             url: "../../data/article.json",
             limit: 10,
             page: true,
             even: true,
+            toolbar: "#toolbarTpl",
             cols: [[
                 {type: "checkbox"},
                 {field: "id", title: "ID", width: 80, sort: true},
@@ -80,116 +71,125 @@
                 {title: "操作", width: 200, align: "center", templet: "#operationTpl"}
             ]],
             done: function (res, curr, count) {
-                $("#countNum").text(count);
+                console.log(res, curr, count)
             }
         });
 
         form.on("submit(search)", function () {
-            layer.msg("正在查询，请稍后...");
+            articleTable.reload({
+                where: data.field,
+                page: {curr: 1}
+            });
             return false;
+        });
+
+        table.on("toolbar(tableFilter)", function (obj) {
+            switch (obj.event) {
+                case "batchEnabled":
+                    batchEnabled();
+                    break;
+                case "batchDisabled":
+                    batchDisabled();
+                    break;
+                case "batchDel":
+                    batchDel();
+                    break;
+                case "add":
+                    add();
+                    break;
+            }
         });
 
         table.on("tool(tableFilter)", function (obj) {
             var data = obj.data;
-            var layEvent = obj.event;
-            if (layEvent === "edit") {
-                layer.open({
-                    title: "编辑用户",
-                    type: 2,
-                    shade: false,
-                    maxmin: true,
-                    shade: 0.5,
-                    area: ["90%", "90%"],
-                    content: "article-edit.html",
-                    zIndex: layer.zIndex,
-                    end: function () {
-                        $(".layui-laypage-btn")[0].click();
-                    }
-                });
-            } else if (layEvent === "del") {
-                layer.confirm("确定要删除吗？", {skin: "layui-layer-lan", icon: 2, title: "提示", anim: 6}, function () {
-                    layer.msg("操作成功！", {icon: 1, time: 1000});
-                });
+            switch (obj.event) {
+                case "edit":
+                    edit(data.id);
+                    break;
+                case "del":
+                    del(data.id);
+                    break;
             }
         });
 
-        $("#batchEnabled").click(function () {
-            layer.confirm("确定要批量上架吗？", {skin: "layui-layer-lan", icon: 3, title: "提示", anim: 1}, function () {
-                var checkStatus = table.checkStatus("tableId");
-                var rows = checkStatus.data.length;
-                if (rows > 0) {
-                    var idsStr = "";
-                    for (var i = 0; i < checkStatus.data.length; i++) {
-                        idsStr += checkStatus.data[i].id + ",";
-                    }
-                    console.log("选择的id-->" + idsStr);
-                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
-                        $(".layui-laypage-btn")[0].click();
+        function batchEnabled() {
+            okLayer.confirm("确定要批量上架吗？", function (index) {
+                layer.close(index);
+                var idsStr = okUtils.table.batchCheck(table);
+                if (idsStr) {
+                    okUtils.ajax("/article/batchNormal", "post", {idsStr: idsStr}).done(function (response) {
+                        console.log(response)
+                        okUtils.table.successMsg("批量上架成功");
+                    }).fail(function (error) {
+                        console.log(error)
                     });
-                } else {
-                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
                 }
             });
-        })
+        }
 
-        $("#batchDisabled").click(function () {
-            layer.confirm("确定要批量下架吗？", {skin: "layui-layer-lan", icon: 3, title: "提示", anim: 2}, function () {
-                var checkStatus = table.checkStatus("tableId");
-                var rows = checkStatus.data.length;
-                if (rows > 0) {
-                    var idsStr = "";
-                    for (var i = 0; i < checkStatus.data.length; i++) {
-                        idsStr += checkStatus.data[i].id + ",";
-                    }
-                    console.log("选择的id-->" + idsStr);
-                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
-                        $(".layui-laypage-btn")[0].click();
+        function batchDisabled(){
+            okLayer.confirm("确定要批量下架吗？", function (index) {
+                layer.close(index);
+                var idsStr = okUtils.table.batchCheck(table);
+                if (idsStr) {
+                    okUtils.ajax("/article/batchStop", "post", {idsStr: idsStr}).done(function (response) {
+                        console.log(response)
+                        okUtils.table.successMsg("批量下架成功");
+                    }).fail(function (error) {
+                        console.log(error)
                     });
-                } else {
-                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
                 }
             });
-        })
+        }
 
-        $("#batchDel").click(function () {
-            layer.confirm("确定要批量删除吗？", {skin: "layui-layer-lan", icon: 2, title: "提示", anim: 6}, function () {
-                var checkStatus = table.checkStatus("tableId");
-                var rows = checkStatus.data.length;
-                if (rows > 0) {
-                    var idsStr = "";
-                    for (var i = 0; i < checkStatus.data.length; i++) {
-                        idsStr += checkStatus.data[i].id + ",";
-                    }
-                    console.log("选择的id-->" + idsStr);
-                    layer.msg("操作成功！", {icon: 1, time: 1000}, function () {
-                        $(".layui-laypage-btn")[0].click();
+        function batchDel(){
+            okLayer.confirm("确定要批量删除吗？", function (index) {
+                layer.close(index);
+                var idsStr = okUtils.table.batchCheck(table);
+                if (idsStr) {
+                    okUtils.ajax("/article/batchDel", "post", {idsStr: idsStr}).done(function (response) {
+                        console.log(response)
+                        okUtils.table.successMsg("批量删除成功");
+                    }).fail(function (error) {
+                        console.log(error)
                     });
-                } else {
-                    layer.msg("未选择有效数据", {offset: "t", anim: 6});
                 }
             });
-        })
+        }
 
-        $("#addUser").click(function () {
-            layer.open({
-                title: "添加文章",
-                type: 2,
-                shade: false,
-                maxmin: true,
-                shade: 0.5,
-                anim: 4,
-                area: ["90%", "90%"],
-                content: "article-add.html",
-                zIndex: layer.zIndex,
-                // skin: 'layui-layer-molv',
-                end: function () {
-                    $(".layui-laypage-btn")[0].click();
-                }
-            });
-        })
+        function add () {
+            okLayer.open("添加文章", "article-add.html", "90%", "90%", function () {
+                articleTable.reload();
+            })
+        }
+
+        function edit (id) {
+            okLayer.open("编辑文章", "article-edit.html?id=" + id, "90%", "90%", function () {
+                articleTable.reload();
+            })
+        }
+
+        function del (id) {
+            okLayer.confirm("确定要删除吗？", function () {
+                okUtils.ajax("/article/batchDel", "post", {idsStr: id}).done(function (response) {
+                    console.log(response)
+                    okUtils.table.successMsg("删除成功");
+                }).fail(function (error) {
+                    console.log(error)
+                });
+            })
+        }
     })
 </script>
-<!--模板-->
+<!-- 头工具栏模板 -->
+<script type="text/html" id="toolbarTpl">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm layui-btn-normal" lay-event="batchEnabled"><i class="iconfont icon-shangsheng"></i>批量上架</button>
+        <button class="layui-btn layui-btn-sm layui-btn-warm" lay-event="batchDisabled"><i class="iconfont icon-web-icon-"></i>批量下架</button>
+        <button class="layui-btn layui-btn-sm layui-btn-danger" lay-event="batchDel"><i class="layui-icon layui-icon-delete"></i>批量删除</button>
+        <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>添加文章</button>
+    </div>
+</script>
 <script type="text/html" id="urlTpl">
     <a href="{{d.url}}" target="_blank">{{d.url}}</a>
 </script>
@@ -199,6 +199,7 @@
 <script type="text/html" id="statusTpl">
     <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="上架|下架" {{ d.status== true ? 'checked' : ''}}>
 </script>
+<!-- 行工具栏模板 -->
 <script type="text/html" id="operationTpl">
     <a href="javascript:;" title="编辑" lay-event="edit"><i class="layui-icon">&#xe642;</i></a>
     <a href="javascript:;" title="删除" lay-event="del"><i class="layui-icon">&#xe640;</i></a>
