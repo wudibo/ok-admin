@@ -23,28 +23,55 @@
     <blockquote class="layui-elem-quote">
         okUtils.ajax()
     </blockquote>
-    <pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
 /**
  * 弹窗打开窗口页面
  * @param url 请求url
  * @param type 请求类型
  * @param param 请求参数
- */			
+ */
 okUtils.ajax("/user/batchDel", "post", {idsStr: idsStr}).done(function (response) {
-	console.log(response)
-	okLayer.tableOperationMsg("批量删除成功");
+    console.log(response)
+    okLayer.tableOperationMsg("批量删除成功");
 }).fail(function (error) {
-	console.log(error)
+    console.log(error)
 });
-    </pre>
+</pre>
 
     <!--代码块2-->
     <blockquote class="layui-elem-quote">
-        okUtils.xxx()
+        okUtils.table.xxx()
     </blockquote>
-    <pre class="layui-code" lay-title="HTML" lay-encode="true">
-xxx
-    </pre>
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 做批量操作时，table行数据检查
+okUtils.table.batchCheck(table)
+// table页面操作执行成功后的提示
+okUtils.table.successMsg()
+</pre>
+
+    <!--代码块3-->
+    <blockquote class="layui-elem-quote">
+        okUtils.isNum()
+    </blockquote>
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 判断是否为一个正常的数字
+okUtils.isNum()
+// 判断一个数字是否包括在某个范围
+okUtils.isNum(num, begin, end)
+</pre>
+
+    <!--代码块3-->
+    <blockquote class="layui-elem-quote">
+        okUtils.date.xxx()
+    </blockquote>
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 格式化日期时间
+okUtils.dateFormat(date, fmt)
+</pre>
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>

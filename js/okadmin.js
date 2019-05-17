@@ -1,7 +1,11 @@
-layui.use(["element", "layer"], function () {
-    var element = layui.element;
+layui.config({
+    base: "lib/okPlugins/"
+}).extend({
+    okTab: "okTab",
+}).use(["element", "layer", "okTab"], function () {
     var $ = layui.jquery;
     var layer = layui.layer;
+    var okTab = layui.okTab;
 
     /**
      * localhost运行提示
@@ -37,87 +41,8 @@ layui.use(["element", "layer"], function () {
         // var title = $(this).find("a").html();
         var path = $(this).children("a").attr("path");
         var tabId = $(this).children("a").attr("tab-id");
-        tabAdd(title, path, tabId);
+        okTab.add(title, path, tabId);
     });
-
-    /**
-     * 添加tab
-     * @param title 标题
-     * @param path 路径
-     * @param tabId tabId必须唯一
-     */
-    window.tabAdd = function (title, path, tabId) {
-        if (self == top) {
-            // console.log("不在iframe中")
-            tabAdd1(title, path, tabId)
-        } else {
-            // console.log("在iframe中")
-            tabAdd2(title, path, tabId)
-        }
-    }
-
-    function tabAdd1(title, path, tabId) {
-        // 参数校验
-        parameterCheck(title, path, tabId);
-        // 去重复选项卡
-        var okFrame = $(".ok-frame");
-        for (var i = 0; i < okFrame.length; i++) {
-            var _tabId = okFrame.eq(i).attr("tab-id");
-            if (_tabId == tabId) {
-                element.tabChange("ok-tab", tabId);
-                event.stopPropagation();
-                return;
-            }
-        }
-        // 添加选项卡
-        element.tabAdd("ok-tab", {
-            title: title,
-            content: "<iframe src='" + path + "' tab-id='" + tabId + "' class='ok-frame' frameborder='0' scrolling='yes' width='100%' height='100%'></iframe>",
-            id: tabId
-        });
-        // 切换选项卡
-        element.tabChange("ok-tab", tabId);
-    }
-
-    function tabAdd2(title, path, tabId) {
-        // 参数校验
-        parameterCheck(title, path, tabId);
-        // 去重复选项卡
-        var parentOkFrame = $(".ok-frame", parent.document);
-        for (var i = 0; i < parentOkFrame.length; i++) {
-            var _tabId = parentOkFrame.eq(i).attr("tab-id");
-            if (_tabId == tabId) {
-                console.warn("tabId=" + tabId + "有重复元素,请检查！")
-                parent.layui.element.tabChange("ok-tab", tabId);
-                event.stopPropagation();
-                return;
-            }
-        }
-        // 添加选项卡
-        parent.layui.element.tabAdd("ok-tab", {
-            title: title,
-            content: "<iframe src='" + path + "' tab-id='" + tabId + "' class='ok-frame' frameborder='0' scrolling='yes' width='100%' height='100%'></iframe>",
-            id: tabId
-        });
-        // 切换选项卡
-        parent.layui.element.tabChange("ok-tab", tabId);
-    }
-
-    function parameterCheck(title, path, tabId) {
-        if (title == undefined || title == "") {
-            console.error("title未定义")
-            return false;
-        }
-        if (path == undefined || path == "") {
-            console.error("path未定义")
-            return false;
-        }
-        if (tabId == undefined || tabId == "") {
-            console.error("tabId未定义")
-            return false;
-        }
-        return true;
-    }
 
     /**
      * 修改copyright结束时间

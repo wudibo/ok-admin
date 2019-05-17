@@ -37,10 +37,10 @@
 <script src="../../lib/layui/layui.js"></script>
 <script>
     layui.config({
-        base: "../../lib/layui_plugins/"
+        base: "../../lib/okPlugins/"
     }).extend({
-        okLayer: "okLayer/okLayer",
-        okUtils: "okUtils/okUtils"
+        okLayer: "okLayer",
+        okUtils: "okUtils"
     }).use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
@@ -53,7 +53,8 @@
 
         var userTable = table.render({
             elem: "#tableId",
-            url: "../../data/user.json",
+            url: "../../data/user/user.json",
+            method: "post",
             limit: 10,
             page: true,
 			toolbar: true,
@@ -118,7 +119,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("/user/batchNormal", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchNormal.json", "post", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量启用成功");
 			        }).fail(function (error) {
@@ -133,7 +134,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("/user/batchStop", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchStop.json", "post", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量停用成功");
 			        }).fail(function (error) {
@@ -148,7 +149,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("/user/batchDel", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchDel.json", "post", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量删除成功");
 			        }).fail(function (error) {
@@ -172,7 +173,7 @@
 
 		function del (id) {
 			okLayer.confirm("确定要删除吗？", function () {
-			    okUtils.ajax("/user/batchDel", "post", {idsStr: id}).done(function (response) {
+			    okUtils.ajax("../../data/user/batchDel.json", "post", {idsStr: id}).done(function (response) {
 			        console.log(response)
 			        okUtils.table.successMsg("删除成功");
 			    }).fail(function (error) {

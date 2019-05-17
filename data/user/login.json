@@ -1,0 +1,8 @@
+{
+  "status": 1000,
+  "msg": "操作成功",
+  "data": {
+    "username": "bobi",
+    "email": "bobi1234@foxmail.com"
+  }
+}

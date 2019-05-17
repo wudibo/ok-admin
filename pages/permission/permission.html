@@ -48,11 +48,11 @@
 <script>
     // TODO 权限模块需要大改！！！！！！
     layui.config({
-        base: "../../lib/layui_plugins/"
+        base: "../../lib/okPlugins/"
     }).extend({
         treetable: "treetable/treetable",
-		okLayer: "okLayer/okLayer",
-		okUtils: "okUtils/okUtils"
+		okLayer: "okLayer",
+		okUtils: "okUtils"
     }).use(["element", "table", "form", "laydate", "treetable", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var table = layui.table;

@@ -23,37 +23,41 @@
     <blockquote class="layui-elem-quote">
         okLayer.tableCheck()
     </blockquote>
-    <pre class="layui-code" lay-title="JavaScript" lay-encode="true">
-// 对表格进行批量操作时的预检查		
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 对表格进行批量操作时的预检查
 okLayer.tableCheck(table)
-    </pre>
+</pre>
 
     <!--代码块2-->
     <blockquote class="layui-elem-quote">
         okLayer.tableOperationMsg()
     </blockquote>
-    <pre class="layui-code" lay-title="JavaScript" lay-encode="true">
-// 对表格操作后的提示信息		
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 对表格操作后的提示信息
 okLayer.tableOperationMsg("批量启用成功");
 okLayer.tableOperationMsg("批量停用成功");
-    </pre>
+</pre>
 
     <!--代码块3-->
     <blockquote class="layui-elem-quote">
         okLayer.confirm()
     </blockquote>
-    <pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
 okLayer.confirm("确定要批量删除吗？", function (index) {
-	layer.close(index);
-	// 代码逻辑
+    layer.close(index);
+    // 代码逻辑
 });
-    </pre>
-	
+</pre>
+
 	<!--代码块4-->
 	<blockquote class="layui-elem-quote">
 		okLayer.open()
 	</blockquote>
-	<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
 /**
  * 弹窗打开窗口页面
  * @param title 标题
@@ -61,13 +65,12 @@ okLayer.confirm("确定要批量删除吗？", function (index) {
  * @param width 弹窗宽度
  * @param height 弹窗高度
  * @param function 回调函数
- */		
+ */
 okLayer.open("添加用户", "user-add.html", "90%", "90%", function() {})
-	</pre>
+</pre>
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
-<script src="../../js/okadmin.js"></script>
 <script>
     layui.use(["element", "code"], function () {
         layui.code({about: false});
