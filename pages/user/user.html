@@ -54,7 +54,7 @@
         var userTable = table.render({
             elem: "#tableId",
             url: "../../data/user/user.json",
-            method: "post",
+            method: "get",
             limit: 10,
             page: true,
 			toolbar: true,
@@ -119,7 +119,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchNormal.json", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchNormal.json", "get", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量启用成功");
 			        }).fail(function (error) {
@@ -134,7 +134,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchStop.json", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchStop.json", "get", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量停用成功");
 			        }).fail(function (error) {
@@ -149,7 +149,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchDel.json", "post", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax("../../data/user/batchDel.json", "get", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量删除成功");
 			        }).fail(function (error) {
@@ -173,7 +173,7 @@
 
 		function del (id) {
 			okLayer.confirm("确定要删除吗？", function () {
-			    okUtils.ajax("../../data/user/batchDel.json", "post", {idsStr: id}).done(function (response) {
+			    okUtils.ajax("../../data/user/batchDel.json", "get", {idsStr: id}).done(function (response) {
 			        console.log(response)
 			        okUtils.table.successMsg("删除成功");
 			    }).fail(function (error) {

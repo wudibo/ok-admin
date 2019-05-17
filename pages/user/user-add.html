@@ -123,7 +123,7 @@
         });
 
         form.on("submit(add)", function (data) {
-			okUtils.ajax("../../data/user/add.json", "post", data.field).done(function (response) {
+			okUtils.ajax("../../data/user/add.json", "get", data.field).done(function (response) {
 			    console.log(response)
                 okLayer.msg.greenTick("添加成功", function () {
                     parent.layer.close(parent.layer.getFrameIndex(window.name));

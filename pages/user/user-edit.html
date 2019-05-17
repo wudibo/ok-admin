@@ -123,7 +123,7 @@
         });
 
         form.on("submit(edit)", function (data) {
-            okUtils.ajax("../../data/user/edit.json", "post", data.field).done(function (response) {
+            okUtils.ajax("../../data/user/edit.json", "get", data.field).done(function (response) {
                 console.log(response)
                 okLayer.msg.greenTick("编辑成功", function () {
                     parent.layer.close(parent.layer.getFrameIndex(window.name));

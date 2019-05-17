@@ -57,7 +57,7 @@
 
         // 登陆逻辑
         form.on('submit(login)', function (data) {
-            okUtils.ajax("../../data/user/login.json", "post", data.field).done(function (response) {
+            okUtils.ajax("../../data/user/login.json", "get", data.field).done(function (response) {
                 console.log(response)
                 okLayer.msg.greenTick("登陆成功", function () {
                     window.location = "../../index.html";
