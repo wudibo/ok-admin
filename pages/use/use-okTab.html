@@ -60,9 +60,8 @@
  * 添加tab
  * @param title 标题
  * @param path 路径
- * @param tabId tabId必须唯一
  */
-okTab.tabAdd("ok-tool", "http://www.xlbweb.cn", "11-1")
+okTab.tabAdd("ok-tool", "http://www.xlbweb.cn")
 </pre>
 
     <button class="layui-btn" id="addTab1">打开一个新的Tab1</button>
@@ -86,19 +85,17 @@ okTab.tabAdd("ok-tool", "http://www.xlbweb.cn", "11-1")
         layui.code({about: false});
 
         $("#addTab1").click(function () {
-            okTab.add("okLayer", "pages/use/use-okLayer.html", "11-1");
+            okTab.add("okLayer", "pages/use/use-okLayer.html");
         });
 
 		$("#addTab2").click(function () {
-		    okTab.add("ok-tool", "http://tool.xlbweb.cn", "11-2");
+		    okTab.add("ok-tool", "http://tool.xlbweb.cn");
 		});
 
 		$("#addTab3").click(function () {
-		    // 参数漏写
+		    // 参数漏写或为空
             // okTab.add("test");
-            // okTab.add("test", "");
-            // okTab.add("test", "http://tool.xlbweb.cn");
-            okTab.add("test", "http://tool.xlbweb.cn", "");
+            okTab.add("test", "");
 		});
 
         $("#addTab4").click(function () {

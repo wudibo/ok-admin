@@ -2,10 +2,13 @@ layui.config({
     base: "lib/okPlugins/"
 }).extend({
     okTab: "okTab",
-}).use(["element", "layer", "okTab"], function () {
-    var $ = layui.jquery;
+    okUtils: "okUtils"
+}).use(["element", "layer", "okTab", "okUtils"], function () {
+    var element = layui.element;
     var layer = layui.layer;
+    var $ = layui.jquery;
     var okTab = layui.okTab;
+    var okUtils = layui.okUtils;
 
     /**
      * localhost运行提示
@@ -31,17 +34,44 @@ layui.config({
         }
     });
 
+    // TODO 加载左侧菜单 ！！！！！！！！！！！！
+    // okUtils.ajax("data/menu.json", "get").done(function (response) {
+    //     var html = "";
+    //     for (var i = 0; i < response.length; i++) {
+    //         var d = response[i];
+    //         html += "<li class='layui-nav-item'>"
+    //         html += "<a href='javascript:;'>"
+    //         html += "<i class='iconfont icon-huiyuan'></i> " + response[i].title;
+    //         html += "</a>"
+    //         if (d.children != undefined && d.children.length > 0) {
+    //             html += "<dl class='layui-nav-child'>"
+    //             for (var j = 0; j < d.children.length; j++) {
+    //                 html += "<dd><a href='javascript:;' path='pages/user/user.html' tab-id='1-1'><i class='iconfont icon-dianliyonghuzongshu'></i> " + d.children[j].title + "</a></dd>";
+    //             }
+    //             html += "</dl>"
+    //         }
+    //         html += "</li>";
+    //     }
+    //     $(".layui-nav-tree").html(html);
+    //     element.render("nav");
+    // }).fail(function (error) {
+    //     console.log(error)
+    // });
+
     /**
-     * 点击左边菜单在右边添加选项卡
+     * 监听导航菜单的点击
      */
+    // element.on("nav(navFilter)", function (elem) {
+    //     var path = elem.context.attributes.path;
+    //     var tabId = elem.context.attributes["tab-id"];
+    //     var text = elem.context.innerText;
+    //     console.log(path, tabId, text)
+    // });
+
     $(".layui-nav-child").find("dd").click(function () {
-        // 纯文字
         var title = $(this).text();
-        // 图标+文字
-        // var title = $(this).find("a").html();
         var path = $(this).children("a").attr("path");
-        var tabId = $(this).children("a").attr("tab-id");
-        okTab.add(title, path, tabId);
+        okTab.add(title, path)
     });
 
     /**

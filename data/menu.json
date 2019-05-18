@@ -1,0 +1,245 @@
+{
+  "status": 1000,
+  "msg": "操作成功",
+  "data": [
+    {
+      "title": "图表管理",
+      "icon": "&#xe62c;",
+      "href": "",
+      "spread": false,
+      "children": [
+        {
+          "title": "地图",
+          "fontFamily": "my-icon",
+          "icon": "my-iconditu",
+          "spread": false,
+          "children": [
+            {
+              "title": "中国地图",
+              "icon": "",
+              "href": "pages/echarts/mapchina2.html",
+              "spread": false
+            },
+            {
+              "title": "地区地图",
+              "icon": "",
+              "href": "pages/echarts/mapchina.html",
+              "spread": false
+            }
+          ]
+        },
+        {
+          "title": "数据图",
+          "fontFamily": "my-icon",
+          "icon": "my-icontubiao",
+          "spread": false,
+          "children": [
+            {
+              "title": "统计图",
+              "icon": "",
+              "href": "pages/echarts/map1.html",
+              "spread": false
+            },
+            {
+              "title": "折线图",
+              "icon": "",
+              "href": "pages/echarts/map2.html",
+              "spread": false
+            },
+            {
+              "title": "馅饼图",
+              "icon": "",
+              "href": "pages/echarts/map4.html",
+              "spread": false
+            },
+            {
+              "title": "圆形图",
+              "icon": "",
+              "href": "pages/echarts/map5.html",
+              "spread": false
+            },
+            {
+              "title": "指数图",
+              "icon": "",
+              "href": "pages/echarts/map6.html",
+              "spread": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "框架使用说明",
+      "fontFamily": "ok-icon",
+      "icon": "&#xe9a6;",
+      "spread": false,
+      "children": [
+        {
+          "title": "插件目录",
+          "href": "pages/help/plugDirectory.html",
+          "spread": false
+        },
+        {
+          "title": "内部添加导航",
+          "href": "pages/help/navOperate.html",
+          "spread": false
+        },
+        {
+          "title": "导航的图标",
+          "href": "pages/help/navIcon.html",
+          "spread": false
+        },
+        {
+          "title": "导航的参数",
+          "href": "pages/help/navParameter.html",
+          "spread": false
+        }
+      ]
+    },
+    {
+      "title": "第三方js库",
+      "icon": "&#xe674;",
+      "children": [
+        {
+          "title": "二维码",
+          "href": "pages/tripartite/qrcode.html"
+        }
+      ]
+    },
+    {
+      "title": "会员管理",
+      "icon": "&#xe66f;",
+      "href": "",
+      "spread": false,
+      "children": [
+        {
+          "title": "用户列表",
+          "fontFamily": "layui-icon",
+          "icon": "&#xe61c;",
+          "href": "pages/user/user.html",
+          "spread": false
+        },
+        {
+          "title": "角色列表",
+          "icon": "&#xe60a;",
+          "href": "pages/role/role.html",
+          "spread": false
+        },
+        {
+          "title": "权限列表",
+          "icon": "&#xe642;",
+          "href": "pages/permission/permission.html",
+          "spread": false
+        }
+      ]
+    },
+    {
+      "title": "新闻管理",
+      "icon": "&#xe705;",
+      "href": "",
+      "spread": false,
+      "children": [
+        {
+          "title": "文章列表",
+          "fontFamily": "layui-icon",
+          "icon": "&#xe61c;",
+          "href": "pages/article/article.html",
+          "spread": false
+        }
+      ]
+    },
+    {
+      "title": "多级导航",
+      "fontFamily": "ok-icon",
+      "icon": "ok-iconnavigation-2",
+      "spread": false,
+      "children": [
+        {
+          "title": "二级导航",
+          "href": "",
+          "spread": false,
+          "children": [
+            {
+              "title": "三级导航1",
+              "fontFamily": "ok-icon",
+              "icon": "ok-iconairplay",
+              "href": "pages/home.html",
+              "spread": false
+            },
+            {
+              "title": "三级导航2",
+              "href": "",
+              "spread": false,
+              "children": [
+                {
+                  "title": "四级导航1",
+                  "href": "",
+                  "spread": false
+                },
+                {
+                  "title": "四级导航2",
+                  "href": "",
+                  "spread": false,
+                  "children": [
+                    {
+                      "title": "五级导航",
+                      "fontFamily": "ok-icon",
+                      "icon": "&#xe971",
+                      "href": "",
+                      "spread": false
+                    },
+                    {
+                      "title": "五级导航",
+                      "href": "",
+                      "spread": false
+                    },
+                    {
+                      "title": "登录",
+                      "icon": "&#xe609;",
+                      "href": "pages/login.html",
+                      "spread": false,
+                      "target": "_blank"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "系统管理",
+      "icon": "&#xe614;",
+      "href": "",
+      "spread": false,
+      "children": [
+        {
+          "title": "登录",
+          "icon": "&#xe609;",
+          "href": "pages/login.html",
+          "spread": false,
+          "target": "_blank"
+        },
+        {
+          "title": "403页面",
+          "icon": "&#xe61c;",
+          "href": "pages/common/403.html",
+          "spread": false
+        },
+        {
+          "title": "404页面",
+          "icon": "&#xe61c;",
+          "href": "pages/common/404.html",
+          "spread": false
+        },
+        {
+          "title": "500页面",
+          "icon": "&#xe61c;",
+          "href": "pages/common/500.html",
+          "spread": false
+        }
+      ]
+    }
+  ]
+}
