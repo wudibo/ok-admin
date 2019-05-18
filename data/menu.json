@@ -201,6 +201,13 @@
       "spread": false,
       "children": [
         {
+          "title": "okMenu使用",
+          "path": "pages/use/use-okMenu.html",
+          "font": "layui-icon",
+          "icon": "&#xe65f;",
+          "spread": false
+        },
+        {
           "title": "okTab使用",
           "path": "pages/use/use-okTab.html",
           "font": "iconfont",

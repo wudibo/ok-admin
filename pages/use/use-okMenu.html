@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>okMenu使用</title>
+    <link rel="stylesheet" href="../../css/okadmin.css">
+</head>
+<body>
+<div class="ok-body">
+    <!--面包屑导航区域-->
+    <div class="ok-body-breadcrumb">
+        <span class="layui-breadcrumb">
+            <a><cite>首页</cite></a>
+            <a><cite>框架使用</cite></a>
+            <a><cite>okMenu使用</cite></a>
+        </span>
+        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
+            <i class="layui-icon layui-icon-refresh"></i>
+        </a>
+    </div>
+    <br>
+    <!--代码块1-->
+    <blockquote class="layui-elem-quote">
+        菜单树json串
+    </blockquote>
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+{
+  "status": 1000,
+  "msg": "操作成功",
+  "data": {
+      "title": "多级菜单",
+      "path": "",
+      "font": "layui-icon",
+      "icon": "&#xe658;",
+      "spread": false,
+      "children": [
+        {
+          "title": "购物网站",
+          "path": "",
+          "font": "layui-icon",
+          "icon": "&#xe658;",
+          "spread": false,
+          "children": [
+            {
+              "title": "苏宁",
+              "path": "https://www.suning.com",
+              "font": "layui-icon",
+              "icon": "&#xe600;",
+              "spread": false
+            },
+            {
+              "title": "京东",
+              "path": "https://www.jd.com",
+              "font": "layui-icon",
+              "icon": "&#xe600;",
+              "spread": false
+            },
+            {
+              "title": "阿里",
+              "path": "",
+              "font": "layui-icon",
+              "icon": "&#xe658;",
+              "spread": false,
+              "children": [
+                {
+                  "title": "淘宝",
+                  "path": "https://www.taobao.com",
+                  "font": "layui-icon",
+                  "icon": "&#xe600;",
+                  "spread": false
+                },
+                {
+                  "title": "天猫",
+                  "path": "https://www.tmall.com",
+                  "font": "layui-icon",
+                  "icon": "&#xe600;",
+                  "spread": false
+                },
+                {
+                  "title": "聚划算",
+                  "path": "https://ju.taobao.com",
+                  "font": "layui-icon",
+                  "icon": "&#xe600;",
+                  "spread": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "新浪微博",
+          "path": "https://www.sina.com.cn",
+          "font": "layui-icon",
+          "icon": "&#xe600;",
+          "spread": false
+        },
+        {
+          "title": "搜索引擎",
+          "path": "",
+          "font": "layui-icon",
+          "icon": "&#xe658;",
+          "spread": false,
+          "children": [
+            {
+              "title": "百度",
+              "path": "https://www.baidu.com",
+              "font": "layui-icon",
+              "icon": "&#xe600;",
+              "spread": false
+            },
+            {
+              "title": "谷歌",
+              "path": "https://www.google.com",
+              "font": "layui-icon",
+              "icon": "&#xe600;",
+              "spread": false
+            },
+            {
+              "title": "360搜索",
+              "path": "https://www.so.com",
+              "font": "layui-icon",
+              "icon": "&#xe600;",
+              "spread": false
+            }
+          ]
+        },
+        {
+          "title": "搜狐",
+          "path": "http://www.sohu.com",
+          "font": "layui-icon",
+          "icon": "&#xe600;",
+          "spread": false
+        },
+        {
+          "title": "网易",
+          "path": "https://www.163.com",
+          "font": "layui-icon",
+          "icon": "&#xe600;",
+          "spread": false
+        }
+      ]
+    }
+}
+</pre>
+
+    <!--代码块2-->
+    <blockquote class="layui-elem-quote">
+        调用生成菜单树
+    </blockquote>
+
+<pre class="layui-code" lay-title="JavaScript" lay-encode="true">
+// 生成左侧菜单树
+okMenu.generatorMenu("data/menu.json", "get");
+</pre>
+</div>
+<!--js逻辑-->
+<script src="../../lib/layui/layui.js"></script>
+<script>
+    layui.use(["element", "code"], function () {
+        layui.code({about: false});
+    });
+</script>
+</body>
+</html>

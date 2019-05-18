@@ -46,7 +46,7 @@
 								<th>类别</th>
 								<th>说明</th>
 								<th>参数值</th>
-							</tr> 
+							</tr>
 						</thead>
 						<tbody>
 							<tr>
@@ -101,7 +101,7 @@
 								<th>参数说明</th>
 								<th>变量名</th>
 								<th>参数值</th>
-							</tr> 
+							</tr>
 						</thead>
 						<tbody>
 							<tr>
@@ -175,7 +175,7 @@
 			<div class="layui-tab-item">待开发1</div>
 			<div class="layui-tab-item">待开发2</div>
 		</div>
-	</div>   
+	</div>
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
@@ -190,22 +190,22 @@
 		var form = layui.form;
         var okLayer = layui.okLayer;
         var okUtils = layui.okUtils;
-		
+
 		// select控件默认选中
 		var storage = window.localStorage;
 		var skin = storage.getItem("skin");
 		var anim = storage.getItem("anim");
-		$("#skin").val(okUtils.isNumWith(skin, 1, 4) ? skin : 1);
-		$("#anim").val(okUtils.isNumWith(anim, 0, 7) ? anim : 0);
+		$("#skin").val(okUtils.number.isNumberWith(skin, 1, 4) ? skin : 1);
+		$("#anim").val(okUtils.number.isNumberWith(anim, 0, 7) ? anim : 0);
 		form.render()
-		
+
 		form.on("submit(skinAnimSubmit)", function (data) {
 			storage.skin = data.field.skin;
 			storage.anim = data.field.anim;
 			okLayer.msg.greenTick("设置成功")
 		    return false;
 		});
-		
+
 		form.on("submit(basicParamSubmit)", function (data) {
 		    alert("basicParamSubmit");
 		    return false;
