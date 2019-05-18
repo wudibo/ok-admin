@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo</title>
+</head>
+<body>
+<script>
+    /**
+     *
+     * @param obj
+     * @returns {boolean}
+     */
+    function isEmpty(obj) {
+        if (obj) {
+            return true;
+        }
+        // if (obj && typeof obj === "string") {
+        //     return true;
+        // }
+        // if (obj && typeof obj === "number") {
+        //     return true;
+        // }
+        return false;
+    }
+
+    console.log(isEmpty());
+    console.log(isEmpty(null));
+    console.log(isEmpty(""));
+    console.log(isEmpty(undefined));
+    console.log(isEmpty("hello"));
+    console.log(isEmpty(10));
+    console.log(isEmpty(true));
+    console.log(isEmpty(false));
+</script>
+</body>
+</html>
