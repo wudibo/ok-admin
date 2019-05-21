@@ -158,13 +158,13 @@
         }
 
         function add () {
-            okLayer.open("添加文章", "article-add.html", "90%", "90%", function () {
+            okLayer.open("添加文章", "article-add.html", "90%", "90%", null, function () {
                 articleTable.reload();
             })
         }
 
         function edit (id) {
-            okLayer.open("编辑文章", "article-edit.html?id=" + id, "90%", "90%", function () {
+            okLayer.open("编辑文章", "article-edit.html?id=" + id, "90%", "90%", null, function () {
                 articleTable.reload();
             })
         }

@@ -21,7 +21,7 @@
         </a>
     </div>
     <!--form表单-->
-    <form class="layui-form ok-form">
+    <form class="layui-form ok-form" lay-filter="filter">
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
@@ -105,6 +105,13 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
+	
+	var initData;
+	function initForm(data) {
+		var jsonString = JSON.stringify(data)
+		initData = JSON.parse(jsonString);
+	}
+	
     layui.config({
         base: "../../lib/okPlugins/"
     }).extend({
@@ -115,7 +122,9 @@
         var laydate = layui.laydate;
 		var okLayer = layui.okLayer;
 		var okUtils = layui.okUtils;
-
+		
+		form.val("filter", initData);
+		
         laydate.render({elem: "#birthday", type: "datetime"});
 
         form.verify({
