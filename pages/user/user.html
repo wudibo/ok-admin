@@ -64,14 +64,15 @@
                 {type: "checkbox"},
                 {field: "id", title: "ID", width: 80, sort: true},
                 {field: "username", title: "用户名", width: 100},
-                {field: "name", title: "姓名", width: 100},
+                {field: "reallyName", title: "姓名", width: 100},
                 {field: "password", title: "密码", width: 100},
-                {field: "status", title: "状态", width: 85, templet: "#statusTpl"},
                 {field: "role", title: "角色", width: 100, templet: "#roleTpl"},
-                {field: "email", title: "邮箱", width: 200},
+				{field: "email", title: "邮箱", width: 200},
+                {field: "phone", title: "电话号码", width: 200},
                 {field: "createTime", title: "创建时间", width: 200},
+				{field: "status", title: "状态", width: 100, templet: "#statusTpl"},
                 {field: "logins", title: "登陆次数", width: 100},
-                {title: "操作", width: 200, align: 'center', templet: "#operationTpl"}
+                {title: "操作", width: 100, align: 'center', templet: "#operationTpl", fixed: "right"}
             ]],
             done: function (res, curr, count) {
                 console.log(res, curr, count)
@@ -105,9 +106,10 @@
 
         table.on("tool(tableFilter)", function (obj) {
             var data = obj.data;
+			console.log(data);
 			switch (obj.event) {
 				case "edit":
-					edit(data.id);
+					edit(data);
 					break;
 				case "del":
 					del(data.id);
@@ -161,13 +163,16 @@
 		}
 
 		function add () {
-			okLayer.open("添加用户", "user-add.html", "90%", "90%", function () {
+			okLayer.open("添加用户", "user-add.html", "90%", "90%", null, function () {
                 userTable.reload();
 			})
 		}
 
-		function edit (id) {
-			okLayer.open("编辑用户", "user-edit.html?id=" + id, "90%", "90%", function () {
+		function edit (data) {
+			okLayer.open("编辑用户", "user-edit.html", "90%", "90%", function (layero) {
+				var iframeWin = window[layero.find("iframe")[0]["name"]];
+				iframeWin.initForm(data);
+			}, function () {
 				userTable.reload();
 			})
 		}

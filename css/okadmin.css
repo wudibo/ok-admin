@@ -90,10 +90,14 @@ okToolbar span{float:right;line-height:30px}
 .tac{text-align:center;}
 .tar{text-align:right;}
 
-/*三级菜单、四级菜单、五级菜单、六级菜单*/
+/*三级菜单、四级菜单、五级菜单、六级菜单、七级菜单、八级菜单、九级菜单、十级菜单*/
 .layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child a{padding-left: 54px;}
 .layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 74px;}
 .layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 94px;}
 .layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 114px;}
+.layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 134px;}
+.layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 154px;}
+.layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 174px;}
+.layui-nav-tree .layui-nav-item .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child .layui-nav-child a{padding-left: 194px;}
 
 
