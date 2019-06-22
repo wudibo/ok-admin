@@ -105,26 +105,21 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-	
+
 	var initData;
 	function initForm(data) {
 		var jsonString = JSON.stringify(data)
 		initData = JSON.parse(jsonString);
 	}
-	
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
+
+    layui.use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var laydate = layui.laydate;
 		var okLayer = layui.okLayer;
 		var okUtils = layui.okUtils;
-		
+
 		form.val("filter", initData);
-		
+
         laydate.render({elem: "#birthday", type: "datetime"});
 
         form.verify({
@@ -132,7 +127,7 @@
         });
 
         form.on("submit(edit)", function (data) {
-            okUtils.ajax("../../data/user/edit.json", "get", data.field).done(function (response) {
+            okUtils.ajax(okUtils.mockApi.user.edit, "put", data.field).done(function (response) {
                 console.log(response)
                 okLayer.msg.greenTick("编辑成功", function () {
                     parent.layer.close(parent.layer.getFrameIndex(window.name));

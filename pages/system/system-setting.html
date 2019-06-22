@@ -180,12 +180,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "okLayer", "okUtils"], function () {
+    layui.use(["element", "form", "okLayer", "okUtils"], function () {
         var $ = layui.jquery;
 		var form = layui.form;
         var okLayer = layui.okLayer;

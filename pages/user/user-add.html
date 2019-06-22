@@ -105,12 +105,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
+    layui.use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var laydate = layui.laydate;
 		var okLayer = layui.okLayer;
@@ -123,7 +118,7 @@
         });
 
         form.on("submit(add)", function (data) {
-			okUtils.ajax("../../data/user/add.json", "get", data.field).done(function (response) {
+			okUtils.ajax(okUtils.mockApi.user.add, "post", data.field).done(function (response) {
 			    console.log(response)
                 okLayer.msg.greenTick("添加成功", function () {
                     parent.layer.close(parent.layer.getFrameIndex(window.name));

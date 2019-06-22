@@ -36,13 +36,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils",
-        okProgress: "okProgress/okProgress"
-    }).use(["element", "table", "form", "laydate", "okLayer", "okUtils", "okProgress"], function () {
+    layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
         var laydate = layui.laydate;
@@ -54,7 +48,7 @@
 
         var userTable = table.render({
             elem: "#tableId",
-            url: "../../data/user/user.json",
+            url: okUtils.mockApi.user.list,
             method: "get",
             limit: 10,
             page: true,
@@ -122,7 +116,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchNormal.json", "get", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax(okUtils.mockApi.user.batchNormal, "put", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量启用成功");
 			        }).fail(function (error) {
@@ -137,7 +131,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchStop.json", "get", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax(okUtils.mockApi.user.batchStop, "put", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量停用成功");
 			        }).fail(function (error) {
@@ -152,7 +146,7 @@
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
-			        okUtils.ajax("../../data/user/batchDel.json", "get", {idsStr: idsStr}).done(function (response) {
+			        okUtils.ajax(okUtils.mockApi.user.batchDel, "delete", {idsStr: idsStr}).done(function (response) {
 			            console.log(response)
 			            okUtils.table.successMsg("批量删除成功");
 			        }).fail(function (error) {
@@ -179,7 +173,7 @@
 
 		function del (id) {
 			okLayer.confirm("确定要删除吗？", function () {
-			    okUtils.ajax("../../data/user/batchDel.json", "get", {idsStr: id}).done(function (response) {
+			    okUtils.ajax(okUtils.mockApi.user.batchDel, "delete", {idsStr: id}).done(function (response) {
 			        console.log(response)
 			        okUtils.table.successMsg("删除成功");
 			    }).fail(function (error) {

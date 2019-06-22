@@ -22,7 +22,7 @@
                 <div id="tp-weather-widget"></div>
             </li>
         </ul>
-        <ul class="layui-nav layui-layout-right">
+        <ul class="layui-nav layui-layout-right" lay-filter="navFilter">
 			<li class="textMarquee">
 				<marquee>通知：今天，明天，后天，开始大幅降温了，请不要傻不愣登的，只要风度不要温度，再把自己弄感冒喽！</marquee>
 			</li>
@@ -32,9 +32,9 @@
                     bobi
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:;" path="user-center.html" tab-id="0-1">个人中心<span class="layui-badge-dot"></span></a></dd>
-                    <dd><a href="javascript:;" path="user-info.html" tab-id="0-2">基本资料</a></dd>
-                    <dd><a href="javascript:;" path="user-security.html" tab-id="0-3">安全设置</a></dd>
+                    <dd><a href="javascript:;" path="pages/user/user-center.html">个人中心<span class="layui-badge-dot"></span></a></dd>
+                    <dd><a href="javascript:;" path="pages/user/user-info.html">基本资料</a></dd>
+                    <dd><a href="javascript:;" path="pages/user/user-security.html">安全设置</a></dd>
                     <dd><a href="javascript:;" id="lock">锁定账户</a></dd>
                 </dl>
             </li>
