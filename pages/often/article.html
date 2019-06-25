@@ -39,10 +39,12 @@
     layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
-        var $ = layui.jquery;
+        var util = layui.util;
         var laydate = layui.laydate;
         var okLayer = layui.okLayer;
         var okUtils = layui.okUtils;
+
+        util.fixbar({});
 
         laydate.render({elem: "#startTime", type: "datetime"});
         laydate.render({elem: "#endTime", type: "datetime"});
@@ -50,10 +52,11 @@
         var articleTable = table.render({
             elem: "#tableId",
             url: okUtils.mockApi.article.list,
-            limit: 10,
+            limit: 20,
             page: true,
             even: true,
             toolbar: "#toolbarTpl",
+            size: "sm",
             cols: [[
                 {type: "checkbox"},
                 {field: "id", title: "ID", width: 80, sort: true},
@@ -61,8 +64,8 @@
                 {field: "url", title: "链接", width: 250, templet: "#urlTpl"},
                 {field: "readSize", title: "阅读量", width: 80},
                 {field: "publisher", title: "发布者", width: 100},
-                {field: "isTop", title: "置顶", width: 100, templet: "#topTpl"},
-                {field: "status", title: "状态", width: 100, templet: "#statusTpl"},
+                {field: "isTop", title: "是否置顶", width: 100, align: "center", templet: "#topTpl"},
+                {field: "status", title: "发布状态", width: 110, align: "center", templet: "#statusTpl"},
                 {title: "操作", width: 200, align: "center", templet: "#operationTpl"}
             ]],
             done: function (res, curr, count) {
@@ -185,14 +188,29 @@
         <button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>添加文章</button>
     </div>
 </script>
+<!-- 链接模板 -->
 <script type="text/html" id="urlTpl">
     <a href="{{d.url}}" target="_blank">{{d.url}}</a>
 </script>
-<script type="text/html" id="topTpl">
+<!-- 是否指顶模板
     <input type="checkbox" name="isTop" value="{{d.isTop}}" lay-skin="switch" lay-text="是|否" {{ d.isTop== true ? 'checked' : ''}}>
+-->
+<script type="text/html" id="topTpl">
+    {{#  if(d.isTop == true){ }}
+        <span class="layui-btn layui-btn-normal layui-btn-xs">已置顶</span>
+    {{#  } else if(d.isTop == false) { }}
+        <span class="layui-btn layui-btn-warm layui-btn-xs">未置顶</span>
+    {{#  } }}
 </script>
+<!-- 发布状态模板
+    <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="已发布|未发布" {{ d.status== true ? 'checked' : ''}}>
+-->
 <script type="text/html" id="statusTpl">
-    <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="上架|下架" {{ d.status== true ? 'checked' : ''}}>
+    {{#  if(d.status == true){ }}
+        <span class="layui-btn layui-btn-normal layui-btn-xs">已发布</span>
+    {{#  } else if(d.status == false) { }}
+        <span class="layui-btn layui-btn-warm layui-btn-xs">未发布</span>
+    {{#  } }}
 </script>
 <!-- 行工具栏模板 -->
 <script type="text/html" id="operationTpl">

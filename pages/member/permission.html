@@ -12,7 +12,7 @@
     <div class="ok-body-breadcrumb">
         <span class="layui-breadcrumb">
             <a><cite>首页</cite></a>
-            <a><cite>常用页面</cite></a>
+            <a><cite>会员管理</cite></a>
             <a><cite>权限列表</cite></a>
         </span>
         <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
@@ -68,6 +68,7 @@
             elem: "#tableId",
             url: "../../data/permission-table.json",
             page: false,
+            size: "sm",
             cols: [[
                 {type: "numbers"},
                 {field: "authorityName", minWidth: 200, title: "权限名称"},
