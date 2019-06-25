@@ -38,13 +38,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script type="text/javascript">
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils",
-        okProgress: "okProgress/okProgress"
-    }).use(["form", "okLayer", "okUtils", "okProgress"], function () {
+    layui.use(["form", "okLayer", "okUtils", "okProgress"], function () {
         var form = layui.form;
         var $ = layui.jquery;
         var okLayer = layui.okLayer;
@@ -57,7 +51,7 @@
 
         // 登陆逻辑
         form.on('submit(login)', function (data) {
-            okUtils.ajax("../../data/user/login.json", "get", data.field).done(function (response) {
+            okUtils.ajax(okUtils.mockApi.login, "post", data.field).done(function (response) {
                 console.log(response)
                 okLayer.msg.greenTick("登陆成功", function () {
                     window.location = "../../index.html";

@@ -8,11 +8,7 @@
 
 <script src="../../lib/layui/layui.js"></script>
 <script type="text/javascript">
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer"
-    }).use("okLayer", function () {
+    layui.use("okLayer", function () {
         var okLayer = layui.okLayer;
         // okLayer.tableNotCheckMsg();
         // okLayer.tableNotCheckMsg("哈哈");

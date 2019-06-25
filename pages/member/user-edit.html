@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>添加用户</title>
+    <title>编辑用户</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../css/okadmin.css">
 </head>
@@ -14,14 +14,14 @@
             <a><cite>首页</cite></a>
             <a><cite>会员管理</cite></a>
             <a><cite>用户列表</cite></a>
-            <a><cite>添加用户</cite></a>
+            <a><cite>编辑用户</cite></a>
         </span>
         <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
             <i class="layui-icon layui-icon-refresh"></i>
         </a>
     </div>
     <!--form表单-->
-    <form class="layui-form layui-form-pane ok-form">
+    <form class="layui-form ok-form" lay-filter="filter">
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">
@@ -70,9 +70,9 @@
         <div class="layui-form-item">
             <label class="layui-form-label">兴趣</label>
             <div class="layui-input-block">
-                <input type="checkbox" name="like[write]" title="写作">
-                <input type="checkbox" name="like[read]" title="阅读">
-                <input type="checkbox" name="like[run]" title="运动">
+                <input type="checkbox" name="like[write]" value="1" title="写作">
+                <input type="checkbox" name="like[read]" value="2" title="阅读">
+                <input type="checkbox" name="like[run]" value="3" title="运动">
             </div>
         </div>
         <div class="layui-form-item">
@@ -96,7 +96,7 @@
         </div>
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button class="layui-btn" lay-submit lay-filter="add">立即提交</button>
+                <button class="layui-btn" lay-submit lay-filter="edit">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>
@@ -105,16 +105,20 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
+
+	var initData;
+	function initForm(data) {
+		var jsonString = JSON.stringify(data)
+		initData = JSON.parse(jsonString);
+	}
+
+    layui.use(["element", "form", "laydate", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var laydate = layui.laydate;
 		var okLayer = layui.okLayer;
 		var okUtils = layui.okUtils;
+
+		form.val("filter", initData);
 
         laydate.render({elem: "#birthday", type: "datetime"});
 
@@ -122,15 +126,15 @@
             birthdayVerify: [/^((((1[6-9]|[2-9]\d)\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\d|3[01]))|(((1[6-9]|[2-9]\d)\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\d|30))|(((1[6-9]|[2-9]\d)\d{2})-0?2-(0?[1-9]|1\d|2[0-8]))|(((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))(\s(([01]\d{1})|(2[0123])):([0-5]\d):([0-5]\d))?$/, '日期格式不正确']
         });
 
-        form.on("submit(add)", function (data) {
-			okUtils.ajax("../../data/user/add.json", "get", data.field).done(function (response) {
-			    console.log(response)
-                okLayer.msg.greenTick("添加成功", function () {
+        form.on("submit(edit)", function (data) {
+            okUtils.ajax(okUtils.mockApi.user.edit, "put", data.field).done(function (response) {
+                console.log(response)
+                okLayer.msg.greenTick("编辑成功", function () {
                     parent.layer.close(parent.layer.getFrameIndex(window.name));
                 });
-			}).fail(function (error) {
-			    console.log(error)
-			});
+            }).fail(function (error) {
+                console.log(error)
+            });
             return false;
         });
     })

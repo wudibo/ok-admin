@@ -74,12 +74,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "layedit", "okLayer", "okUtils"], function () {
+    layui.use(["element", "form", "layedit", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var layedit = layui.layedit;
         var okLayer = layui.okLayer;

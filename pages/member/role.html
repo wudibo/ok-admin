@@ -36,12 +36,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
+    layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
         var laydate = layui.laydate;
@@ -53,7 +48,7 @@
 
         var roleTable = table.render({
             elem: "#tableId",
-            url: "../../data/role.json",
+            url: okUtils.mockApi.role.list,
             limit: 10,
             page: true,
 			toolbar: "#toolbarTpl",

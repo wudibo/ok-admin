@@ -5,7 +5,6 @@
     <title>添加角色</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="../../css/okadmin.css">
-    <link rel="stylesheet" href="../../lib/zTree_v3/css/zTreeStyle/zTreeStyle.css">
 </head>
 <body>
 <div class="ok-body">
@@ -38,8 +37,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">权限</label>
             <div class="layui-input-block">
-                <!--权限树-->
-                <ul class="ztree" id="permissionTree"></ul>
+				<div id="permissionTree"></div>
             </div>
         </div>
         <div class="layui-form-item">
@@ -52,49 +50,24 @@
 </div>
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-<script src="../../lib/zTree_v3/js/jquery.ztree.all.js"></script>
 <script type="text/javascript">
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "okLayer", "okUtils"], function () {
+    layui.use(["element", "form", "tree", "okLayer", "okUtils"], function () {
         var form = layui.form;
+		var tree = layui.tree;
         var okLayer = layui.okLayer;
         var okUtils = layui.okUtils;
 
-        // zTree设置
-        var setting = {
-            data: {
-                simpleData: {enable: true, idKey: "id", pIdKey: "parentId", rootPId: 0}
-            },
-            check: {enable: true, chkStyle: "checkbox", radioType: "all"}
-        };
+        var data = [{"title":"根目录","spread":true,"children":[{"title":"会员管理","spread":true,"children":[{"title":"用户管理","spread":true,"children":[{"title":"添加用户"},{"title":"编辑用户"},{"title":"删除用户"}]},{"title":"角色管理","spread":true,"children":[{"title":"添加角色"},{"title":"编辑角色"},{"title":"删除角色"}]},{"title":"权限管理","spread":true,"children":[{"title":"添加权限"},{"title":"编辑权限"},{"title":"删除权限"}]}]}]}];
 
-        // zTree异步请求所有权限树节点
-        var treeObj;
-        okUtils.ajax("../../data/permission-tree.json", "get").done(function (response) {
-            treeObj = $.fn.zTree.init($("#permissionTree"), setting, response);
-            treeObj.expandAll(true);
-        }).fail(function (error) {
-            console.log(error)
+        tree.render({
+            elem: "#permissionTree",
+            // data: okUtils.mockApi.permission.list,
+            data: data,
+            showCheckbox: true
         });
 
         form.on("submit(add)", function (data) {
-            // 权限节点校验
-            var nodes = treeObj.getCheckedNodes(true);
-            if (nodes.length == 0) {
-                okLayer.msg.redCross("请选择权限节点");
-                return false;
-            }
-
-            // 权限节点获取
-            var permissionIds = "";
-            for (var i = 0; i < nodes.length; i++) {
-                permissionIds = permissionIds + nodes[i].id + ",";
-            }
+            // TODO 权限节点校验
 
             // 请求后台
             okUtils.ajax("/role/add", "post", data.field).done(function (response) {

@@ -71,12 +71,7 @@ okTab.tabAdd("ok-tool", "http://www.xlbweb.cn")
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okTab: "okTab",
-		okLayer: "okLayer",
-    }).use(["element", "code", "okTab", "okLayer"], function () {
+    layui.use(["element", "code", "okTab", "okLayer"], function () {
         var $ = layui.jquery;
 		var okTab = layui.okTab;
 		var okLayer = layui.okLayer;

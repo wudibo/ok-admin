@@ -36,12 +36,7 @@
 <!--js逻辑-->
 <script src="../../lib/layui/layui.js"></script>
 <script>
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
+    layui.use(["element", "table", "form", "laydate", "okLayer", "okUtils"], function () {
         var table = layui.table;
         var form = layui.form;
         var $ = layui.jquery;
@@ -54,7 +49,7 @@
 
         var articleTable = table.render({
             elem: "#tableId",
-            url: "../../data/article.json",
+            url: okUtils.mockApi.article.list,
             limit: 10,
             page: true,
             even: true,

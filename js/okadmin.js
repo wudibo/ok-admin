@@ -1,14 +1,9 @@
-layui.config({
-    base: "lib/okPlugins/"
-}).extend({
-    okTab: "okTab",
-    okUtils: "okUtils",
-    okMenu: "okMenu"
-}).use(["element", "layer", "okTab", "okMenu"], function () {
+layui.use(["element", "layer", "okTab", "okMenu", "okUtils"], function () {
     var element = layui.element;
     var layer = layui.layer;
     var okTab = layui.okTab;
     var okMenu = layui.okMenu;
+    var okUtils = layui.okUtils;
     var $ = layui.jquery;
 
     /**
@@ -38,7 +33,7 @@ layui.config({
     /**
      * 生成左侧菜单树
      */
-    okMenu.generatorMenu("data/menu.json", "get");
+    okMenu.generatorMenu(okUtils.mockApi.menu.list, "get");
 
     /**
      * 监听导航菜单的点击

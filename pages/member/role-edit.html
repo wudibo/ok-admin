@@ -55,12 +55,7 @@
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 <script src="../../lib/zTree_v3/js/jquery.ztree.all.js"></script>
 <script type="text/javascript">
-    layui.config({
-        base: "../../lib/okPlugins/"
-    }).extend({
-        okLayer: "okLayer",
-        okUtils: "okUtils"
-    }).use(["element", "form", "okLayer", "okUtils"], function () {
+    layui.use(["element", "form", "okLayer", "okUtils"], function () {
         var form = layui.form;
         var okLayer = layui.okLayer;
         var okUtils = layui.okUtils;
