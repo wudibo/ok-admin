@@ -61,8 +61,8 @@
                 {field: "url", title: "链接", width: 250, templet: "#urlTpl"},
                 {field: "readSize", title: "阅读量", width: 80},
                 {field: "publisher", title: "发布者", width: 100},
-                {field: "isTop", title: "置顶", width: 100, templet: "#topTpl"},
-                {field: "status", title: "状态", width: 100, templet: "#statusTpl"},
+                {field: "isTop", title: "是否置顶", width: 100, align: "center", templet: "#topTpl"},
+                {field: "status", title: "发布状态", width: 110, align: "center", templet: "#statusTpl"},
                 {title: "操作", width: 200, align: "center", templet: "#operationTpl"}
             ]],
             done: function (res, curr, count) {
@@ -192,7 +192,7 @@
     <input type="checkbox" name="isTop" value="{{d.isTop}}" lay-skin="switch" lay-text="是|否" {{ d.isTop== true ? 'checked' : ''}}>
 </script>
 <script type="text/html" id="statusTpl">
-    <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="上架|下架" {{ d.status== true ? 'checked' : ''}}>
+    <input type="checkbox" name="top" value="{{d.status}}" lay-skin="switch" lay-text="已发布|未发布" {{ d.status== true ? 'checked' : ''}}>
 </script>
 <!-- 行工具栏模板 -->
 <script type="text/html" id="operationTpl">
