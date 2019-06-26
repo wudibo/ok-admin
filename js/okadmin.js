@@ -99,7 +99,7 @@ layui.use(["element", "layer", "okTab", "okMenu", "okUtils", "okLayer"], functio
      * 弹窗皮肤
      */
     $("#alertSkin").click(function () {
-        okLayer.open("弹窗皮肤", "pages/system/alertSkin.html", "50%", "45%", function (layero) {}, function () {});
+        okLayer.open("皮肤动画", "pages/system/alertSkin.html", "50%", "45%", function (layero) {}, function () {});
     });
 
     /**
