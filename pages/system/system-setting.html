@@ -1,211 +1,211 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>网站配置</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="../../css/okadmin.css">
-</head>
-<body>
-<div class="ok-body">
-    <!--面包屑导航区域-->
-    <div class="ok-body-breadcrumb">
-        <span class="layui-breadcrumb">
-            <a><cite>首页</cite></a>
-            <a><cite>系统管理</cite></a>
-            <a><cite>网站配置</cite></a>
-        </span>
-        <a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">
-            <i class="layui-icon layui-icon-refresh"></i>
-        </a>
-    </div>
-	<!-- tab选项卡 -->
-	<div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
-		<ul class="layui-tab-title">
-			<li class="layui-this">弹窗皮肤/动画</li>
-			<li>网站皮肤</li>
-			<li>系统基本参数</li>
-			<li>待开发1</li>
-			<li>待开发2</li>
-		</ul>
-		<div class="layui-tab-content">
-			<!-- ====================================弹窗皮肤/动画==================================== -->
-			<div class="layui-tab-item layui-show">
-				<blockquote class="layui-elem-quote">
-				    推荐配置：弹窗皮肤（墨绿色），弹窗动画（随机）
-				</blockquote>
-				<form class="layui-form">
-					<table class="layui-table">
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th>类别</th>
-								<th>说明</th>
-								<th>参数值</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>弹窗皮肤</td>
-								<td>控制了msg()、confirm()、open()方法的弹窗皮肤</td>
-								<td>
-									<select name="skin" id="skin">
-										<option value="1">灰白色（默认皮肤）</option>
-										<option value="2">墨绿色</option>
-										<option value="3">天蓝色</option>
-										<option value="4">随机</option>
-									</select>
-								</td>
-							</tr>
-							<tr>
-								<td>弹窗动画</td>
-								<td>控制了msg()、confirm()、open()方法的弹窗动画</td>
-								<td>
-									<select name="anim" id="anim">
-										<option value="0">平滑放大（默认动画）</option>
-										<option value="1">从上掉落</option>
-										<option value="2">从最底部往上滑入</option>
-										<option value="3">从左滑入</option>
-										<option value="4">从左翻滚</option>
-										<option value="5">渐显</option>
-										<option value="6">抖动</option>
-										<option value="7">随机</option>
-									</select>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="tar">
-						<button class="layui-btn" lay-submit lay-filter="skinAnimSubmit">立即提交</button>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-					</div>
-				</form>
-			</div>
-			<!-- ====================================网站皮肤==================================== -->
-			<div class="layui-tab-item">网站皮肤</div>
-			<!-- ====================================系统基本参数==================================== -->
-			<div class="layui-tab-item">
-				<form class="layui-form">
-					<table class="layui-table">
-						<colgroup>
-							<col>
-							<col>
-							<col>
-						</colgroup>
-						<thead>
-							<tr>
-								<th>参数说明</th>
-								<th>变量名</th>
-								<th>参数值</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>网站名称</td>
-								<td>website</td>
-								<td><input class="layui-input" placeholder="网站名称" autocomplete="off" value="ok-admin"></td>
-							</tr>
-							<tr>
-								<td>当前版本</td>
-								<td>version</td>
-								<td><input class="layui-input" placeholder="当前版本" autocomplete="off" value="v1.0"></td>
-							</tr>
-							<tr>
-								<td>开发作者</td>
-								<td>author</td>
-								<td><input class="layui-input" placeholder="开发作者" autocomplete="off" value="bobi"></td>
-							</tr>
-							<tr>
-								<td>网站首页</td>
-								<td>homePage</td>
-								<td><input class="layui-input" placeholder="网站首页" autocomplete="off" value="index.html"></td>
-							</tr>
-							<tr>
-								<td>服务器环境</td>
-								<td>server</td>
-								<td><input class="layui-input" placeholder="服务器环境" autocomplete="off" value="CentOS"></td>
-							</tr>
-							<tr>
-								<td>数据库版本</td>
-								<td>dataBase</td>
-								<td><input class="layui-input" placeholder="数据库版本" autocomplete="off" value="MySQL5.7"></td>
-							</tr>
-							<tr>
-								<td>最大上传限制</td>
-								<td>maxUpload</td>
-								<td><input class="layui-input" placeholder="最大上传限制" autocomplete="off" value="2M"></td>
-							</tr>
-							<tr>
-								<td>用户权限</td>
-								<td>userRights</td>
-								<td><input class="layui-input" placeholder="用户权限" autocomplete="off" value="超级管理员"></td>
-							</tr>
-							<tr>
-								<td>网站关键字</td>
-								<td>keywords</td>
-								<td><input class="layui-input" placeholder="默认关键字" autocomplete="off" value="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载"></td>
-							</tr>
-							<tr>
-								<td>网站描述</td>
-								<td>description</td>
-								<td><textarea class="layui-textarea" placeholder="网站描述" autocomplete="off">ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。</textarea></td>
-							</tr>
-							<tr>
-								<td>版权信息</td>
-								<td>powerby</td>
-								<td><input class="layui-input" placeholder="版权信息" autocomplete="off" value="Copyright ©2018-©2019 ok-admin v1.0 All Rights Reserved"></td>
-							</tr>
-							<tr>
-								<td>网站备案号</td>
-								<td>record</td>
-								<td><input class="layui-input" placeholder="网站备案号" autocomplete="off" value="川ICP备xxxxxxxx号"></td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="tar">
-						<button class="layui-btn" lay-submit lay-filter="basicParamSubmit">立即提交</button>
-						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
-					</div>
-				</form>
-			</div>
-			<div class="layui-tab-item">待开发1</div>
-			<div class="layui-tab-item">待开发2</div>
-		</div>
-	</div>
-</div>
-<!--js逻辑-->
-<script src="../../lib/layui/layui.js"></script>
-<script>
-    layui.use(["element", "form", "okLayer", "okUtils"], function () {
-        var $ = layui.jquery;
-		var form = layui.form;
-        var okLayer = layui.okLayer;
-        var okUtils = layui.okUtils;
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>网站配置</title>-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">-->
+    <!--<link rel="stylesheet" href="../../css/okadmin.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="ok-body">-->
+    <!--&lt;!&ndash;面包屑导航区域&ndash;&gt;-->
+    <!--<div class="ok-body-breadcrumb">-->
+        <!--<span class="layui-breadcrumb">-->
+            <!--<a><cite>首页</cite></a>-->
+            <!--<a><cite>系统管理</cite></a>-->
+            <!--<a><cite>网站配置</cite></a>-->
+        <!--</span>-->
+        <!--<a class="layui-btn layui-btn-sm" href="javascript:location.replace(location.href);" title="刷新">-->
+            <!--<i class="layui-icon layui-icon-refresh"></i>-->
+        <!--</a>-->
+    <!--</div>-->
+	<!--&lt;!&ndash; tab选项卡 &ndash;&gt;-->
+	<!--<div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">-->
+		<!--<ul class="layui-tab-title">-->
+			<!--<li class="layui-this">弹窗皮肤/动画</li>-->
+			<!--<li>网站皮肤</li>-->
+			<!--<li>系统基本参数</li>-->
+			<!--<li>待开发1</li>-->
+			<!--<li>待开发2</li>-->
+		<!--</ul>-->
+		<!--<div class="layui-tab-content">-->
+			<!--&lt;!&ndash; ====================================弹窗皮肤/动画==================================== &ndash;&gt;-->
+			<!--<div class="layui-tab-item layui-show">-->
+				<!--<blockquote class="layui-elem-quote">-->
+				    <!--推荐配置：弹窗皮肤（墨绿色），弹窗动画（随机）-->
+				<!--</blockquote>-->
+				<!--<form class="layui-form">-->
+					<!--<table class="layui-table">-->
+						<!--<colgroup>-->
+							<!--<col>-->
+							<!--<col>-->
+							<!--<col>-->
+						<!--</colgroup>-->
+						<!--<thead>-->
+							<!--<tr>-->
+								<!--<th>类别</th>-->
+								<!--<th>说明</th>-->
+								<!--<th>参数值</th>-->
+							<!--</tr>-->
+						<!--</thead>-->
+						<!--<tbody>-->
+							<!--<tr>-->
+								<!--<td>弹窗皮肤</td>-->
+								<!--<td>控制了msg()、confirm()、open()方法的弹窗皮肤</td>-->
+								<!--<td>-->
+									<!--<select name="skin" id="skin">-->
+										<!--<option value="1">灰白色（默认皮肤）</option>-->
+										<!--<option value="2">墨绿色</option>-->
+										<!--<option value="3">天蓝色</option>-->
+										<!--<option value="4">随机</option>-->
+									<!--</select>-->
+								<!--</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>弹窗动画</td>-->
+								<!--<td>控制了msg()、confirm()、open()方法的弹窗动画</td>-->
+								<!--<td>-->
+									<!--<select name="anim" id="anim">-->
+										<!--<option value="0">平滑放大（默认动画）</option>-->
+										<!--<option value="1">从上掉落</option>-->
+										<!--<option value="2">从最底部往上滑入</option>-->
+										<!--<option value="3">从左滑入</option>-->
+										<!--<option value="4">从左翻滚</option>-->
+										<!--<option value="5">渐显</option>-->
+										<!--<option value="6">抖动</option>-->
+										<!--<option value="7">随机</option>-->
+									<!--</select>-->
+								<!--</td>-->
+							<!--</tr>-->
+						<!--</tbody>-->
+					<!--</table>-->
+					<!--<div class="tar">-->
+						<!--<button class="layui-btn" lay-submit lay-filter="skinAnimSubmit">立即提交</button>-->
+						<!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+					<!--</div>-->
+				<!--</form>-->
+			<!--</div>-->
+			<!--&lt;!&ndash; ====================================网站皮肤==================================== &ndash;&gt;-->
+			<!--<div class="layui-tab-item">网站皮肤</div>-->
+			<!--&lt;!&ndash; ====================================系统基本参数==================================== &ndash;&gt;-->
+			<!--<div class="layui-tab-item">-->
+				<!--<form class="layui-form">-->
+					<!--<table class="layui-table">-->
+						<!--<colgroup>-->
+							<!--<col>-->
+							<!--<col>-->
+							<!--<col>-->
+						<!--</colgroup>-->
+						<!--<thead>-->
+							<!--<tr>-->
+								<!--<th>参数说明</th>-->
+								<!--<th>变量名</th>-->
+								<!--<th>参数值</th>-->
+							<!--</tr>-->
+						<!--</thead>-->
+						<!--<tbody>-->
+							<!--<tr>-->
+								<!--<td>网站名称</td>-->
+								<!--<td>website</td>-->
+								<!--<td><input class="layui-input" placeholder="网站名称" autocomplete="off" value="ok-admin"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>当前版本</td>-->
+								<!--<td>version</td>-->
+								<!--<td><input class="layui-input" placeholder="当前版本" autocomplete="off" value="v1.0"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>开发作者</td>-->
+								<!--<td>author</td>-->
+								<!--<td><input class="layui-input" placeholder="开发作者" autocomplete="off" value="bobi"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>网站首页</td>-->
+								<!--<td>homePage</td>-->
+								<!--<td><input class="layui-input" placeholder="网站首页" autocomplete="off" value="index.html"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>服务器环境</td>-->
+								<!--<td>server</td>-->
+								<!--<td><input class="layui-input" placeholder="服务器环境" autocomplete="off" value="CentOS"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>数据库版本</td>-->
+								<!--<td>dataBase</td>-->
+								<!--<td><input class="layui-input" placeholder="数据库版本" autocomplete="off" value="MySQL5.7"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>最大上传限制</td>-->
+								<!--<td>maxUpload</td>-->
+								<!--<td><input class="layui-input" placeholder="最大上传限制" autocomplete="off" value="2M"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>用户权限</td>-->
+								<!--<td>userRights</td>-->
+								<!--<td><input class="layui-input" placeholder="用户权限" autocomplete="off" value="超级管理员"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>网站关键字</td>-->
+								<!--<td>keywords</td>-->
+								<!--<td><input class="layui-input" placeholder="默认关键字" autocomplete="off" value="ok-admin v1.0,ok-admin网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>网站描述</td>-->
+								<!--<td>description</td>-->
+								<!--<td><textarea class="layui-textarea" placeholder="网站描述" autocomplete="off">ok-admin v1.0，顾名思义，很赞的后台模版，它是一款基于Layui框架的轻量级扁平化且完全免费开源的网站后台管理系统模板，适合中小型CMS后台系统。</textarea></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>版权信息</td>-->
+								<!--<td>powerby</td>-->
+								<!--<td><input class="layui-input" placeholder="版权信息" autocomplete="off" value="Copyright ©2018-©2019 ok-admin v1.0 All Rights Reserved"></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>网站备案号</td>-->
+								<!--<td>record</td>-->
+								<!--<td><input class="layui-input" placeholder="网站备案号" autocomplete="off" value="川ICP备xxxxxxxx号"></td>-->
+							<!--</tr>-->
+						<!--</tbody>-->
+					<!--</table>-->
+					<!--<div class="tar">-->
+						<!--<button class="layui-btn" lay-submit lay-filter="basicParamSubmit">立即提交</button>-->
+						<!--<button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+					<!--</div>-->
+				<!--</form>-->
+			<!--</div>-->
+			<!--<div class="layui-tab-item">待开发1</div>-->
+			<!--<div class="layui-tab-item">待开发2</div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<!--&lt;!&ndash;js逻辑&ndash;&gt;-->
+<!--<script src="../../lib/layui/layui.js"></script>-->
+<!--<script>-->
+    <!--layui.use(["element", "form", "okLayer", "okUtils"], function () {-->
+        <!--var $ = layui.jquery;-->
+		<!--var form = layui.form;-->
+        <!--var okLayer = layui.okLayer;-->
+        <!--var okUtils = layui.okUtils;-->
 
-		// select控件默认选中
-		var storage = window.localStorage;
-		var skin = storage.getItem("skin");
-		var anim = storage.getItem("anim");
-		$("#skin").val(okUtils.number.isNumberWith(skin, 1, 4) ? skin : 1);
-		$("#anim").val(okUtils.number.isNumberWith(anim, 0, 7) ? anim : 0);
-		form.render()
+		<!--// select控件默认选中-->
+		<!--var storage = window.localStorage;-->
+		<!--var skin = storage.getItem("skin");-->
+		<!--var anim = storage.getItem("anim");-->
+		<!--$("#skin").val(okUtils.number.isNumberWith(skin, 1, 4) ? skin : 1);-->
+		<!--$("#anim").val(okUtils.number.isNumberWith(anim, 0, 7) ? anim : 0);-->
+		<!--form.render()-->
 
-		form.on("submit(skinAnimSubmit)", function (data) {
-			storage.skin = data.field.skin;
-			storage.anim = data.field.anim;
-			okLayer.msg.greenTick("设置成功")
-		    return false;
-		});
+		<!--form.on("submit(skinAnimSubmit)", function (data) {-->
+			<!--storage.skin = data.field.skin;-->
+			<!--storage.anim = data.field.anim;-->
+			<!--okLayer.msg.greenTick("设置成功")-->
+		    <!--return false;-->
+		<!--});-->
 
-		form.on("submit(basicParamSubmit)", function (data) {
-		    alert("basicParamSubmit");
-		    return false;
-		});
-    })
-</script>
-</body>
-</html>
+		<!--form.on("submit(basicParamSubmit)", function (data) {-->
+		    <!--alert("basicParamSubmit");-->
+		    <!--return false;-->
+		<!--});-->
+    <!--})-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

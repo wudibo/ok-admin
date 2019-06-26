@@ -40,8 +40,11 @@
         var table = layui.table;
         var form = layui.form;
         var laydate = layui.laydate;
+        var util = layui.util;
         var okLayer = layui.okLayer;
         var okUtils = layui.okUtils;
+
+        util.fixbar({});
 
         laydate.render({elem: "#startTime", type: "datetime"});
         laydate.render({elem: "#endTime", type: "datetime"});
@@ -50,10 +53,11 @@
             elem: "#tableId",
             url: okUtils.mockApi.user.list,
             method: "get",
-            limit: 10,
+            limit: 20,
             page: true,
 			toolbar: true,
 			toolbar: "#toolbarTpl",
+            size: "sm",
             cols: [[
                 {type: "checkbox"},
                 {field: "id", title: "ID", width: 80, sort: true},
@@ -113,6 +117,7 @@
 
 		function batchEnabled () {
 			okLayer.confirm("确定要批量启用吗？", function (index) {
+			    // TODO
 			    layer.close(index);
 			    var idsStr = okUtils.table.batchCheck(table);
 			    if (idsStr) {
@@ -192,9 +197,15 @@
 		<button class="layui-btn layui-btn-sm" lay-event="add"><i class="layui-icon">&#xe61f;</i>添加用户</button>
 	</div>
 </script>
-<!-- 启用|停用模板 -->
-<script type="text/html" id="statusTpl">
+<!-- 启用|停用模板
     <input type="checkbox" name="status" value="{{d.id}}" lay-skin="switch" lay-text="启用|停用" {{ d.status== 0 ? 'checked' : ''}}>
+-->
+<script type="text/html" id="statusTpl">
+    {{#  if(d.status == 0){ }}
+        <span class="layui-btn layui-btn-normal layui-btn-xs">已启用</span>
+    {{#  } else if(d.status == 1) { }}
+        <span class="layui-btn layui-btn-warm layui-btn-xs">已停用</span>
+    {{#  } }}
 </script>
 <!-- 角色模板 -->
 <script type="text/html" id="roleTpl">

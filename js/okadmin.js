@@ -1,10 +1,11 @@
-layui.use(["element", "layer", "okTab", "okMenu", "okUtils"], function () {
+layui.use(["element", "layer", "okTab", "okMenu", "okUtils", "okLayer"], function () {
     var element = layui.element;
     var layer = layui.layer;
     var okTab = layui.okTab;
     var okMenu = layui.okMenu;
-    var okUtils = layui.okUtils;
     var $ = layui.jquery;
+    var okUtils = layui.okUtils;
+    var okLayer = layui.okLayer;
 
     /**
      * localhost运行提示
@@ -89,29 +90,31 @@ layui.use(["element", "layer", "okTab", "okMenu", "okUtils"], function () {
      * 退出操作
      */
     $("#logout").click(function () {
-        layer.confirm("确定要退出吗？", {skin: 'layui-layer-lan', icon: 3, title: '提示', anim: 6}, function () {
-            window.location = "pages/user/login.html";
+        okLayer.confirm("确定要退出吗？", function (index) {
+            window.location = "pages/other/login.html";
         });
+    });
+
+    /**
+     * 弹窗皮肤
+     */
+    $("#alertSkin").click(function () {
+        okLayer.open("弹窗皮肤", "pages/system/alertSkin.html", "50%", "45%", function (layero) {}, function () {});
     });
 
     /**
      * 锁定账户
      */
     $("#lock").click(function () {
-        layer.confirm("确定要锁定账户吗？", {skin: 'layui-layer-lan', icon: 4, title: '提示', anim: 1}, function (index) {
+        okLayer.confirm("确定要锁定账户吗？", function (index) {
             layer.close(index);
             $(".yy").show();
-            layer.prompt({
-                btn: ['确定'],
-                title: '输入密码解锁(123456)',
-                closeBtn: 0,
-                formType: 1
-            }, function (value, index, elem) {
+            layer.prompt({btn: ['确定'], title: '输入密码解锁(123456)', closeBtn: 0, formType: 1}, function (value, index, elem) {
                 if (value == "123456") {
                     layer.close(index);
                     $(".yy").hide();
                 } else {
-                    layer.msg('密码错误', {anim: 6});
+                    layer.msg('密码错误', {anim: 6, time: 1000});
                 }
             });
         });
