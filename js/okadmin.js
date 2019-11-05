@@ -34,7 +34,7 @@ layui.use(["element", "layer", "okTab", "okMenu", "okUtils", "okLayer"], functio
     /**
      * 生成左侧菜单树
      */
-    okMenu.generatorMenu(okUtils.mockApi.menu.list, "get");
+    okMenu.generatorMenu("data/menu.json", "get");
 
     /**
      * 监听导航菜单的点击

@@ -1,0 +1,397 @@
+{
+    "code": 0,
+    "msg": "操作成功",
+    "data": [
+        {
+            "title": "会员管理",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe66f;",
+            "spread": true,
+            "children": [
+                {
+                    "title": "用户列表",
+                    "path": "pages/member/user.html",
+                    "font": "iconfont",
+                    "icon": "&#xe639;",
+                    "spread": false
+                },
+                {
+                    "title": "角色列表",
+                    "path": "pages/member/role.html",
+                    "font": "iconfont",
+                    "icon": "&#xe645;",
+                    "spread": false
+                },
+                {
+                    "title": "权限列表",
+                    "path": "pages/member/permission.html",
+                    "font": "iconfont",
+                    "icon": "&#xe640;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "常用页面",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe672;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "文章列表",
+                    "path": "pages/often/article.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "留言列表",
+                    "path": "pages/often/message.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "产品列表",
+                    "path": "pages/often/product.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "下载列表",
+                    "path": "pages/often/download.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "链接列表",
+                    "path": "pages/often/link.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "任务列表",
+                    "path": "pages/often/issue.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                },
+                {
+                    "title": "图片列表",
+                    "path": "pages/often/link.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe62e;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "其他页面",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe672;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "登陆",
+                    "path": "pages/other/login.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe66f;",
+                    "spread": false
+                },
+                {
+                    "title": "注册",
+                    "path": "pages/other/reg.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe66f;",
+                    "spread": false
+                },
+                {
+                    "title": "忘记密码",
+                    "path": "pages/other/forget.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe66f;",
+                    "spread": false
+                },
+                {
+                    "title": "403页面",
+                    "path": "pages/other/403.html",
+                    "font": "iconfont",
+                    "icon": "&#xe653;",
+                    "spread": false
+                },
+                {
+                    "title": "404页面",
+                    "path": "pages/other/404.html",
+                    "font": "iconfont",
+                    "icon": "&#xe654;",
+                    "spread": false
+                },
+                {
+                    "title": "500页面",
+                    "path": "pages/other/500.html",
+                    "font": "iconfont",
+                    "icon": "&#xe655;",
+                    "spread": false
+                },
+                {
+                    "title": "捐赠列表",
+                    "path": "pages/other/donate.html",
+                    "font": "iconfont",
+                    "icon": "&#xe65a;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "图表页面",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe628;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "柱状图",
+                    "path": "pages/map/map1.html",
+                    "font": "iconfont",
+                    "icon": "&#xe67a;",
+                    "spread": false
+                },
+                {
+                    "title": "折线图",
+                    "path": "pages/map/map2.html",
+                    "font": "iconfont",
+                    "icon": "&#xe79a;",
+                    "spread": false
+                },
+                {
+                    "title": "折线堆叠图",
+                    "path": "pages/map/map3.html",
+                    "font": "iconfont",
+                    "icon": "&#xe79a;",
+                    "spread": false
+                },
+                {
+                    "title": "饼图",
+                    "path": "pages/map/map4.html",
+                    "font": "iconfont",
+                    "icon": "&#xe61b;",
+                    "spread": false
+                },
+                {
+                    "title": "环形图",
+                    "path": "pages/map/map5.html",
+                    "font": "iconfont",
+                    "icon": "&#xe61f;",
+                    "spread": false
+                },
+                {
+                    "title": "散布图",
+                    "path": "pages/map/map6.html",
+                    "font": "iconfont",
+                    "icon": "&#xe61f;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "系统管理",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe716;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "网站配置",
+                    "path": "pages/system/system-setting.html",
+                    "font": "iconfont",
+                    "icon": "&#xe61c;",
+                    "spread": false
+                },
+                {
+                    "title": "系统日志",
+                    "path": "pages/system/system-log.html",
+                    "font": "iconfont",
+                    "icon": "&#xe614;",
+                    "spread": false
+                },
+                {
+                    "title": "屏蔽词",
+                    "path": "pages/system/system-shield.html",
+                    "font": "iconfont",
+                    "icon": "&#xe641;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "框架使用",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe60b;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "okMenu使用",
+                    "path": "pages/use/use-okMenu.html",
+                    "font": "layui-icon",
+                    "icon": "&#xe65f;",
+                    "spread": false
+                },
+                {
+                    "title": "okTab使用",
+                    "path": "pages/use/use-okTab.html",
+                    "font": "iconfont",
+                    "icon": "&#xe665;",
+                    "spread": false
+                },
+                {
+                    "title": "okLayer使用",
+                    "path": "pages/use/use-okLayer.html",
+                    "font": "iconfont",
+                    "icon": "&#xe768;",
+                    "spread": false
+                },
+                {
+                    "title": "okUtils使用",
+                    "path": "pages/use/use-okUtils.html",
+                    "font": "iconfont",
+                    "icon": "&#xe6fa;",
+                    "spread": false
+                },
+                {
+                    "title": "Layui图标",
+                    "path": "https://www.layui.com/doc/element/icon.html",
+                    "font": "iconfont",
+                    "icon": "&#xe800;",
+                    "spread": false
+                },
+                {
+                    "title": "Iconfont图标",
+                    "path": "font/demo_index.html",
+                    "font": "iconfont",
+                    "icon": "&#xe800;",
+                    "spread": false
+                }
+            ]
+        },
+        {
+            "title": "多级菜单",
+            "path": "",
+            "font": "layui-icon",
+            "icon": "&#xe658;",
+            "spread": false,
+            "children": [
+                {
+                    "title": "购物网站",
+                    "path": "",
+                    "font": "layui-icon",
+                    "icon": "&#xe658;",
+                    "spread": false,
+                    "children": [
+                        {
+                            "title": "苏宁",
+                            "path": "https://www.suning.com",
+                            "font": "layui-icon",
+                            "icon": "&#xe600;",
+                            "spread": false
+                        },
+                        {
+                            "title": "京东",
+                            "path": "https://www.jd.com",
+                            "font": "layui-icon",
+                            "icon": "&#xe600;",
+                            "spread": false
+                        },
+                        {
+                            "title": "阿里",
+                            "path": "",
+                            "font": "layui-icon",
+                            "icon": "&#xe658;",
+                            "spread": false,
+                            "children": [
+                                {
+                                    "title": "淘宝",
+                                    "path": "https://www.taobao.com",
+                                    "font": "layui-icon",
+                                    "icon": "&#xe600;",
+                                    "spread": false
+                                },
+                                {
+                                    "title": "天猫",
+                                    "path": "https://www.tmall.com",
+                                    "font": "layui-icon",
+                                    "icon": "&#xe600;",
+                                    "spread": false
+                                },
+                                {
+                                    "title": "聚划算",
+                                    "path": "https://ju.taobao.com",
+                                    "font": "layui-icon",
+                                    "icon": "&#xe600;",
+                                    "spread": false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "新浪微博",
+                    "path": "https://www.sina.com.cn",
+                    "font": "layui-icon",
+                    "icon": "&#xe600;",
+                    "spread": false
+                },
+                {
+                    "title": "搜索引擎",
+                    "path": "",
+                    "font": "layui-icon",
+                    "icon": "&#xe658;",
+                    "spread": false,
+                    "children": [
+                        {
+                            "title": "百度",
+                            "path": "https://www.baidu.com",
+                            "font": "layui-icon",
+                            "icon": "&#xe600;",
+                            "spread": false
+                        },
+                        {
+                            "title": "谷歌",
+                            "path": "https://www.google.com",
+                            "font": "layui-icon",
+                            "icon": "&#xe600;",
+                            "spread": false
+                        },
+                        {
+                            "title": "360搜索360搜索360搜索360搜索360搜索360搜索",
+                            "path": "https://www.so.com",
+                            "font": "layui-icon",
+                            "icon": "&#xe600;",
+                            "spread": false
+                        }
+                    ]
+                },
+                {
+                    "title": "搜狐",
+                    "path": "http://www.sohu.com",
+                    "font": "layui-icon",
+                    "icon": "&#xe600;",
+                    "spread": false
+                },
+                {
+                    "title": "网易",
+                    "path": "https://www.163.com",
+                    "font": "layui-icon",
+                    "icon": "&#xe600;",
+                    "spread": false
+                }
+            ]
+        }
+    ]
+}
