@@ -81,7 +81,7 @@ layui.use(["element", "layer", "okTab", "okMenu", "okUtils", "okLayer"], functio
             area: ["330px", "350px"],
             tab: [{
                 title: "QQ群",
-                content: "<img src='imgs/qq.jpeg' width='200' height='300' style='margin-left: 60px'>"
+                content: "<img src='imgs/qq.png' width='200' height='300' style='display: block;margin: 0 auto'>"
             }]
         });
     });
